@@ -8,4 +8,4 @@ theme = "hugo-theme-learn"
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
-themeVariant = "mine"
+themeVariant = "blue"
