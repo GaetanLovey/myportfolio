@@ -10,7 +10,7 @@ body {
 }
 
 main {
-    margin: 1px 200px 200px 150px;
+    margin: 200px 200px 200px 200px;
     padding: 25px;
     flex: 1 0 auto;
     max-width: 750px;
