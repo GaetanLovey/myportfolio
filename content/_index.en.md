@@ -1,4 +1,7 @@
 ---
 title: "Gaëtan Lovey"
 ---
-![](/profile.png)
+
+<p align="center">
+  <img src="/profile.png" />
+</p>
