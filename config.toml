@@ -1,6 +1,6 @@
 baseURL = "https://glportfolio.netlify.app"
 languageCode = "en-us"
-title = "My Portfolio"
+title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
@@ -10,7 +10,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [params]
     author = "Gaëtan Lovey"
-    description = "Personal portfolio"
+    description = "I obtained a bachelor in Business Administration in 2018. I am currently doing a master in management at university of Lausanne (UNIL)"
     githubUsername = "#GaetanLovey"
     accent = "black"
     showBorder = true
