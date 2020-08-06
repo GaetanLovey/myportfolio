@@ -26,8 +26,8 @@ home = [ "HTML", "RSS", "JSON"]
     weight = 1
 
 [[menu.main]]
-    url = "/about/"
-    name = "About"
+    url = "/about me/"
+    name = "About me"
     weight = 2
 
 [[menu.main]]
