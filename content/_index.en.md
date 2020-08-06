@@ -1,4 +1,4 @@
 ---
 title: "Gaëtan Lovey"
 ---
-![](/image.png){width=150px}
+![](/image.png){{ $image := $resource.Resize "600x400" }}
