@@ -1,6 +1,6 @@
 baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "Minimalism"
+languageCode = "fr"
+title = "MYPORTFOLIO"
 # Change the default theme to be use when building the site with Hugo
 theme = "minimal-master"
 
@@ -10,3 +10,16 @@ home = [ "HTML", "RSS", "JSON"]
 
 [params]
   themeVariant = "mine"
+  
+[params]
+  accent = "red"
+  showBorder = true
+  backgroundColor = "white"
+
+[params]
+    font = "Raleway" # should match the name on Google Fonts!
+    
+[params]
+    highlight = true
+    highlightStyle = "solarized-dark"
+    highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
