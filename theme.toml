@@ -1,9 +1,9 @@
-name = "Minimal"
+name = "My Portfolio"
 license = "MIT"
 licenselink = "https://github.com/calintat/minimal/blob/master/LICENSE.md"
 description = "Personal portfolio"
 homepage = "https://glportfolio.netlify.app"
-tags = ["blog", "minimal", "personal", "responsive"]
+tags = ["portfolio", "project", "post"]
 features = ["responsive"]
 min_version = "0.24.1"
 
