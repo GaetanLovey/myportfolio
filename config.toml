@@ -2,7 +2,7 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Minimalism"
 # Change the default theme to be use when building the site with Hugo
-theme = "academia-hugo-master"
+theme = "hugo-theme-introduction-master"
 
 # For search functionality
 [outputs]
