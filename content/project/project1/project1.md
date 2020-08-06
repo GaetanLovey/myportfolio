@@ -9,3 +9,5 @@ draft: false
 Dans ce project nous allors parler du marché de l'électricité aux USA 
 
 ![](image.png)
+
+{{- $image := resources.Get “images/image.png” -}}
