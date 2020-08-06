@@ -1,4 +1,4 @@
-baseURL = "/home/"
+baseURL = "https://glportfolio.netlify.app"
 languageCode = "en-us"
 title = "Gaëtan Lovey"
 theme = "minimal-master"
@@ -21,7 +21,7 @@ home = [ "HTML", "RSS", "JSON"]
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
 
 [[menu.main]]
-    url = "/home/"
+    url = "/"
     name = "Home"
     weight = 1
 
