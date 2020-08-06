@@ -1,0 +1,32 @@
+---
+title: "HW2: Modeling"
+author: "Thibault Vatter"
+date: "March 15, 2020"
+output: html_document
+
+---
+
+[Download the HW2 skeleton files](https://raw.githubusercontent.com/tvatter/dsfba_2020/master/static/skeletons/dsfba_homework2_skeleton.zip). To successfully complete the first assignment you
+will have to do the following:
+
+1. Following the instructions below, complete missing code in chunks in `hw2_ex1.Rmd`, `hw2_ex2.Rmd`, and `hw2_ex3.Rmd`. 
+2. Build the final report `hw2_report.Rmd` = `hw2_ex1.Rmd` + `hw2_ex2.Rmd` + `hw2_ex3.Rmd`.
+
+
+To obtain the maximum number of points, use whenever possible:
+
+* the pipeline symbol `%>%`,
+* `dplyr` verbs (see below),
+* `kable` to print tables,
+* `ggplot` to produce the figures,
+* `broom`'s functions to format the results model fits.
+
+Also: 
+
+* Pay attention to the general aesthetics of your report (i.e., formatting of 
+the tables, sizing of the figures, etc.). 
+* Use inline code to display single numbers, and `echo = FALSE` for code chunks when you display 
+a table of produce a figure (i.e., we don't want to see code unless it is necessary).
+* Comment your code to explain what you are doing.
+
+The [solutions for HW2 are available here](https://raw.githubusercontent.com/tvatter/dsfba_2020/master/static/solutions/dsfba_homework2_solution.zip).
