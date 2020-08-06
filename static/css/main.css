@@ -10,10 +10,10 @@ body {
 }
 
 main {
-    margin: auto;
+    margin: -3;
     padding: 25px;
     flex: 1 0 auto;
-    max-width: 300px;
+    max-width: 750px;
 }
 
 img {
