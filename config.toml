@@ -1,6 +1,5 @@
 baseURL = "https://glportfolio.netlify.app"
 languageCode = "en-us"
-title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
@@ -9,6 +8,7 @@ googleAnalytics = ""
 home = [ "HTML", "RSS", "JSON"]
 
 [params]
+    author = "Gaëtan Lovey"
     githubUsername = "#GaetanLovey"
     accent = "black"
     showBorder = true
