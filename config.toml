@@ -8,8 +8,6 @@ googleAnalytics = ""
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-
 [params]
     author = "Gaëtan Lovey"
     description = "Personal portfolio"

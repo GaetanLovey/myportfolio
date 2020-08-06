@@ -3,4 +3,4 @@ title: "Curriculum Vitae"
 ---
 
 
-![](https://github.com/GaetanLovey/myportfolio/raw/master/static/images/1.png)
+![](https://github.com/GaetanLovey/myportfolio/raw/master/static/images/image.png)
