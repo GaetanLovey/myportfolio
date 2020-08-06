@@ -1,12 +1,12 @@
-name = "Minimal"
+name = "My Portfolio"
 license = "MIT"
 licenselink = "https://github.com/calintat/minimal/blob/master/LICENSE.md"
-description = "Personal blog theme powered by Hugo"
-homepage = "http://github.com/calintat/minimal/"
-tags = ["blog", "minimal", "personal", "responsive"]
+description = "Personal portfolio"
+homepage = "https://glportfolio.netlify.app"
+tags = ["portfolio", "project", "post"]
 features = ["responsive"]
 min_version = "0.24.1"
 
 [author]
-  name = "Calin Tataru"
-  homepage = "https://calintat.github.io/"
+  name = "Gaëtan Lovey"
+  homepage = "https://glportfolio.netlify.app"
