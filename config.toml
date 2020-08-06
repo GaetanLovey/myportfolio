@@ -21,7 +21,7 @@ home = [ "HTML", "RSS", "JSON"]
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
 
 [[menu.main]]
-    url = "/"
+    url = "/home/"
     name = "Home"
     weight = 1
 
