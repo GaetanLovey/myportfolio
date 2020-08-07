@@ -7,5 +7,7 @@ draft: false
 image: "/USA.png"
 ---
 
+![](/USA.png)
+
 Click [here](https://bookdown.org/connect/#/apps/5233/access) to see the full report !
 
