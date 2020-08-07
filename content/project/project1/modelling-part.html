@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Modelling part | How are the consumption, the generation and the price of electricity influenced in the United States ?</title>
+  <meta name="description" content="5 Modelling part | How are the consumption, the generation and the price of electricity influenced in the United States ?" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Modelling part | How are the consumption, the generation and the price of electricity influenced in the United States ?" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Modelling part | How are the consumption, the generation and the price of electricity influenced in the United States ?" />
+  
+  
+  
+
+<meta name="author" content="Vuignier, Cédric and Lovey, Gaëtan" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="energy-structure.html"/>
+<link rel="next" href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-7.0.1/css/motion.css" rel="stylesheet" />
+<link href="libs/highcharts-7.0.1/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="libs/highcharts-7.0.1/highcharts.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-3d.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-more.js"></script>
+<script src="libs/highcharts-7.0.1/modules/stock.js"></script>
+<script src="libs/highcharts-7.0.1/modules/map.js"></script>
+<script src="libs/highcharts-7.0.1/modules/annotations.js"></script>
+<script src="libs/highcharts-7.0.1/modules/boost.js"></script>
+<script src="libs/highcharts-7.0.1/modules/data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drag-panes.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drilldown.js"></script>
+<script src="libs/highcharts-7.0.1/modules/item-series.js"></script>
+<script src="libs/highcharts-7.0.1/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-7.0.1/modules/exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/export-data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/funnel.js"></script>
+<script src="libs/highcharts-7.0.1/modules/heatmap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/treemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sankey.js"></script>
+<script src="libs/highcharts-7.0.1/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-7.0.1/modules/streamgraph.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sunburst.js"></script>
+<script src="libs/highcharts-7.0.1/modules/vector.js"></script>
+<script src="libs/highcharts-7.0.1/modules/wordcloud.js"></script>
+<script src="libs/highcharts-7.0.1/modules/xrange.js"></script>
+<script src="libs/highcharts-7.0.1/modules/tilemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/venn.js"></script>
+<script src="libs/highcharts-7.0.1/modules/gantt.js"></script>
+<script src="libs/highcharts-7.0.1/modules/timeline.js"></script>
+<script src="libs/highcharts-7.0.1/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/motion.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-7.0.1/custom/reset.js"></script>
+<script src="libs/highcharts-7.0.1/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-7.0.1/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.7.0/highchart.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.13/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>2</b> Wrangling</a></li>
+<li class="chapter" data-level="3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html"><i class="fa fa-check"></i><b>3</b> Electricity consumption in United States</a><ul>
+<li class="chapter" data-level="3.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#energy-consumption"><i class="fa fa-check"></i><b>3.1</b> Energy consumption</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#electricity-consumption-by-states-in-2018"><i class="fa fa-check"></i><b>3.1.1</b> Electricity consumption by states in 2018</a></li>
+<li class="chapter" data-level="3.1.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#electricity-consumption-per-capita-in-2018"><i class="fa fa-check"></i><b>3.1.2</b> Electricity consumption per capita in 2018</a></li>
+<li class="chapter" data-level="3.1.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#consumption-of-electricity-depends-on-its-production"><i class="fa fa-check"></i><b>3.1.3</b> Consumption of electricity depends on its production</a></li>
+<li class="chapter" data-level="3.1.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#price-of-electricity"><i class="fa fa-check"></i><b>3.1.4</b> Price of electricity</a></li>
+<li class="chapter" data-level="3.1.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#evolution-of-the-overall-electricity-consumption"><i class="fa fa-check"></i><b>3.1.5</b> Evolution of the overall electricity consumption</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#population"><i class="fa fa-check"></i><b>3.2</b> Population</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#population-per-state-in-2018"><i class="fa fa-check"></i><b>3.2.1</b> Population per state in 2018</a></li>
+<li class="chapter" data-level="3.2.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#population-in-2018-in-comparison-to-the-annual-consumption-of-electricity"><i class="fa fa-check"></i><b>3.2.2</b> Population in 2018 in comparison to the annual consumption of electricity</a></li>
+<li class="chapter" data-level="3.2.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#density-compared-to-the-annual-consumption-per-state-in-2018"><i class="fa fa-check"></i><b>3.2.3</b> Density compared to the annual consumption per state in 2018</a></li>
+<li class="chapter" data-level="3.2.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#number-of-houses-compared-to-the-consumption-of-electricity."><i class="fa fa-check"></i><b>3.2.4</b> Number of houses compared to the consumption of electricity.</a></li>
+<li class="chapter" data-level="3.2.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#number-of-capita-per-house-in-comparison-to-the-electricity-consumption."><i class="fa fa-check"></i><b>3.2.5</b> Number of capita per house in comparison to the electricity consumption.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#economy"><i class="fa fa-check"></i><b>3.3</b> Economy</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#gdp-in-states"><i class="fa fa-check"></i><b>3.3.1</b> GDP in states</a></li>
+<li class="chapter" data-level="3.3.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#gdp-versus-energy-consumption"><i class="fa fa-check"></i><b>3.3.2</b> GDP versus energy consumption</a></li>
+<li class="chapter" data-level="3.3.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#comparison-between-the-variation-of-gdp-and-the-variation-of-electricity-production-through-the-years."><i class="fa fa-check"></i><b>3.3.3</b> Comparison between the variation of GDP and the variation of electricity production through the years.</a></li>
+<li class="chapter" data-level="3.3.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#gdp-per-capita"><i class="fa fa-check"></i><b>3.3.4</b> GDP per capita</a></li>
+<li class="chapter" data-level="3.3.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#personal-income-in-2018"><i class="fa fa-check"></i><b>3.3.5</b> Personal income in 2018</a></li>
+<li class="chapter" data-level="3.3.6" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#buildings"><i class="fa fa-check"></i><b>3.3.6</b> Buildings</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#weather"><i class="fa fa-check"></i><b>3.4</b> Weather</a></li>
+<li class="chapter" data-level="3.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#limits-of-the-electricity-consumption-study-and-main-results"><i class="fa fa-check"></i><b>3.5</b> Limits of the electricity consumption study and main results</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="energy-structure.html"><a href="energy-structure.html"><i class="fa fa-check"></i><b>4</b> Energy structure</a><ul>
+<li class="chapter" data-level="4.1" data-path="energy-structure.html"><a href="energy-structure.html#us-structure-of-the-production"><i class="fa fa-check"></i><b>4.1</b> US structure of the production</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="energy-structure.html"><a href="energy-structure.html#overall-power-generation"><i class="fa fa-check"></i><b>4.1.1</b> Overall power generation</a></li>
+<li class="chapter" data-level="4.1.2" data-path="energy-structure.html"><a href="energy-structure.html#analysis-of-the-co2-neutral-production"><i class="fa fa-check"></i><b>4.1.2</b> Analysis of the CO2 neutral production</a></li>
+<li class="chapter" data-level="4.1.3" data-path="energy-structure.html"><a href="energy-structure.html#co2-analysis-by-region"><i class="fa fa-check"></i><b>4.1.3</b> CO2 analysis by region</a></li>
+<li class="chapter" data-level="4.1.4" data-path="energy-structure.html"><a href="energy-structure.html#structure-of-the-production"><i class="fa fa-check"></i><b>4.1.4</b> Structure of the production</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="energy-structure.html"><a href="energy-structure.html#analysis-of-the-price-per-kwh"><i class="fa fa-check"></i><b>4.2</b> Analysis of the price per KWh</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="energy-structure.html"><a href="energy-structure.html#evolution-of-the-price-by-state"><i class="fa fa-check"></i><b>4.2.1</b> Evolution of the price by state</a></li>
+<li class="chapter" data-level="4.2.2" data-path="energy-structure.html"><a href="energy-structure.html#map-of-the-electricity-price-by-state"><i class="fa fa-check"></i><b>4.2.2</b> Map of the electricity price by state</a></li>
+<li class="chapter" data-level="4.2.3" data-path="energy-structure.html"><a href="energy-structure.html#characteristics-that-can-influence-the-price-of-energy"><i class="fa fa-check"></i><b>4.2.3</b> Characteristics that can influence the price of energy</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="energy-structure.html"><a href="energy-structure.html#conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelling-part.html"><a href="modelling-part.html"><i class="fa fa-check"></i><b>5</b> Modelling part</a><ul>
+<li class="chapter" data-level="5.1" data-path="modelling-part.html"><a href="modelling-part.html#prediction-of-the-electricity-consumption"><i class="fa fa-check"></i><b>5.1</b> Prediction of the electricity consumption</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="modelling-part.html"><a href="modelling-part.html#data-splitting"><i class="fa fa-check"></i><b>5.1.1</b> Data splitting</a></li>
+<li class="chapter" data-level="5.1.2" data-path="modelling-part.html"><a href="modelling-part.html#model-training"><i class="fa fa-check"></i><b>5.1.2</b> Model training</a></li>
+<li class="chapter" data-level="5.1.3" data-path="modelling-part.html"><a href="modelling-part.html#model-prediction"><i class="fa fa-check"></i><b>5.1.3</b> Model prediction</a></li>
+<li class="chapter" data-level="5.1.4" data-path="modelling-part.html"><a href="modelling-part.html#model-scoring"><i class="fa fa-check"></i><b>5.1.4</b> Model scoring</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelling-part.html"><a href="modelling-part.html#prediction-of-the-electricity-production"><i class="fa fa-check"></i><b>5.2</b> Prediction of the electricity production</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelling-part.html"><a href="modelling-part.html#training-the-model"><i class="fa fa-check"></i><b>5.2.1</b> Training the model</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelling-part.html"><a href="modelling-part.html#predicting-the-model"><i class="fa fa-check"></i><b>5.2.2</b> Predicting the model</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelling-part.html"><a href="modelling-part.html#scoring-the-models"><i class="fa fa-check"></i><b>5.2.3</b> Scoring the models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="modelling-part.html"><a href="modelling-part.html#prediction-of-the-electricity-price"><i class="fa fa-check"></i><b>5.3</b> Prediction of the electricity price</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="modelling-part.html"><a href="modelling-part.html#the-limits-of-energy-price-prediction"><i class="fa fa-check"></i><b>5.3.1</b> The limits of energy price prediction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><i class="fa fa-check"></i><b>6</b> Analysis of solar and hydroelectric power generation in California</a><ul>
+<li class="chapter" data-level="6.1" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#solar-analysis"><i class="fa fa-check"></i><b>6.1</b> Solar analysis</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#annual-and-monthly-solar-production"><i class="fa fa-check"></i><b>6.1.1</b> Annual and monthly solar production</a></li>
+<li class="chapter" data-level="6.1.2" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#solar-model"><i class="fa fa-check"></i><b>6.1.2</b> Solar model</a></li>
+<li class="chapter" data-level="6.1.3" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#total-solar-production"><i class="fa fa-check"></i><b>6.1.3</b> Total solar production</a></li>
+<li class="chapter" data-level="6.1.4" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#power-analysis-per-hour"><i class="fa fa-check"></i><b>6.1.4</b> Power analysis per hour</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#small-hydro-analysis"><i class="fa fa-check"></i><b>6.2</b> Small hydro analysis</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#annual-and-monthly-solar-production-1"><i class="fa fa-check"></i><b>6.2.1</b> Annual and monthly solar production</a></li>
+<li class="chapter" data-level="6.2.2" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#power-analysis-per-hour-1"><i class="fa fa-check"></i><b>6.2.2</b> Power analysis per hour</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#the-limits-of-our-model"><i class="fa fa-check"></i><b>6.3</b> The limits of our model</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How are the consumption, the generation and the price of electricity influenced in the United States ?</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelling-part" class="section level1">
+<h1><span class="header-section-number">5</span> Modelling part</h1>
+<div id="prediction-of-the-electricity-consumption" class="section level2">
+<h2><span class="header-section-number">5.1</span> Prediction of the electricity consumption</h2>
+<p>Altough we already tried to figure out some patterns between characteristics of states and energy consumption, we will analyse the importance of the variables through a principal component analysis. It will allow us to know which variable are necessary to predict the energy consumption but also to confirm our previous analysis of the energy consumption.</p>
+<div class="figure" style="text-align: center"><span id="fig:PCA"></span>
+<img src="Project---Report_files/figure-html/PCA-1.png" alt="Principal component analysis" width="70%" />
+<p class="caption">
+Figure 5.1: Principal component analysis
+</p>
+</div>
+<p>As we can see in the Principal Component Analysis (PCA) (Figure <a href="modelling-part.html#fig:PCA">5.1</a>), there is two different groups playing different roles. It seems that energy consumption is not correlated to personal_income, capita_GDP, density and year. It totally confirms our previous analysis.</p>
+<p>According to the Kaiser-Guttman rule, we should stop at Component 5. The Kaiser-Guttman rule states that components with an eigenvalue greater than 1 should be retained. We diplay this method in Figure <a href="modelling-part.html#fig:KG">5.2</a>.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-13">Table 5.1: </span>Eigenvalues of our variables
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+eigenvalue
+</th>
+<th style="text-align:right;">
+variance.percent
+</th>
+<th style="text-align:right;">
+cumulative.variance.percent
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Dim.1
+</td>
+<td style="text-align:right;">
+7.623
+</td>
+<td style="text-align:right;">
+44.842
+</td>
+<td style="text-align:right;">
+44.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.2
+</td>
+<td style="text-align:right;">
+2.728
+</td>
+<td style="text-align:right;">
+16.049
+</td>
+<td style="text-align:right;">
+60.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.3
+</td>
+<td style="text-align:right;">
+1.996
+</td>
+<td style="text-align:right;">
+11.742
+</td>
+<td style="text-align:right;">
+72.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.4
+</td>
+<td style="text-align:right;">
+1.224
+</td>
+<td style="text-align:right;">
+7.201
+</td>
+<td style="text-align:right;">
+79.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.5
+</td>
+<td style="text-align:right;">
+1.080
+</td>
+<td style="text-align:right;">
+6.351
+</td>
+<td style="text-align:right;">
+86.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.6
+</td>
+<td style="text-align:right;">
+0.744
+</td>
+<td style="text-align:right;">
+4.378
+</td>
+<td style="text-align:right;">
+90.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.7
+</td>
+<td style="text-align:right;">
+0.569
+</td>
+<td style="text-align:right;">
+3.344
+</td>
+<td style="text-align:right;">
+93.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.8
+</td>
+<td style="text-align:right;">
+0.401
+</td>
+<td style="text-align:right;">
+2.358
+</td>
+<td style="text-align:right;">
+96.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.9
+</td>
+<td style="text-align:right;">
+0.237
+</td>
+<td style="text-align:right;">
+1.395
+</td>
+<td style="text-align:right;">
+97.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.10
+</td>
+<td style="text-align:right;">
+0.158
+</td>
+<td style="text-align:right;">
+0.927
+</td>
+<td style="text-align:right;">
+98.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.11
+</td>
+<td style="text-align:right;">
+0.143
+</td>
+<td style="text-align:right;">
+0.841
+</td>
+<td style="text-align:right;">
+99.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.12
+</td>
+<td style="text-align:right;">
+0.040
+</td>
+<td style="text-align:right;">
+0.237
+</td>
+<td style="text-align:right;">
+99.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.13
+</td>
+<td style="text-align:right;">
+0.027
+</td>
+<td style="text-align:right;">
+0.160
+</td>
+<td style="text-align:right;">
+99.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.14
+</td>
+<td style="text-align:right;">
+0.016
+</td>
+<td style="text-align:right;">
+0.093
+</td>
+<td style="text-align:right;">
+99.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.15
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.063
+</td>
+<td style="text-align:right;">
+100.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.16
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+<td style="text-align:right;">
+0.013
+</td>
+<td style="text-align:right;">
+100.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dim.17
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+<td style="text-align:right;">
+100.0
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:KG"></span>
+<img src="Project---Report_files/figure-html/KG-1.png" alt="Kaiser-Guttman rule" width="70%" />
+<p class="caption">
+Figure 5.2: Kaiser-Guttman rule
+</p>
+</div>
+<p>We will focus on the first dimension because the variable that we want to predict (Total_compsum_MWh) is in dimension one. We will also keep other variables that represent the most the principal dimension (Dim 1) because they are correlated to the variable “Total_compsum_MWh”.</p>
+<p>The squared cosine shows the importance of a component for a given observation. The squared cosine indicates the contribution of a component to the squared distance of the observation to the origin <span class="citation">(See Abdi and Williams <a href="#ref-abdi_principal_2010">2010</a>)</span>.</p>
+<p>In our case, the variables contributing the most to the first component are the following:</p>
+<ul>
+<li>Residential_cust</li>
+<li>Commercial_cust</li>
+<li>Industrial_cust</li>
+<li>Total_compsum_MWh</li>
+<li>Total_generation</li>
+<li>population</li>
+<li>house_unit</li>
+<li>GDP</li>
+</ul>
+<p>Below, we can see their contributions.</p>
+<p><img src="Project---Report_files/figure-html/dimension-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:contribution">Table 5.2: </span>Contribution of the variables
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Dim.1
+</th>
+<th style="text-align:right;">
+Dim.2
+</th>
+<th style="text-align:right;">
+Dim.3
+</th>
+<th style="text-align:right;">
+Dim.4
+</th>
+<th style="text-align:right;">
+Dim.5
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Year
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+<td style="text-align:right;">
+0.298
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+<td style="text-align:right;">
+0.196
+</td>
+<td style="text-align:right;">
+0.408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residential_cust
+</td>
+<td style="text-align:right;">
+0.954
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+0.956
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+0.006
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+0.587
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.026
+</td>
+<td style="text-align:right;">
+0.018
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total_compsum_MWh
+</td>
+<td style="text-align:right;">
+0.926
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total_generation
+</td>
+<td style="text-align:right;">
+0.790
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.019
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+0.948
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+area
+</td>
+<td style="text-align:right;">
+0.015
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.401
+</td>
+<td style="text-align:right;">
+0.120
+</td>
+<td style="text-align:right;">
+0.126
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+density
+</td>
+<td style="text-align:right;">
+0.013
+</td>
+<td style="text-align:right;">
+0.406
+</td>
+<td style="text-align:right;">
+0.217
+</td>
+<td style="text-align:right;">
+0.109
+</td>
+<td style="text-align:right;">
+0.206
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+house_unit
+</td>
+<td style="text-align:right;">
+0.946
+</td>
+<td style="text-align:right;">
+0.007
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+capita_house
+</td>
+<td style="text-align:right;">
+0.227
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+<td style="text-align:right;">
+0.260
+</td>
+<td style="text-align:right;">
+0.131
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+0.859
+</td>
+<td style="text-align:right;">
+0.056
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+capita_GDP
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:right;">
+0.804
+</td>
+<td style="text-align:right;">
+0.081
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+0.082
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+personal_income
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+0.818
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.051
+</td>
+<td style="text-align:right;">
+0.041
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Summer
+</td>
+<td style="text-align:right;">
+0.183
+</td>
+<td style="text-align:right;">
+0.114
+</td>
+<td style="text-align:right;">
+0.550
+</td>
+<td style="text-align:right;">
+0.002
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+winter
+</td>
+<td style="text-align:right;">
+0.206
+</td>
+<td style="text-align:right;">
+0.093
+</td>
+<td style="text-align:right;">
+0.499
+</td>
+<td style="text-align:right;">
+0.006
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hours_sun
+</td>
+<td style="text-align:right;">
+0.005
+</td>
+<td style="text-align:right;">
+0.094
+</td>
+<td style="text-align:right;">
+0.171
+</td>
+<td style="text-align:right;">
+0.389
+</td>
+<td style="text-align:right;">
+0.047
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now, we can proceed to the modelling part.</p>
+<p>First, we split the data into two parts:</p>
+<ul>
+<li>Training set</li>
+<li>Testing set</li>
+</ul>
+<p>We chose to have a training set of 75% of the data and a testing set with the remaining ones.</p>
+<div id="data-splitting" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Data splitting</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">234</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">index &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">size=</span><span class="kw">nrow</span>(jointurePCA), <span class="dt">replace=</span><span class="ot">TRUE</span>, <span class="dt">prob=</span><span class="kw">c</span>(<span class="fl">0.75</span>,<span class="fl">0.25</span>)) </a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">dat.tr &lt;-<span class="st"> </span>jointurePCA[index<span class="op">==</span><span class="dv">1</span>,]</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">dat.te &lt;-<span class="st"> </span>jointurePCA[index<span class="op">==</span><span class="dv">2</span>,]</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># 1==training set, 2==test set</span></a></code></pre></div>
+</div>
+<div id="model-training" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Model training</h3>
+<p>We build a multiple regression model to predict the consumption of energy. We will use all the principal variables that we selected in the PCA part.</p>
+<p><strong>Total_compsum_MWh~GDP + population + house_unit + Residential_cust + Commercial_cust + Industrial_cust + Total_generation</strong></p>
+<p>We used the AIC to select the best model possible. In the first attempt, GDP is removed.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-15">Table 5.3: </span>Total_compsum_MWh ~ population + house_unit + Residential_cust +
+Commercial_cust + Industrial_cust + Total_generation
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+-1.59e+06
+</td>
+<td style="text-align:right;">
+6.55e+05
+</td>
+<td style="text-align:left;">
+0.0156 *
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+-3.51e+00
+</td>
+<td style="text-align:right;">
+7.27e-01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+house_unit
+</td>
+<td style="text-align:right;">
+-2.69e+01
+</td>
+<td style="text-align:right;">
+4.29e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residential_cust
+</td>
+<td style="text-align:right;">
+4.43e+01
+</td>
+<td style="text-align:right;">
+4.15e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+5.63e+01
+</td>
+<td style="text-align:right;">
+9.29e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+8.68e+01
+</td>
+<td style="text-align:right;">
+3.35e+01
+</td>
+<td style="text-align:left;">
+0.0097 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total_generation
+</td>
+<td style="text-align:right;">
+4.35e-01
+</td>
+<td style="text-align:right;">
+1.30e-02
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>Then, we computed the VIF coefficient in order to detect multicollinearity.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+VIF Coefficient
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+141.13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+house_unit
+</td>
+<td style="text-align:right;">
+758.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residential_cust
+</td>
+<td style="text-align:right;">
+642.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+60.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+3.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total_generation
+</td>
+<td style="text-align:right;">
+5.60
+</td>
+</tr>
+</tbody>
+</table>
+<p>Because the VIF coefficient of the variables house_unit, Residential_cust and population were well too large, we remove them from the model.</p>
+<p>Then we trained the following model:</p>
+<p><strong>Total_compsum_MWh ~ Commercial_cust + Industrial_cust + Total_generation</strong></p>
+<p>Again, we used the AIC criterion to select the best model. It resulted in the following model:</p>
+<p><strong>Total_compsum_MWh ~ Commercial_cust + Total_generation</strong></p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-18">Table 5.4: </span>Total_compsum_MWh ~ Commercial_cust + Total_generation
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+-4.00e+05
+</td>
+<td style="text-align:right;">
+6.80e+05
+</td>
+<td style="text-align:left;">
+0.5568
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+9.62e+01
+</td>
+<td style="text-align:right;">
+2.53e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total_generation
+</td>
+<td style="text-align:right;">
+5.07e-01
+</td>
+<td style="text-align:right;">
+1.20e-02
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>VIF coefficient is lower than 5, which is good.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+VIF Coefficient
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+3.67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total_generation
+</td>
+<td style="text-align:right;">
+3.67
+</td>
+</tr>
+</tbody>
+</table>
+<p>We compute the R-Squared in order to know how much the model can explain the variations of the trained variable.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:r-squared">Table 5.5: </span>Total_compsum_MWh ~ Commercial_cust + Total_generation: The R-Squared is good enough
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+R-Squared
+</th>
+<th style="text-align:right;">
+Adjusted R-Squared
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.971
+</td>
+<td style="text-align:right;">
+0.971
+</td>
+</tr>
+</tbody>
+</table>
+<p>Our R-Squared is 0.971, it means that our model is able to explain 97.1%% of the variations of the variable “Total_compsum_MWh” in this dataset (Table <a href="modelling-part.html#tab:r-squared">5.5</a>).</p>
+</div>
+<div id="model-prediction" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Model prediction</h3>
+<p><img src="Project---Report_files/figure-html/unnamed-chunk-20-1.png" width="70%" style="display: block; margin: auto;" />
+This plot confirms the accuracy of our predictions.</p>
+</div>
+<div id="model-scoring" class="section level3">
+<h3><span class="header-section-number">5.1.4</span> Model scoring</h3>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-21">Table 5.6: </span>RMSE score
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+RMSE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+12087556
+</td>
+</tr>
+</tbody>
+</table>
+<p>Our prediction model is : Total_compsum_MWh ~ Commercial_cust + Total_generation</p>
+<p>To conclude, we see that we need to predict the production of electricity (Total_generation) in order to be able to predict the consumption of energy (Total_compsum_MWh). This is what we will be doing in the next part.</p>
+</div>
+</div>
+<div id="prediction-of-the-electricity-production" class="section level2">
+<h2><span class="header-section-number">5.2</span> Prediction of the electricity production</h2>
+<div id="training-the-model" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Training the model</h3>
+<p>We do not need to make a new PCA because the energy production is correlated to the energy consumption, thus we will thake the sames results, the same variables.</p>
+<p>We do not take the consumption of energy in our model because we first need to predict the generation of electricity in order to predict the consumption as we have seen in the previous part. We train the following model:</p>
+<p><strong>Total_generation~GDP + population + house_unit + Residential_cust + Commercial_cust + Industrial_cust</strong></p>
+<p>We used the AIC criterion to select the best model and the house_unit variable has been removed.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-22">Table 5.7: </span>Total_generation ~ GDP + population + Residential_cust + Commercial_cust +
+Industrial_cust
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+3131003.9
+</td>
+<td style="text-align:right;">
+1.93e+06
+</td>
+<td style="text-align:left;">
+0.106
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+-29.5
+</td>
+<td style="text-align:right;">
+1.65e+01
+</td>
+<td style="text-align:left;">
+0.0756
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+-25.2
+</td>
+<td style="text-align:right;">
+2.38e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residential_cust
+</td>
+<td style="text-align:right;">
+75.7
+</td>
+<td style="text-align:right;">
+5.80e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+108.9
+</td>
+<td style="text-align:right;">
+2.69e+01
+</td>
+<td style="text-align:left;">
+1e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+922.9
+</td>
+<td style="text-align:right;">
+8.12e+01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>Then we computed the VIF coefficient to check the multicollinearity.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+VIF Coefficient
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+25.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+population
+</td>
+<td style="text-align:right;">
+172.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residential_cust
+</td>
+<td style="text-align:right;">
+143.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+57.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+2.29
+</td>
+</tr>
+</tbody>
+</table>
+<p>VIF coefficient of population and Residential_cust is well too high, we remove these variables.</p>
+<p>Then we trained the following model:</p>
+<p><strong>Total_generation ~ GDP + Commercial_cust + Industrial_cust</strong></p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-24">Table 5.8: </span>Total_generation ~ GDP + Commercial_cust + Industrial_cust
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+11651946
+</td>
+<td style="text-align:right;">
+2.02e+06
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+-120
+</td>
+<td style="text-align:right;">
+1.12e+01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+279
+</td>
+<td style="text-align:right;">
+1.20e+01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+560
+</td>
+<td style="text-align:right;">
+8.55e+01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>Again, we compute the VIF coefficient.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+VIF Coefficient
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+9.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+9.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+2.02
+</td>
+</tr>
+</tbody>
+</table>
+<p>But the VIF coefficients were still to large for GDP (9.05) and Commercial_cust (9.17). We decided to remove the variable Commercial_cust.</p>
+<p>Again, we train the following model:</p>
+<p><strong>Total_generation ~ GDP + Industrial_cust</strong></p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-26">Table 5.9: </span>Total_generation ~ GDP + Industrial_cust
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+33239779
+</td>
+<td style="text-align:right;">
+2.41e+06
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+6.95e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+935
+</td>
+<td style="text-align:right;">
+1.13e+02
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>Our VIF coefficients are good enough as we can see below.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+VIF Coefficient
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GDP
+</td>
+<td style="text-align:right;">
+1.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+1.94
+</td>
+</tr>
+</tbody>
+</table>
+<p>We compute the R-Squared of the model.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:r-squared2">Table 5.10: </span>Total_generation ~ GDP + Industrial_cust: The R-Squared is well improved
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+R-Squared
+</th>
+<th style="text-align:right;">
+Adjusted R-Squared
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.593
+</td>
+<td style="text-align:right;">
+0.592
+</td>
+</tr>
+</tbody>
+</table>
+<p>The R-Squared of 0.593 is really weak (Table <a href="modelling-part.html#tab:r-squared2">5.10</a>).</p>
+<p>In order to improve the R-Squared and instead of removing the Commercial_cust, we removed the GDP and retrained the following model:</p>
+<p><strong>Total_generation ~ Commercial_cust + Industrial_cust</strong></p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-28">Table 5.11: </span>Total_generation ~ Commercial_cust + Industrial_cust
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+17296991
+</td>
+<td style="text-align:right;">
+2.12e+06
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+164
+</td>
+<td style="text-align:right;">
+6.04e+00
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+423
+</td>
+<td style="text-align:right;">
+9.16e+01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+VIF Coefficient
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Commercial_cust
+</td>
+<td style="text-align:right;">
+1.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Industrial_cust
+</td>
+<td style="text-align:right;">
+1.97
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:r-squared3">Table 5.12: </span>Total_generation ~ Commercial_cust + Industrial_cust: The R-Squared is well improved
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+R-Squared
+</th>
+<th style="text-align:right;">
+Adjusted R-Squared
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.736
+</td>
+<td style="text-align:right;">
+0.735
+</td>
+</tr>
+</tbody>
+</table>
+<p>We finally found a new R-Squared of 0.736 which is much better (Table <a href="modelling-part.html#tab:r-squared3">5.12</a>). Also, the VIF coefficients for this model are correct (&lt; 5) so we can select the following model to predict energy production:</p>
+<p><strong>Total_generation ~ Commercial_cust + Industrial_cust</strong></p>
+</div>
+<div id="predicting-the-model" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Predicting the model</h3>
+<p>In this part, we plotted the two following models and their predictions:</p>
+<p><strong>Total_generation ~ GDP + Industrial_cust</strong></p>
+<div class="figure" style="text-align: center"><span id="fig:model1"></span>
+<img src="Project---Report_files/figure-html/model1-1.png" alt="Total_generation ~ GDP + Industrial_cust" width="70%" />
+<p class="caption">
+Figure 5.3: Total_generation ~ GDP + Industrial_cust
+</p>
+</div>
+<p><strong>Total_generation ~ Commercial_cust + Industrial_cust</strong></p>
+<div class="figure" style="text-align: center"><span id="fig:model2"></span>
+<img src="Project---Report_files/figure-html/model2-1.png" alt="Total_generation ~ Commercial_cust + Industrial_cust" width="70%" />
+<p class="caption">
+Figure 5.4: Total_generation ~ Commercial_cust + Industrial_cust
+</p>
+</div>
+<p>We can see that predictions are more linear in Figure <a href="modelling-part.html#fig:model2">5.4</a> than in Figure <a href="modelling-part.html#fig:model1">5.3</a></p>
+</div>
+<div id="scoring-the-models" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Scoring the models</h3>
+<p>We need to confirm the R-squared results by scoring the RMSE of our two models.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:score-model1">Table 5.13: </span>RMSE score for Total_generation ~ GDP + Industrial_cust
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+RMSE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+50690303
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:score-model2">Table 5.14: </span>RMSE score for Total_generation ~ Commercial_cust + Industrial_cust
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+RMSE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+38050565
+</td>
+</tr>
+</tbody>
+</table>
+<p>RMSE can confirmed the result of the R-Squared. Second model RMSE (Table <a href="modelling-part.html#tab:score-model2">5.14</a>) is lower than the first one (Table <a href="modelling-part.html#tab:score-model1">5.13</a>) so we select it.</p>
+<p>Our final prediction model for electricity production is Total_generation ~ Commercial_cust + Industrial_cust.</p>
+<p>Thus, the more the commercial and industrial customers, the more important is the electricity consumption.</p>
+<p>The R-squared coefficient of our final regression (model 2) is R2 = 73.6 % (Table <a href="modelling-part.html#tab:r-squared3">5.12</a>).</p>
+<p>This means that our model is able to explain 73.6 % of the variations of the variable “Total_generation” in this dataset.</p>
+<p>As a conclusion, we can say that in order to predict electricity consumption, we have to predict the electricity production.
+Our prediction model for energy production is less accurate than for the consumption model. Nevertheless, our models are meaningful and confirm the patterns found in the exploratory data analysis of the electricity consumption. Moreover, we could have been more accurate by choosing more variables but it would not have been possible without having a lot of multicollinearity.</p>
+</div>
+</div>
+<div id="prediction-of-the-electricity-price" class="section level2">
+<h2><span class="header-section-number">5.3</span> Prediction of the electricity price</h2>
+<p>In this part, we will simulate the annual price of electricity by state.</p>
+<p>First, we nested our data set with the code below :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">model1_nested &lt;-<span class="st"> </span>final_model <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">nest</span>()</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">region_model &lt;-<span class="st"> </span>model1_nested <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">model =</span> <span class="kw">map</span>(</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    data,</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="op">~</span><span class="st"> </span><span class="kw">lm</span>(</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">      <span class="dt">formula =</span> price_cents_kwh <span class="op">~</span><span class="st"> </span>prop_coal <span class="op">+</span><span class="st"> </span>prop_gas <span class="op">+</span><span class="st"> </span>prop_renewable,</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">      <span class="dt">data =</span> .x</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    )</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">  ))</a></code></pre></div>
+<p>We use the following variables:</p>
+<ul>
+<li>price_cents_kwh</li>
+<li>prop_coal</li>
+<li>prop_gas</li>
+<li>prop_renewable</li>
+</ul>
+<p>For many states, the predictive capabilities of our model are very poor:</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+state
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+adj.r.squared
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Hawaii
+</td>
+<td style="text-align:right;">
+-0.033
+</td>
+<td style="text-align:left;">
+0.494
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Louisiana
+</td>
+<td style="text-align:right;">
+-0.114
+</td>
+<td style="text-align:left;">
+0.8364
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maine
+</td>
+<td style="text-align:right;">
+0.136
+</td>
+<td style="text-align:left;">
+0.1414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Maryland
+</td>
+<td style="text-align:right;">
+0.060
+</td>
+<td style="text-align:left;">
+0.2552
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nebraska
+</td>
+<td style="text-align:right;">
+-0.121
+</td>
+<td style="text-align:left;">
+0.8726
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Texas
+</td>
+<td style="text-align:right;">
+-0.086
+</td>
+<td style="text-align:left;">
+0.6987
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Rhode Island
+</td>
+<td style="text-align:right;">
+-0.067
+</td>
+<td style="text-align:left;">
+0.9787
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+District of Columbia
+</td>
+<td style="text-align:right;">
+-0.150
+</td>
+<td style="text-align:left;">
+0.7794
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Despite a significant p.value, we also notice that several models have a very low adj.r.squared as we can see in Table <a href="modelling-part.html#tab:model-eval">5.15</a>. This means that the predictive power is low. Thus we arbitrarily choose to select only states with an adj.r.squared greater than 0.80.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:model-eval">Table 5.15: </span>Summary of the multilinear model [p.value &lt; 0.05]
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+state
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+adj.r.squared
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Alabama
+</td>
+<td style="text-align:right;">
+0,79
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alaska
+</td>
+<td style="text-align:right;">
+0,38
+</td>
+<td style="text-align:left;">
+0.014 *
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arizona
+</td>
+<td style="text-align:right;">
+0,42
+</td>
+<td style="text-align:left;">
+0.0084 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Arkansas
+</td>
+<td style="text-align:right;">
+0,67
+</td>
+<td style="text-align:left;">
+2e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+California
+</td>
+<td style="text-align:right;">
+0,78
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Colorado
+</td>
+<td style="text-align:right;">
+0,86
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Connecticut
+</td>
+<td style="text-align:right;">
+0,47
+</td>
+<td style="text-align:left;">
+0.0044 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Delaware
+</td>
+<td style="text-align:right;">
+0,71
+</td>
+<td style="text-align:left;">
+1e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Florida
+</td>
+<td style="text-align:right;">
+0,69
+</td>
+<td style="text-align:left;">
+1e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Georgia
+</td>
+<td style="text-align:right;">
+0,84
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Idaho
+</td>
+<td style="text-align:right;">
+0,51
+</td>
+<td style="text-align:left;">
+0.0026 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Illinois
+</td>
+<td style="text-align:right;">
+0,47
+</td>
+<td style="text-align:left;">
+0.0044 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Indiana
+</td>
+<td style="text-align:right;">
+0,81
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Iowa
+</td>
+<td style="text-align:right;">
+0,94
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kansas
+</td>
+<td style="text-align:right;">
+0,81
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kentucky
+</td>
+<td style="text-align:right;">
+0,74
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Massachusetts
+</td>
+<td style="text-align:right;">
+0,45
+</td>
+<td style="text-align:left;">
+0.0058 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Michigan
+</td>
+<td style="text-align:right;">
+0,47
+</td>
+<td style="text-align:left;">
+0.0046 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Minnesota
+</td>
+<td style="text-align:right;">
+0,94
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mississippi
+</td>
+<td style="text-align:right;">
+0,48
+</td>
+<td style="text-align:left;">
+0.0043 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Missouri
+</td>
+<td style="text-align:right;">
+0,54
+</td>
+<td style="text-align:left;">
+0.0018 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Montana
+</td>
+<td style="text-align:right;">
+0,71
+</td>
+<td style="text-align:left;">
+1e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nevada
+</td>
+<td style="text-align:right;">
+0,57
+</td>
+<td style="text-align:left;">
+0.0011 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New Hampshire
+</td>
+<td style="text-align:right;">
+0,65
+</td>
+<td style="text-align:left;">
+3e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New Jersey
+</td>
+<td style="text-align:right;">
+0,42
+</td>
+<td style="text-align:left;">
+0.009 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New Mexico
+</td>
+<td style="text-align:right;">
+0,82
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+New York
+</td>
+<td style="text-align:right;">
+0,30
+</td>
+<td style="text-align:left;">
+0.031 *
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+North Carolina
+</td>
+<td style="text-align:right;">
+0,66
+</td>
+<td style="text-align:left;">
+2e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+North Dakota
+</td>
+<td style="text-align:right;">
+0,90
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ohio
+</td>
+<td style="text-align:right;">
+0,77
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oklahoma
+</td>
+<td style="text-align:right;">
+0,57
+</td>
+<td style="text-align:left;">
+0.0011 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oregon
+</td>
+<td style="text-align:right;">
+0,53
+</td>
+<td style="text-align:left;">
+0.002 **
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pennsylvania
+</td>
+<td style="text-align:right;">
+0,88
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+South Carolina
+</td>
+<td style="text-align:right;">
+0,81
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+South Dakota
+</td>
+<td style="text-align:right;">
+0,89
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tennessee
+</td>
+<td style="text-align:right;">
+0,61
+</td>
+<td style="text-align:left;">
+6e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Utah
+</td>
+<td style="text-align:right;">
+0,82
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Virginia
+</td>
+<td style="text-align:right;">
+0,78
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Washington
+</td>
+<td style="text-align:right;">
+0,74
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+West Virginia
+</td>
+<td style="text-align:right;">
+0,81
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wisconsin
+</td>
+<td style="text-align:right;">
+0,62
+</td>
+<td style="text-align:left;">
+4e-04 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wyoming
+</td>
+<td style="text-align:right;">
+0,85
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the Figure <a href="modelling-part.html#fig:residuals">5.5</a>, we see that the residuals do not seem to reflect any pattern.</p>
+<div class="figure" style="text-align: center"><span id="fig:residuals"></span>
+<img src="Project---Report_files/figure-html/residuals-1.png" alt="High volatility in the residuals" width="70%" />
+<p class="caption">
+Figure 5.5: High volatility in the residuals
+</p>
+</div>
+<p>For these 14 states, the annual price of electricity is correctly predicted. The model reflects the upward trend of the price.</p>
+<p><img src="Project---Report_files/figure-html/unnamed-chunk-33-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Among the states where the model succeeds in predicting the annual energy price, there is no ratio that stands out. The proportion of production is very volatile from one state to another. In addition, they belong to different regions and have different characteristics (CO2 share, population, PIB, etc.)</p>
+<div id="htmlwidget-0cade887a5c8c9d3e325" style="width:800px;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0cade887a5c8c9d3e325">{"x":{"data":[{"orientation":"v","width":[0.7,0.7,0.7,0.7,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999],"base":[0.53,0.74,0.32,0.55,0.61,0.62,0.59,0.35,0.8,0.8,0.81,0.34,0.08,0.14],"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"y":[0.48,0.25,0.68,0.45,0.4,0.38,0.41,0.65,0.2,0.2,0.19,0.66,0.92,0.86],"text":["Energy_Source: Coal<br />state: Colorado<br />prop: 0.48","Energy_Source: Coal<br />state: Georgia<br />prop: 0.25","Energy_Source: Coal<br />state: Indiana<br />prop: 0.68","Energy_Source: Coal<br />state: Iowa<br />prop: 0.45","Energy_Source: Coal<br />state: Kansas<br />prop: 0.40","Energy_Source: Coal<br />state: Minnesota<br />prop: 0.38","Energy_Source: Coal<br />state: New Mexico<br />prop: 0.41","Energy_Source: Coal<br />state: North Dakota<br />prop: 0.65","Energy_Source: Coal<br />state: Pennsylvania<br />prop: 0.20","Energy_Source: Coal<br />state: South Carolina<br />prop: 0.20","Energy_Source: Coal<br />state: South Dakota<br />prop: 0.19","Energy_Source: Coal<br />state: Utah<br />prop: 0.66","Energy_Source: Coal<br />state: West Virginia<br />prop: 0.92","Energy_Source: Coal<br />state: Wyoming<br />prop: 0.86"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(53,96,141,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Coal","legendgroup":"Coal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.7,0.7,0.7,0.7,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999],"base":[0.23,0.34,0.06,0.43,0.55,0.48,0.23,0.32,0.44,0.58,0.72,0.12,0.06,0.11],"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"y":[0.3,0.4,0.26,0.12,0.0599999999999999,0.14,0.36,0.03,0.36,0.22,0.0900000000000001,0.22,0.02,0.03],"text":["Energy_Source: Gas<br />state: Colorado<br />prop: 0.30","Energy_Source: Gas<br />state: Georgia<br />prop: 0.40","Energy_Source: Gas<br />state: Indiana<br />prop: 0.26","Energy_Source: Gas<br />state: Iowa<br />prop: 0.12","Energy_Source: Gas<br />state: Kansas<br />prop: 0.06","Energy_Source: Gas<br />state: Minnesota<br />prop: 0.14","Energy_Source: Gas<br />state: New Mexico<br />prop: 0.36","Energy_Source: Gas<br />state: North Dakota<br />prop: 0.03","Energy_Source: Gas<br />state: Pennsylvania<br />prop: 0.36","Energy_Source: Gas<br />state: South Carolina<br />prop: 0.22","Energy_Source: Gas<br />state: South Dakota<br />prop: 0.09","Energy_Source: Gas<br />state: Utah<br />prop: 0.22","Energy_Source: Gas<br />state: West Virginia<br />prop: 0.02","Energy_Source: Gas<br />state: Wyoming<br />prop: 0.03"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(38,130,142,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Gas","legendgroup":"Gas","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.7,0.7,0.7,0.7,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999],"base":[0.2,0.32,0.06,0.42,0.55,0.46,0.23,0.25,0.42,0.56,0.22,0.1,0.03,0.09],"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"y":[0.03,0.02,0,0.01,0,0.02,0,0.07,0.02,0.02,0.5,0.02,0.03,0.02],"text":["Energy_Source: Hydroelectric<br />state: Colorado<br />prop: 0.03","Energy_Source: Hydroelectric<br />state: Georgia<br />prop: 0.02","Energy_Source: Hydroelectric<br />state: Indiana<br />prop: 0.00","Energy_Source: Hydroelectric<br />state: Iowa<br />prop: 0.01","Energy_Source: Hydroelectric<br />state: Kansas<br />prop: 0.00","Energy_Source: Hydroelectric<br />state: Minnesota<br />prop: 0.02","Energy_Source: Hydroelectric<br />state: New Mexico<br />prop: 0.00","Energy_Source: Hydroelectric<br />state: North Dakota<br />prop: 0.07","Energy_Source: Hydroelectric<br />state: Pennsylvania<br />prop: 0.02","Energy_Source: Hydroelectric<br />state: South Carolina<br />prop: 0.02","Energy_Source: Hydroelectric<br />state: South Dakota<br />prop: 0.50","Energy_Source: Hydroelectric<br />state: Utah<br />prop: 0.02","Energy_Source: Hydroelectric<br />state: West Virginia<br />prop: 0.03","Energy_Source: Hydroelectric<br />state: Wyoming<br />prop: 0.02"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(32,163,134,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Hydroelectric","legendgroup":"Hydroelectric","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.7,0.7,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999],"base":[0.05,0.34,0.37,0.22,0.03,0.03],"x":[2,4,5,6,9,10],"y":[0.27,0.08,0.18,0.24,0.39,0.53],"text":["Energy_Source: Nuclear<br />state: Georgia<br />prop: 0.27","Energy_Source: Nuclear<br />state: Iowa<br />prop: 0.08","Energy_Source: Nuclear<br />state: Kansas<br />prop: 0.18","Energy_Source: Nuclear<br />state: Minnesota<br />prop: 0.24","Energy_Source: Nuclear<br />state: Pennsylvania<br />prop: 0.39","Energy_Source: Nuclear<br />state: South Carolina<br />prop: 0.53"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(77,195,107,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Nuclear","legendgroup":"Nuclear","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.7,0.7,0.7,0.7,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999],"base":[0.2,0.05,0.06,0.34,0.37,0.22,0.23,0.25,0.03,0.03,0.22,0.1,0.03,0.09],"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"y":[0,0,0,0,0,0,0,0,0,0,0,0,0,0],"text":["Energy_Source: Petroleum<br />state: Colorado<br />prop: 0.00","Energy_Source: Petroleum<br />state: Georgia<br />prop: 0.00","Energy_Source: Petroleum<br />state: Indiana<br />prop: 0.00","Energy_Source: Petroleum<br />state: Iowa<br />prop: 0.00","Energy_Source: Petroleum<br />state: Kansas<br />prop: 0.00","Energy_Source: Petroleum<br />state: Minnesota<br />prop: 0.00","Energy_Source: Petroleum<br />state: New Mexico<br />prop: 0.00","Energy_Source: Petroleum<br />state: North Dakota<br />prop: 0.00","Energy_Source: Petroleum<br />state: Pennsylvania<br />prop: 0.00","Energy_Source: Petroleum<br />state: South Carolina<br />prop: 0.00","Energy_Source: Petroleum<br />state: South Dakota<br />prop: 0.00","Energy_Source: Petroleum<br />state: Utah<br />prop: 0.00","Energy_Source: Petroleum<br />state: West Virginia<br />prop: 0.00","Energy_Source: Petroleum<br />state: Wyoming<br />prop: 0.00"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(161,218,56,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Petroleum","legendgroup":"Petroleum","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.7,0.7,0.7,0.7,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999,0.699999999999999],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"y":[0.2,0.05,0.06,0.34,0.37,0.22,0.23,0.25,0.03,0.03,0.22,0.1,0.03,0.09],"text":["Energy_Source: Renewable<br />state: Colorado<br />prop: 0.20","Energy_Source: Renewable<br />state: Georgia<br />prop: 0.05","Energy_Source: Renewable<br />state: Indiana<br />prop: 0.06","Energy_Source: Renewable<br />state: Iowa<br />prop: 0.34","Energy_Source: Renewable<br />state: Kansas<br />prop: 0.37","Energy_Source: Renewable<br />state: Minnesota<br />prop: 0.22","Energy_Source: Renewable<br />state: New Mexico<br />prop: 0.23","Energy_Source: Renewable<br />state: North Dakota<br />prop: 0.25","Energy_Source: Renewable<br />state: Pennsylvania<br />prop: 0.03","Energy_Source: Renewable<br />state: South Carolina<br />prop: 0.03","Energy_Source: Renewable<br />state: South Dakota<br />prop: 0.22","Energy_Source: Renewable<br />state: Utah<br />prop: 0.10","Energy_Source: Renewable<br />state: West Virginia<br />prop: 0.03","Energy_Source: Renewable<br />state: Wyoming<br />prop: 0.09"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Renewable","legendgroup":"Renewable","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":48.1461187214612,"r":7.30593607305936,"b":72.3509496029272,"l":48.9497716894977},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Production structure for states","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,14.6],"tickmode":"array","ticktext":["Colorado","Georgia","Indiana","Iowa","Kansas","Minnesota","New Mexico","North Dakota","Pennsylvania","South Carolina","South Dakota","Utah","West Virginia","Wyoming"],"tickvals":[1,2,3,4,5,6,7,8,9,10,11,12,13,14],"categoryorder":"array","categoryarray":["Colorado","Georgia","Indiana","Iowa","Kansas","Minnesota","New Mexico","North Dakota","Pennsylvania","South Carolina","South Dakota","Utah","West Virginia","Wyoming"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":10.6268161062682},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"y","title":{"text":"State","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0505,1.0605],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(179,179,179,1)","ticklen":3.65296803652968,"tickwidth":0.33208800332088,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(222,222,222,1)","gridwidth":0.33208800332088,"zeroline":false,"anchor":"x","title":{"text":"Share of production [%]","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(179,179,179,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.922047244094488},"annotations":[{"text":"Energy_Source","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","width":800,"height":400,"barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"f8a56c243914":{"fill":{},"x":{},"y":{},"type":"bar"}},"cur_data":"f8a56c243914","visdat":{"f8a56c243914":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="the-limits-of-energy-price-prediction" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> The limits of energy price prediction</h3>
+<p>We can accurately predict the annual KWh price only for some states. For the rest, either the p.value is too high or the prediction capabilities are too low. It is very difficult to predict variables in the energy field. Indeed, there are many factors that influence the price of electricity or the production (weather, economic situation, production structure, politics, etc.)</p>
+<p>In addition, we only have access to annual data. This has severely limited our ability to make predictions. The grain used in this area of study is often in hours or minutes.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-abdi_principal_2010">
+<p>Abdi, Hervé, and Lynne J. Williams. 2010. “Principal Component Analysis: Principal Component Analysis.” <em>Wiley Interdisciplinary Reviews: Computational Statistics</em> 2 (4): 433–59. <a href="https://doi.org/10.1002/wics.101">https://doi.org/10.1002/wics.101</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="energy-structure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

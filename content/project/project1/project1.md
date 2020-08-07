@@ -1,13 +1,11 @@
 ---
-title: "Electricité aux USA"
-description: "Lorem ipsum dolor sit amet"
-tags: ["go", "golang", "hugo"]
+title: "How are the consumption, the generation and the price of electricity influenced in the United States ?"
+description: "By Cédric Vuignier and Gaëtan Lovey"
+tags:
 weight: 1
 draft: false
 image: "/image.png"
 ---
-
-Dans ce project nous allors parler du marché de l'électricité aux USA 
 
 ![](/image.png)
 
