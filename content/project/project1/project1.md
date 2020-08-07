@@ -4,9 +4,8 @@ description: "By Cédric Vuignier and Gaëtan Lovey"
 tags:
 weight: 1
 draft: false
+image: "/USA.png"
 ---
-
-![](/USA.png)
 
 Click [here](https://bookdown.org/connect/#/apps/5233/access) to see the full report !
 
