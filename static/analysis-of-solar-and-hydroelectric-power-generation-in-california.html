@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Analysis of solar and hydroelectric power generation in California | How are the consumption, the generation and the price of electricity influenced in the United States ?</title>
+  <meta name="description" content="6 Analysis of solar and hydroelectric power generation in California | How are the consumption, the generation and the price of electricity influenced in the United States ?" />
+  <meta name="generator" content="bookdown 0.18.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Analysis of solar and hydroelectric power generation in California | How are the consumption, the generation and the price of electricity influenced in the United States ?" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Analysis of solar and hydroelectric power generation in California | How are the consumption, the generation and the price of electricity influenced in the United States ?" />
+  
+  
+  
+
+<meta name="author" content="Vuignier, Cédric and Lovey, Gaëtan" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelling-part.html"/>
+<link rel="next" href="conclusion-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-7.0.1/css/motion.css" rel="stylesheet" />
+<link href="libs/highcharts-7.0.1/css/htmlwdgtgrid.css" rel="stylesheet" />
+<script src="libs/highcharts-7.0.1/highcharts.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-3d.js"></script>
+<script src="libs/highcharts-7.0.1/highcharts-more.js"></script>
+<script src="libs/highcharts-7.0.1/modules/stock.js"></script>
+<script src="libs/highcharts-7.0.1/modules/map.js"></script>
+<script src="libs/highcharts-7.0.1/modules/annotations.js"></script>
+<script src="libs/highcharts-7.0.1/modules/boost.js"></script>
+<script src="libs/highcharts-7.0.1/modules/data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drag-panes.js"></script>
+<script src="libs/highcharts-7.0.1/modules/drilldown.js"></script>
+<script src="libs/highcharts-7.0.1/modules/item-series.js"></script>
+<script src="libs/highcharts-7.0.1/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-7.0.1/modules/exporting.js"></script>
+<script src="libs/highcharts-7.0.1/modules/export-data.js"></script>
+<script src="libs/highcharts-7.0.1/modules/funnel.js"></script>
+<script src="libs/highcharts-7.0.1/modules/heatmap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/treemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sankey.js"></script>
+<script src="libs/highcharts-7.0.1/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-7.0.1/modules/streamgraph.js"></script>
+<script src="libs/highcharts-7.0.1/modules/sunburst.js"></script>
+<script src="libs/highcharts-7.0.1/modules/vector.js"></script>
+<script src="libs/highcharts-7.0.1/modules/wordcloud.js"></script>
+<script src="libs/highcharts-7.0.1/modules/xrange.js"></script>
+<script src="libs/highcharts-7.0.1/modules/tilemap.js"></script>
+<script src="libs/highcharts-7.0.1/modules/venn.js"></script>
+<script src="libs/highcharts-7.0.1/modules/gantt.js"></script>
+<script src="libs/highcharts-7.0.1/modules/timeline.js"></script>
+<script src="libs/highcharts-7.0.1/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/grouped-categories.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/motion.js"></script>
+<script src="libs/highcharts-7.0.1/plugins/multicolor_series.js"></script>
+<script src="libs/highcharts-7.0.1/custom/reset.js"></script>
+<script src="libs/highcharts-7.0.1/custom/symbols-extra.js"></script>
+<script src="libs/highcharts-7.0.1/custom/text-symbols.js"></script>
+<script src="libs/highchart-binding-0.7.0/highchart.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.13/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="wrangling.html"><a href="wrangling.html"><i class="fa fa-check"></i><b>2</b> Wrangling</a></li>
+<li class="chapter" data-level="3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html"><i class="fa fa-check"></i><b>3</b> Electricity consumption in United States</a><ul>
+<li class="chapter" data-level="3.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#energy-consumption"><i class="fa fa-check"></i><b>3.1</b> Energy consumption</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#electricity-consumption-by-states-in-2018"><i class="fa fa-check"></i><b>3.1.1</b> Electricity consumption by states in 2018</a></li>
+<li class="chapter" data-level="3.1.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#electricity-consumption-per-capita-in-2018"><i class="fa fa-check"></i><b>3.1.2</b> Electricity consumption per capita in 2018</a></li>
+<li class="chapter" data-level="3.1.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#consumption-of-electricity-depends-on-its-production"><i class="fa fa-check"></i><b>3.1.3</b> Consumption of electricity depends on its production</a></li>
+<li class="chapter" data-level="3.1.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#price-of-electricity"><i class="fa fa-check"></i><b>3.1.4</b> Price of electricity</a></li>
+<li class="chapter" data-level="3.1.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#evolution-of-the-overall-electricity-consumption"><i class="fa fa-check"></i><b>3.1.5</b> Evolution of the overall electricity consumption</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#population"><i class="fa fa-check"></i><b>3.2</b> Population</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#population-per-state-in-2018"><i class="fa fa-check"></i><b>3.2.1</b> Population per state in 2018</a></li>
+<li class="chapter" data-level="3.2.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#population-in-2018-in-comparison-to-the-annual-consumption-of-electricity"><i class="fa fa-check"></i><b>3.2.2</b> Population in 2018 in comparison to the annual consumption of electricity</a></li>
+<li class="chapter" data-level="3.2.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#density-compared-to-the-annual-consumption-per-state-in-2018"><i class="fa fa-check"></i><b>3.2.3</b> Density compared to the annual consumption per state in 2018</a></li>
+<li class="chapter" data-level="3.2.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#number-of-houses-compared-to-the-consumption-of-electricity."><i class="fa fa-check"></i><b>3.2.4</b> Number of houses compared to the consumption of electricity.</a></li>
+<li class="chapter" data-level="3.2.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#number-of-capita-per-house-in-comparison-to-the-electricity-consumption."><i class="fa fa-check"></i><b>3.2.5</b> Number of capita per house in comparison to the electricity consumption.</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#economy"><i class="fa fa-check"></i><b>3.3</b> Economy</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#gdp-in-states"><i class="fa fa-check"></i><b>3.3.1</b> GDP in states</a></li>
+<li class="chapter" data-level="3.3.2" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#gdp-versus-energy-consumption"><i class="fa fa-check"></i><b>3.3.2</b> GDP versus energy consumption</a></li>
+<li class="chapter" data-level="3.3.3" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#comparison-between-the-variation-of-gdp-and-the-variation-of-electricity-production-through-the-years."><i class="fa fa-check"></i><b>3.3.3</b> Comparison between the variation of GDP and the variation of electricity production through the years.</a></li>
+<li class="chapter" data-level="3.3.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#gdp-per-capita"><i class="fa fa-check"></i><b>3.3.4</b> GDP per capita</a></li>
+<li class="chapter" data-level="3.3.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#personal-income-in-2018"><i class="fa fa-check"></i><b>3.3.5</b> Personal income in 2018</a></li>
+<li class="chapter" data-level="3.3.6" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#buildings"><i class="fa fa-check"></i><b>3.3.6</b> Buildings</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#weather"><i class="fa fa-check"></i><b>3.4</b> Weather</a></li>
+<li class="chapter" data-level="3.5" data-path="electricity-consumption-in-united-states.html"><a href="electricity-consumption-in-united-states.html#limits-of-the-electricity-consumption-study-and-main-results"><i class="fa fa-check"></i><b>3.5</b> Limits of the electricity consumption study and main results</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="energy-structure.html"><a href="energy-structure.html"><i class="fa fa-check"></i><b>4</b> Energy structure</a><ul>
+<li class="chapter" data-level="4.1" data-path="energy-structure.html"><a href="energy-structure.html#us-structure-of-the-production"><i class="fa fa-check"></i><b>4.1</b> US structure of the production</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="energy-structure.html"><a href="energy-structure.html#overall-power-generation"><i class="fa fa-check"></i><b>4.1.1</b> Overall power generation</a></li>
+<li class="chapter" data-level="4.1.2" data-path="energy-structure.html"><a href="energy-structure.html#analysis-of-the-co2-neutral-production"><i class="fa fa-check"></i><b>4.1.2</b> Analysis of the CO2 neutral production</a></li>
+<li class="chapter" data-level="4.1.3" data-path="energy-structure.html"><a href="energy-structure.html#co2-analysis-by-region"><i class="fa fa-check"></i><b>4.1.3</b> CO2 analysis by region</a></li>
+<li class="chapter" data-level="4.1.4" data-path="energy-structure.html"><a href="energy-structure.html#structure-of-the-production"><i class="fa fa-check"></i><b>4.1.4</b> Structure of the production</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="energy-structure.html"><a href="energy-structure.html#analysis-of-the-price-per-kwh"><i class="fa fa-check"></i><b>4.2</b> Analysis of the price per KWh</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="energy-structure.html"><a href="energy-structure.html#evolution-of-the-price-by-state"><i class="fa fa-check"></i><b>4.2.1</b> Evolution of the price by state</a></li>
+<li class="chapter" data-level="4.2.2" data-path="energy-structure.html"><a href="energy-structure.html#map-of-the-electricity-price-by-state"><i class="fa fa-check"></i><b>4.2.2</b> Map of the electricity price by state</a></li>
+<li class="chapter" data-level="4.2.3" data-path="energy-structure.html"><a href="energy-structure.html#characteristics-that-can-influence-the-price-of-energy"><i class="fa fa-check"></i><b>4.2.3</b> Characteristics that can influence the price of energy</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="energy-structure.html"><a href="energy-structure.html#conclusion"><i class="fa fa-check"></i><b>4.3</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="modelling-part.html"><a href="modelling-part.html"><i class="fa fa-check"></i><b>5</b> Modelling part</a><ul>
+<li class="chapter" data-level="5.1" data-path="modelling-part.html"><a href="modelling-part.html#prediction-of-the-electricity-consumption"><i class="fa fa-check"></i><b>5.1</b> Prediction of the electricity consumption</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="modelling-part.html"><a href="modelling-part.html#data-splitting"><i class="fa fa-check"></i><b>5.1.1</b> Data splitting</a></li>
+<li class="chapter" data-level="5.1.2" data-path="modelling-part.html"><a href="modelling-part.html#model-training"><i class="fa fa-check"></i><b>5.1.2</b> Model training</a></li>
+<li class="chapter" data-level="5.1.3" data-path="modelling-part.html"><a href="modelling-part.html#model-prediction"><i class="fa fa-check"></i><b>5.1.3</b> Model prediction</a></li>
+<li class="chapter" data-level="5.1.4" data-path="modelling-part.html"><a href="modelling-part.html#model-scoring"><i class="fa fa-check"></i><b>5.1.4</b> Model scoring</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="modelling-part.html"><a href="modelling-part.html#prediction-of-the-electricity-production"><i class="fa fa-check"></i><b>5.2</b> Prediction of the electricity production</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="modelling-part.html"><a href="modelling-part.html#training-the-model"><i class="fa fa-check"></i><b>5.2.1</b> Training the model</a></li>
+<li class="chapter" data-level="5.2.2" data-path="modelling-part.html"><a href="modelling-part.html#predicting-the-model"><i class="fa fa-check"></i><b>5.2.2</b> Predicting the model</a></li>
+<li class="chapter" data-level="5.2.3" data-path="modelling-part.html"><a href="modelling-part.html#scoring-the-models"><i class="fa fa-check"></i><b>5.2.3</b> Scoring the models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="modelling-part.html"><a href="modelling-part.html#prediction-of-the-electricity-price"><i class="fa fa-check"></i><b>5.3</b> Prediction of the electricity price</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="modelling-part.html"><a href="modelling-part.html#the-limits-of-energy-price-prediction"><i class="fa fa-check"></i><b>5.3.1</b> The limits of energy price prediction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><i class="fa fa-check"></i><b>6</b> Analysis of solar and hydroelectric power generation in California</a><ul>
+<li class="chapter" data-level="6.1" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#solar-analysis"><i class="fa fa-check"></i><b>6.1</b> Solar analysis</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#annual-and-monthly-solar-production"><i class="fa fa-check"></i><b>6.1.1</b> Annual and monthly solar production</a></li>
+<li class="chapter" data-level="6.1.2" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#solar-model"><i class="fa fa-check"></i><b>6.1.2</b> Solar model</a></li>
+<li class="chapter" data-level="6.1.3" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#total-solar-production"><i class="fa fa-check"></i><b>6.1.3</b> Total solar production</a></li>
+<li class="chapter" data-level="6.1.4" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#power-analysis-per-hour"><i class="fa fa-check"></i><b>6.1.4</b> Power analysis per hour</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#small-hydro-analysis"><i class="fa fa-check"></i><b>6.2</b> Small hydro analysis</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#annual-and-monthly-solar-production-1"><i class="fa fa-check"></i><b>6.2.1</b> Annual and monthly solar production</a></li>
+<li class="chapter" data-level="6.2.2" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#power-analysis-per-hour-1"><i class="fa fa-check"></i><b>6.2.2</b> Power analysis per hour</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="analysis-of-solar-and-hydroelectric-power-generation-in-california.html"><a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#the-limits-of-our-model"><i class="fa fa-check"></i><b>6.3</b> The limits of our model</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How are the consumption, the generation and the price of electricity influenced in the United States ?</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analysis-of-solar-and-hydroelectric-power-generation-in-california" class="section level1">
+<h1><span class="header-section-number">6</span> Analysis of solar and hydroelectric power generation in California</h1>
+<p>In this part we will analyse the load curves in photovoltaic and hydraulic production. We will demonstrate the differences in power between these two energies and their behaviour.</p>
+<p>Finally, we aim to build a model that simulates power generation capacity from 2012 to 2018 and thus predict the total production.</p>
+<div id="solar-analysis" class="section level2">
+<h2><span class="header-section-number">6.1</span> Solar analysis</h2>
+<p>Photovoltaic panels are highly dependent on climatic factors. We will therefore see a significant seasonality on a daily and annual level.</p>
+<div id="annual-and-monthly-solar-production" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Annual and monthly solar production</h3>
+<p>For the annual solar production, in Figure <a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#fig:solar">6.1</a>, we see an upward trend and a significant seasonality. The blue curve represents the average power per hour and the red curve the maximum power reached. For the months, we also notice a trend. Indeed, the total power is stronger in summer.</p>
+<p>Finally, we can see the great volatility of solar energy. The difference between maximum and average power is significant. This is the main characteristic of renewable energies. It is also what makes their production difficult to estimate.</p>
+<div class="figure" style="text-align: center"><span id="fig:solar"></span>
+<img src="Project---Report_files/figure-html/solar-1.png" alt="California solar capacity" width="70%" />
+<p class="caption">
+Figure 6.1: California solar capacity
+</p>
+</div>
+</div>
+<div id="solar-model" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Solar model</h3>
+<p>Our model is designed to estimate the average power per hour of the Californian photovoltaic park.</p>
+<p>We estimate the power with the model below.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">model_solar &lt;-</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">lm</span>(mean_solar_mW <span class="op">~</span><span class="st"> </span><span class="kw">I</span>(ID_year <span class="op">-</span><span class="st"> </span><span class="dv">2012</span>) <span class="op">+</span><span class="st"> </span>ID_month, <span class="dt">data =</span> solar_all)</a></code></pre></div>
+<p>In the Table <a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#tab:solar-summary">6.1</a>, we see the estimated coefficients, the standard deviations and the p.values.</p>
+<p>The second coefficient is positive. Each additional year, the power increases by 525.5 mW. Finally, concerning the coefficient of the months, each additional month adds 26.9mW.</p>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:solar-summary">Table 6.1: </span>Summary of the model_solar
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+-91.8
+</td>
+<td style="text-align:right;">
+39.28
+</td>
+<td style="text-align:left;">
+0.0195 *
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+I(ID_year - 2012)
+</td>
+<td style="text-align:right;">
+525.5
+</td>
+<td style="text-align:right;">
+8.77
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID_month
+</td>
+<td style="text-align:right;">
+26.9
+</td>
+<td style="text-align:right;">
+3.69
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>We clearly see that our model does not take into account the strong seasonality effect but only the upward trend.</p>
+<div class="figure" style="text-align: center"><span id="fig:solar-model"></span>
+<img src="Project---Report_files/figure-html/solar-model-1.png" alt="California solar capacity (model)" width="70%" />
+<p class="caption">
+Figure 6.2: California solar capacity (model)
+</p>
+</div>
+<p>However, we can estimate the average production for the years in which the data were complete. In fact, by multiplying the average hourly power by 8760 hours, we obtain the total production in TWh.</p>
+</div>
+<div id="total-solar-production" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Total solar production</h3>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-36">Table 6.2: </span>Total solar generation [tWh]
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Year
+</th>
+<th style="text-align:right;">
+Predicted generation
+</th>
+<th style="text-align:right;">
+Observed generation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2015
+</td>
+<td style="text-align:right;">
+14.5
+</td>
+<td style="text-align:right;">
+14.4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+19.1
+</td>
+<td style="text-align:right;">
+19.4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+23.7
+</td>
+<td style="text-align:right;">
+24.3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="power-analysis-per-hour" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> Power analysis per hour</h3>
+<p>We estimate the power with the model below which is a polynomial of order 6.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">hour_model_solar &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> mean_solar_mW <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(ID_hour, <span class="dt">degree =</span> <span class="dv">6</span>),<span class="dt">data=</span> solar_hour_model)</a></code></pre></div>
+As we can see from the p.values column, all the coefficients are significant.
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-39">Table 6.3: </span>Summary of the model predicting power per hour
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Coefficient
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t-statistic
+</th>
+<th style="text-align:right;">
+P.value
+</th>
+<th style="text-align:left;">
+Significance
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+1647
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+235.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)1
+</td>
+<td style="text-align:right;">
+29531
+</td>
+<td style="text-align:right;">
+1483
+</td>
+<td style="text-align:right;">
+19.9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)2
+</td>
+<td style="text-align:right;">
+-324651
+</td>
+<td style="text-align:right;">
+1483
+</td>
+<td style="text-align:right;">
+-218.9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)3
+</td>
+<td style="text-align:right;">
+-46288
+</td>
+<td style="text-align:right;">
+1483
+</td>
+<td style="text-align:right;">
+-31.2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)4
+</td>
+<td style="text-align:right;">
+204637
+</td>
+<td style="text-align:right;">
+1483
+</td>
+<td style="text-align:right;">
+138.0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)5
+</td>
+<td style="text-align:right;">
+30214
+</td>
+<td style="text-align:right;">
+1483
+</td>
+<td style="text-align:right;">
+20.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)6
+</td>
+<td style="text-align:right;">
+-82282
+</td>
+<td style="text-align:right;">
+1483
+</td>
+<td style="text-align:right;">
+-55.5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+</tbody>
+</table>
+<p>From 8:00 p.m. to 5:00 a.m., the power is obviously almost zero. During the day, the power of the solar panels has a very high volatility. This is one of the characteristics of renewable energies such as solar or wind power. They are highly dependent on climatic conditions.</p>
+<p>However, our model fits the average hourly power pretty well.
+<img src="Project---Report_files/figure-html/unnamed-chunk-40-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="small-hydro-analysis" class="section level2">
+<h2><span class="header-section-number">6.2</span> Small hydro analysis</h2>
+<div id="annual-and-monthly-solar-production-1" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Annual and monthly solar production</h3>
+<p>For the annual small hydro production, we can see that production varies a lot from year to year. However, there is still an annual seasonality. The blue curve represents the average power per hour and the red curve the maximum power reached. For the months, we also notice a trend. Indeed, the total power is stronger in summer.</p>
+<p>Finally, we can demonstrate that power has a low volatility. The difference between maximum and average power is small.</p>
+<p><img src="Project---Report_files/figure-html/unnamed-chunk-41-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>In the Table <a href="analysis-of-solar-and-hydroelectric-power-generation-in-california.html#tab:model-hydro">6.4</a>, we see the estimated coefficients, the standard deviations and the p.values.</p>
+The second coefficient is negative. Each additional year, the power decreases by -6.02 mW. Finally concerning the coefficient of the months, each additional month reduces the power by -7.59 mW.
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:model-hydro">Table 6.4: </span>Summary of the model_hydro
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Standard Error
+</th>
+<th style="text-align:left;">
+P.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+374.90
+</td>
+<td style="text-align:right;">
+5.34
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+I(ID_year - 2012)
+</td>
+<td style="text-align:right;">
+-6.02
+</td>
+<td style="text-align:right;">
+1.01
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ID_month
+</td>
+<td style="text-align:right;">
+-7.59
+</td>
+<td style="text-align:right;">
+0.66
+</td>
+<td style="text-align:left;">
+0 ***
+</td>
+</tr>
+</tbody>
+</table>
+<p>We clearly see that our model does not take into account the strong seasonality effect.</p>
+<p><img src="Project---Report_files/figure-html/unnamed-chunk-42-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="power-analysis-per-hour-1" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Power analysis per hour</h3>
+<p>We estimate the power with the model below which is a polynomial of order 6.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">hydro_hour_model<span class="op">$</span>ID_hour &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(hydro_hour_model<span class="op">$</span>ID_hour))</a></code></pre></div>
+<p>As we can see from the p.values column, all the coefficients are significant.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-45">Table 6.5: </span>Summary of the model predicting power per hour
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Coefficient
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t-statistic
+</th>
+<th style="text-align:right;">
+P.value
+</th>
+<th style="text-align:left;">
+Significance
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:right;">
+314
+</td>
+<td style="text-align:right;">
+0.488
+</td>
+<td style="text-align:right;">
+643.9
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)1
+</td>
+<td style="text-align:right;">
+6213
+</td>
+<td style="text-align:right;">
+126.865
+</td>
+<td style="text-align:right;">
+49.0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)2
+</td>
+<td style="text-align:right;">
+-2060
+</td>
+<td style="text-align:right;">
+126.865
+</td>
+<td style="text-align:right;">
+-16.2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)3
+</td>
+<td style="text-align:right;">
+-3102
+</td>
+<td style="text-align:right;">
+126.865
+</td>
+<td style="text-align:right;">
+-24.4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)4
+</td>
+<td style="text-align:right;">
+-2009
+</td>
+<td style="text-align:right;">
+126.865
+</td>
+<td style="text-align:right;">
+-15.8
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)5
+</td>
+<td style="text-align:right;">
+-1837
+</td>
+<td style="text-align:right;">
+126.865
+</td>
+<td style="text-align:right;">
+-14.5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poly(ID_hour, degree = 6)6
+</td>
+<td style="text-align:right;">
+1711
+</td>
+<td style="text-align:right;">
+126.865
+</td>
+<td style="text-align:right;">
+13.5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+***
+</td>
+</tr>
+</tbody>
+</table>
+<p>The power of the small hydro is constant throughout the day. This is the major difference with renewable energy (solar or wind).</p>
+<p>Our model fits the average hourly power pretty well.</p>
+<p><img src="Project---Report_files/figure-html/unnamed-chunk-46-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="the-limits-of-our-model" class="section level2">
+<h2><span class="header-section-number">6.3</span> The limits of our model</h2>
+<p>Our series are not stationary. We should therefore have applied a model that takes seasonality into account. In order to deepen this analysis and to better predict the load curves, it would be interesting to apply an ARIMA model for example or exponential smoothing techniques.</p>
+<p>In addition, in order to predict the future production of solar and wind power, it is essential to collect external weather data. However, we can already demonstrate the behaviour of the different load curves regarding the type of energy.</p>
+<p>On the one hand, renewable energies will be very volatile and therefore more difficult to predict (solar, wind). On the other hand, traditional energies (coal, gas and hydraulic) are not very volatile and therefore more easily predictable.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelling-part.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
