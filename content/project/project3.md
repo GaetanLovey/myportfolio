@@ -7,4 +7,4 @@ draft: false
 
 ![](/bike.png)
 
-Click [here](https://bookdown.org/connect/#/apps/5238/access) to see the full report !
+Click [here](https://github.com/GaetanLovey/myportfolio/blob/master/static/Vuignier_Vuilliemin_Lovey.pdf) to see the full report !
