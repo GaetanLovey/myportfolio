@@ -9,5 +9,5 @@ image: "/image.png"
 
 ![](/image.png)
 
-![](/introduction.Rmd)
+[Introduction](https://github.com/GaetanLovey/myportfolio/blob/master/static/introduction.Rmd)
 
