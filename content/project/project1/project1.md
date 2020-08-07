@@ -9,5 +9,5 @@ image: "/image.png"
 
 ![](/image.png)
 
-[How are the consumption, the generation and the price of electricity influenced in the United States ?](https://bookdown.org/connect/#/apps/5233/access)
+Click [here](https://bookdown.org/connect/#/apps/5233/access) to see the full report !
 
