@@ -1,0 +1,687 @@
+# Modelling part
+
+## Prediction of the electricity consumption 
+
+Altough we already tried to figure out some patterns between characteristics of states and energy consumption, we will analyse the importance of the variables through a principal component analysis. It will allow us to know which variable are necessary to predict the energy consumption but also to confirm our previous analysis of the energy consumption. 
+
+
+```{r PCA, fig.cap="Principal component analysis", warning=FALSE, message=FALSE, echo=FALSE, fig.height=12, fig.width=10}
+#We select only the numeric variables 
+jointurePCA <- jointure %>%
+  select(
+    -State,
+    -region.x,
+    -summer_temp,
+    -winter_temp,
+    -Total_cust,
+    -price_cents_kwh,
+    -autosuf
+  )
+
+#We scale the data for the PCA
+jointurePCA_scaled <-
+  scale(jointurePCA) 
+
+pcamodel <- PCA(jointurePCA_scaled,  graph = FALSE)
+
+# Coloring according to the cos2 
+fviz_pca_var(
+  pcamodel,
+  col.var = "cos2",
+  gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+  repel = TRUE
+)
+#It seems that we have two groups of variables playing different roles.
+```
+
+As we can see in the Principal Component Analysis (PCA) (Figure \@ref(fig:PCA)), there is two different groups playing different roles. It seems that energy consumption is not correlated to personal_income, capita_GDP, density and year. It totally confirms our previous analysis. 
+
+According to the Kaiser-Guttman rule, we should stop at Component 5. The Kaiser-Guttman rule states that components with an eigenvalue greater than 1 should be retained. We diplay this method in Figure \@ref(fig:KG).
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+get_eigenvalue(pcamodel) %>% kable(caption = "Eigenvalues of our variables") %>% kable_styling(bootstrap_options = "striped")
+```
+
+
+```{r KG, fig.cap="Kaiser-Guttman rule", warning=FALSE, message=FALSE, echo=FALSE}
+fviz_eig(pcamodel, addlabels = TRUE, ylim = c(0, 50), main = "Eigenvalues" ) 
+```
+
+
+We will focus on the first dimension because the variable that we want to predict (Total_compsum_MWh) is in dimension one. We will also keep other variables that represent the most the principal dimension (Dim 1) because they are correlated to the variable "Total_compsum_MWh". 
+
+The squared cosine shows the importance of a component for a given observation. The squared cosine indicates the contribution of a component to the squared distance of the observation to the origin [See @abdi_principal_2010]. 
+
+In our case, the variables contributing the most to the first component are the following: 
+
+* Residential_cust
+* Commercial_cust
+* Industrial_cust
+* Total_compsum_MWh
+* Total_generation
+* population
+* house_unit
+* GDP
+
+Below, we can see their contributions. 
+
+
+```{r dimension, fig.height=15, fig.width=8, warning=FALSE, message=FALSE, echo=FALSE}
+var <- get_pca_var(pcamodel)
+corrplot(
+  var$cos2,
+  is.corr = FALSE,
+  method = "shade" ,
+  tl.col = "black",
+  cl.align.text = "l",
+  title = "Contribution to the dimensions",
+  mar = c(0, 0, 3, 9)
+)
+```
+
+
+```{r contribution, fig.height=15, fig.width=8, warning=FALSE, message=FALSE, echo=FALSE}
+#print(var$contrib)
+var$cos2 %>% kable(caption = "Contribution of the variables") %>% kable_styling(bootstrap_options = "striped")
+
+```
+
+Now, we can proceed to the modelling part. 
+
+First, we split the data into two parts: 
+
+* Training set 
+* Testing set
+
+We chose to have a training set of 75% of the data and a testing set with the remaining ones. 
+
+### Data splitting
+```{r warning=FALSE, message=FALSE}
+set.seed(234)
+index <- sample(x=c(1,2), size=nrow(jointurePCA), replace=TRUE, prob=c(0.75,0.25)) 
+dat.tr <- jointurePCA[index==1,]
+dat.te <- jointurePCA[index==2,]
+# 1==training set, 2==test set
+```
+
+
+### Model training
+
+We build a multiple regression model to predict the consumption of energy. We will use all the principal variables that we selected in the PCA part. 
+
+__Total_compsum_MWh~GDP + population + house_unit + Residential_cust + Commercial_cust + Industrial_cust + Total_generation__
+
+We used the AIC to select the best model possible. In the first attempt, GDP is removed. 
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+library(car)
+consumption_model<- lm(Total_compsum_MWh~GDP + population + house_unit + Residential_cust + Commercial_cust + Industrial_cust + Total_generation, data = dat.tr)
+lm.sel <- step(consumption_model, trace = FALSE) #we used the AIC to select a better model (GDP is removed) 
+
+lm.sel %>% tidy() %>%
+  select(-statistic) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    caption = "Total_compsum_MWh ~ population + house_unit + Residential_cust +
+    Commercial_cust + Industrial_cust + Total_generation",
+    digits = 3,
+    col.names = c("Parameter", "Estimate", "Standard Error", "P.value")
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+
+Then, we computed the VIF coefficient in order to detect multicollinearity. 
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+vif(lm.sel) %>% kable(col.names = "VIF Coefficient") %>%  kable_styling(bootstrap_options = "striped") #Then, we need to compute the VIF coefficient in order to see the degree of the multicollinearity that could affect our multiple regression model. 
+#We can see that house_unit, Residential_cust and population have well too large value, we remove them from the model
+```
+
+Because the VIF coefficient of the variables house_unit, Residential_cust and population were well too large, we remove them from the model. 
+
+
+Then we trained the following model: 
+
+__Total_compsum_MWh ~  Commercial_cust + Industrial_cust + Total_generation__
+
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+consumption_model<- lm(Total_compsum_MWh ~  Commercial_cust + Industrial_cust + Total_generation, data = dat.tr)
+```
+
+
+Again, we used the AIC criterion to select the best model. It resulted in the following model:
+
+__Total_compsum_MWh ~  Commercial_cust + Total_generation__
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+#we used the AIC to select a better model 
+lm.sel <- step(consumption_model, trace = FALSE)
+
+
+lm.sel %>%
+  tidy() %>%
+  select(-statistic) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    caption = "Total_compsum_MWh ~ Commercial_cust + Total_generation",
+    digits = 3,
+    col.names = c("Parameter", "Estimate", "Standard Error", "P.value")
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+VIF coefficient is lower than 5, which is good. 
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+vif(lm.sel) %>% kable(col.names = "VIF Coefficient") %>%  kable_styling(bootstrap_options = "striped")# We found our final model, the VIF is now correct.
+```
+
+We compute the R-Squared in order to know how much the model can explain the variations of the trained variable. 
+
+```{r r-squared, warning=FALSE, message=FALSE, echo=FALSE}
+glance(lm.sel) %>% select("r.squared", "adj.r.squared") %>% kable(
+  caption = "Total_compsum_MWh ~ Commercial_cust + Total_generation: The R-Squared is good enough",
+  digits = 3,
+  col.names = c("R-Squared", "Adjusted R-Squared")
+) %>%   kable_styling(bootstrap_options = "striped")
+
+
+
+```
+
+Our R-Squared is 0.971, it means that our model is able to explain 97.1%% of the variations of the variable "Total_compsum_MWh" in this dataset (Table \@ref(tab:r-squared)).
+
+
+### Model prediction 
+
+```{r fig.width = 11, warning=FALSE, message=FALSE, echo=FALSE}
+lm.sel.pred <- dat.te %>%
+  add_predictions(lm.sel, var = "pred.cons") %>% 
+  add_residuals(lm.sel, var = "resid.cons")
+
+
+ggplot(lm.sel.pred, aes(x = Total_compsum_MWh, y = pred.cons)) + geom_point() +
+  geom_smooth(method = "lm", se = FALSE, col = "red") +
+  labs(x = "Observed values",
+       y = "Predicted values",
+       title = str_wrap(
+         paste0(
+           "The prediction model of the electricity consumption is quite accurate "
+         ),
+         width = 60
+       ))
+```
+This plot confirms the accuracy of our predictions. 
+
+### Model scoring
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+#(mse.lm <- mean((dat.te$Total_compsum_MWh - lm.sel.pred)^2))
+(
+  rmse.lm <-
+    sqrt(mean((dat.te$Total_compsum_MWh - lm.sel.pred$pred.cons) ^ 2
+    )) %>% kable(caption = "RMSE score", col.names = "RMSE") %>% kable_styling(bootstrap_options = "striped")
+)
+```
+Our prediction model is : Total_compsum_MWh ~ Commercial_cust + Total_generation
+
+To conclude, we see that we need to predict the production of electricity (Total_generation) in order to be able to predict the consumption of energy (Total_compsum_MWh). This is what we will be doing in the next part. 
+
+
+
+## Prediction of the electricity production 
+
+### Training the model 
+
+We do not need to make a new PCA because the energy production is correlated to the energy consumption, thus we will thake the sames results, the same variables. 
+
+We do not take the consumption of energy in our model because we first need to predict the generation of electricity in order to predict the consumption as we have seen in the previous part. We train the following model:
+
+__Total_generation~GDP + population + house_unit + Residential_cust + Commercial_cust + Industrial_cust__
+
+
+We used the AIC criterion to select the best model and the house_unit variable has been removed. 
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+#We do not take the Consumption of energy because we first need to predict the generation of electricity in order to predict the consumption as we have seen before
+production_model <-
+  lm(
+    Total_generation ~ GDP + population + house_unit + Residential_cust + Commercial_cust + Industrial_cust,
+    data = dat.tr
+  )
+lm.sel.prod <-
+  step(production_model, trace = FALSE) #we used the AIC to select a better model (house_unit is removed)
+
+lm.sel.prod %>%
+  tidy() %>%
+  select(-statistic) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    caption = "Total_generation ~ GDP + population + Residential_cust + Commercial_cust + 
+    Industrial_cust",
+    digits = 3,
+    col.names = c("Parameter", "Estimate", "Standard Error", "P.value")
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+
+```
+
+
+Then we computed the VIF coefficient to check the multicollinearity. 
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+#Then, we need to compute the VIF coefficient in order to see the degree of the multicollinearity that could affect our multiple regression model. 
+vif(lm.sel.prod) %>% kable(col.names = "VIF Coefficient") %>%  kable_styling(bootstrap_options = "striped")
+#VIF of population and residential is well too high, we remove these variables. 
+
+```
+
+
+VIF coefficient of population and Residential_cust is well too high, we remove these variables. 
+
+Then we trained the following model: 
+
+__Total_generation ~ GDP  + Commercial_cust + Industrial_cust__
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+production_model <- lm(Total_generation ~ GDP  +
+                       Commercial_cust + Industrial_cust, data = dat.tr)
+
+lm.sel.prod <- step(production_model, trace = FALSE) #we used the AIC to select a better model (GDP is removed) 
+
+lm.sel.prod %>%
+  tidy() %>%
+  select(-statistic) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    caption = "Total_generation ~ GDP + Commercial_cust + Industrial_cust",
+    digits = 3,
+    col.names = c("Parameter", "Estimate", "Standard Error", "P.value")
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+
+Again, we compute the VIF coefficient.
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+vif(lm.sel.prod) %>% kable(col.names = "VIF Coefficient") %>%  kable_styling(bootstrap_options = "striped")# #Then, we need to compute the VIF coefficient in order to see the degree of the multicollinearity that could affect our multiple regression model.
+
+#VIF is a bit too much for GDP and Commercial_cust, we remove this last one
+```
+
+
+But the VIF coefficients were still to large for GDP (9.05) and Commercial_cust (9.17). We decided to remove the variable Commercial_cust. 
+
+Again, we train the following model: 
+
+__Total_generation ~ GDP  + Industrial_cust__
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+production_model <- lm(formula = Total_generation ~ GDP  + Industrial_cust, data = dat.tr)
+lm.sel.prod <- step(production_model, trace = FALSE) # 
+
+lm.sel.prod %>%
+  tidy() %>%
+  select(-statistic) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    caption = "Total_generation ~ GDP + Industrial_cust",
+    digits = 3,
+    col.names = c("Parameter", "Estimate", "Standard Error", "P.value")
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+Our VIF coefficients are good enough as we can see below. 
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+
+#Then, we need to compute the VIF coefficient in order to see the degree of the multicollinearity that could affect our multiple regression model. The VIF is now good but R-squared of 0.593 is not good enough. 
+vif(lm.sel.prod) %>% kable(col.names = "VIF Coefficient") %>%  kable_styling(bootstrap_options = "striped")
+
+```
+
+We compute the R-Squared of the model.
+
+```{r r-squared2, warning=FALSE, message=FALSE, echo=FALSE}
+glance(lm.sel.prod) %>% select("r.squared", "adj.r.squared") %>% kable(
+  caption = "Total_generation ~ GDP + Industrial_cust: The R-Squared is well improved",
+  digits = 3,
+  col.names = c("R-Squared", "Adjusted R-Squared")
+) %>%   kable_styling(bootstrap_options = "striped")
+```
+
+The R-Squared of 0.593 is really weak (Table \@ref(tab:r-squared2)).  
+
+In order to improve the R-Squared and instead of removing the Commercial_cust, we removed the GDP and retrained the following model:
+
+__Total_generation ~ Commercial_cust + Industrial_cust__
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+#We try a new model. 
+#We choose the following model because the R-squared is better
+production_model2 <- lm(formula = Total_generation ~
+                        Commercial_cust + Industrial_cust,
+                        data = dat.tr)
+
+lm.sel.prod2 <-step(production_model2, trace = FALSE) 
+
+lm.sel.prod2 %>%
+  tidy() %>%
+  select(-statistic) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    caption = "Total_generation ~ Commercial_cust + Industrial_cust",
+    digits = 3,
+    col.names = c("Parameter", "Estimate", "Standard Error", "P.value")
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE}
+vif(lm.sel.prod2) %>% kable(col.names = "VIF Coefficient") %>%  kable_styling(bootstrap_options = "striped")
+```
+
+
+```{r r-squared3, warning=FALSE, message=FALSE, echo=FALSE}
+glance(lm.sel.prod2) %>% select("r.squared", "adj.r.squared") %>% kable(
+  caption = "Total_generation ~ Commercial_cust + Industrial_cust: The R-Squared is well improved",
+  digits = 3,
+  col.names = c("R-Squared", "Adjusted R-Squared")
+) %>%   kable_styling(bootstrap_options = "striped")
+
+```
+
+
+We finally found a new R-Squared of 0.736 which is much better (Table \@ref(tab:r-squared3)). Also, the VIF coefficients for this model are correct (< 5) so we can select the following model to predict energy production: 
+
+__Total_generation ~ Commercial_cust + Industrial_cust__
+
+
+### Predicting the model 
+
+In this part, we plotted the two following models and their predictions:
+
+__Total_generation ~ GDP  + Industrial_cust__
+
+
+```{r model1, fig.cap="Total_generation ~ GDP + Industrial_cust", fig.width = 11, warning=FALSE, message=FALSE, echo=FALSE}
+lm.sel.prod.pred <- dat.te %>%
+  add_predictions(lm.sel.prod, var = "pred.prod") %>%
+  add_residuals(lm.sel.prod, var = "resid.prod")
+
+ggplot(lm.sel.prod.pred, aes(x = Total_generation, y = pred.prod)) + geom_point() +
+  geom_smooth(method = "lm", se = FALSE, col = "red") +  labs(
+    x = "Observed values",
+    y = "Predicted values",
+    title = "The prediction model of the electricity production is quite good but some values stand out ",
+    width = 60
+  )
+```
+
+__Total_generation ~ Commercial_cust + Industrial_cust__
+
+```{r model2, fig.cap="Total_generation ~ Commercial_cust + Industrial_cust", fig.width = 11, warning=FALSE, message=FALSE, echo=FALSE}
+lm.sel.prod2.pred <- dat.te %>%
+  add_predictions(lm.sel.prod2, var = "pred.prod") %>%
+  add_residuals(lm.sel.prod2, var = "resid.prod")
+
+
+ggplot(lm.sel.prod2.pred, aes(x = Total_generation, y = pred.prod)) + geom_point() +
+  geom_smooth(method = "lm", se = FALSE, col = "red") +  labs(
+    x = "Observed values",
+    y = "Predicted values",
+    title = "The prediction model of the electricity production is better with this model ",
+    width = 60
+  )
+```
+
+We can see that predictions are more linear in Figure \@ref(fig:model2) than in Figure \@ref(fig:model1)
+
+
+### Scoring the models
+
+We need to confirm the R-squared results by scoring the RMSE of our two models. 
+
+```{r score-model1, warning=FALSE, message=FALSE, echo=FALSE}
+(rmse.lm1 <-
+    sqrt(mean((dat.te$Total_generation - lm.sel.prod.pred$pred.prod) ^ 2
+    )) %>% kable(caption = "RMSE score for Total_generation ~ GDP  + Industrial_cust", col.names = "RMSE") %>% kable_styling(bootstrap_options = "striped")
+)
+```
+
+
+```{r score-model2, warning=FALSE, message=FALSE, echo=FALSE}
+(rmse.lm2 <-
+    sqrt(mean((dat.te$Total_generation - lm.sel.prod2.pred$pred.prod) ^ 2
+    )) %>% kable(caption = "RMSE score for Total_generation ~ Commercial_cust  + Industrial_cust", col.names = "RMSE") %>% kable_styling(bootstrap_options = "striped")
+)
+```
+
+
+RMSE can confirmed the result of the R-Squared. Second model RMSE (Table \@ref(tab:score-model2)) is lower than the first one (Table \@ref(tab:score-model1)) so we select it. 
+
+Our final prediction model for electricity production is Total_generation ~ Commercial_cust + Industrial_cust. 
+
+Thus, the more the commercial and industrial customers, the more important is the electricity consumption. 
+
+The R-squared coefficient of our final regression (model 2) is R2 = 73.6 % (Table \@ref(tab:r-squared3)). 
+
+This means that our model is able to explain 73.6 % of the variations of the variable "Total_generation" in this dataset.
+
+As a conclusion, we can say that in order to predict electricity consumption, we have to predict the electricity production. 
+Our prediction model for energy production is less accurate than for the consumption model. Nevertheless, our models are meaningful and confirm the patterns found in the exploratory data analysis of the electricity consumption. Moreover, we could have been more accurate by choosing more variables but it would not have been possible without having a lot of multicollinearity. 
+
+
+## Prediction of the electricity price
+
+In this part, we will simulate the annual price of electricity by state.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+prop_Coal <- Generation_model %>%
+  filter(Energy_Source == "Coal") %>%
+  transmute(prop_coal = prop)
+
+prop_Gas <- Generation_model %>%
+  filter(Energy_Source == "Gas") %>%
+  transmute(prop_gas = prop)
+
+prop_Renewable <- Generation_model %>%
+  filter(Energy_Source == "Renewable") %>%
+  transmute(prop_renewable = prop)
+
+final_model <- full_join(prop_Coal, prop_Gas, by = c("State", "Year"))
+final_model <-
+  full_join(final_model, prop_Renewable, by = c("State", "Year")) %>%
+  mutate(
+    prop_coal = if_else(is.na(prop_coal), 0, prop_coal),
+    prop_gas = if_else(is.na(prop_gas), 0, prop_gas),
+    prop_renewable = if_else(is.na(prop_gas), 0, prop_gas)
+  )  
+
+final_model2 <- electricity_state_info %>%
+  select(Year, State, region, price_cents_kwh, autosuf) %>%
+  rename(state = State) %>%
+  inner_join(bestprod, by = ("state"))
+
+final_model <-
+  inner_join(final_model, final_model2, by = c("State", "Year"))
+rm(final_model2)
+
+final_model <- final_model %>%
+  select(Year:price_cents_kwh)
+
+```
+
+First, we nested our data set with the code below :
+
+```{r message=FALSE, warning=FALSE}
+model1_nested <- final_model %>%
+  group_by(state) %>%
+  nest()
+
+region_model <- model1_nested %>%
+  mutate(model = map(
+    data,
+    ~ lm(
+      formula = price_cents_kwh ~ prop_coal + prop_gas + prop_renewable,
+      data = .x
+    )
+  ))
+```
+
+We use the following variables:
+
+* price_cents_kwh
+* prop_coal
+* prop_gas
+* prop_renewable
+
+For many states, the predictive capabilities of our model are very poor: 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#Evaluating the models
+region_glance <- region_model %>% 
+  mutate(coef=map(model,~glance(.x))) %>% 
+  unnest(coef) %>% 
+  select(state, adj.r.squared, p.value)%>% 
+  mutate_if(is.numeric, round, digits = 4)
+#Filtering the bad model above 0.05
+region_glance %>% 
+  filter(p.value > 0.05) %>% 
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable() %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  scroll_box(height = "300px")
+
+#Creating a list in order to analyse those bad models 
+bad_model <- region_glance %>%
+  filter(p.value > 0.05) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  select(state) %>%
+  as.vector()
+
+#Reshaping the `region_glance` without bads models
+region_glance <- region_glance %>%
+  anti_join(bad_model)
+```
+
+Despite a significant p.value, we also notice that several models have a very low adj.r.squared as we can see in Table \@ref(tab:model-eval). This means that the predictive power is low. Thus we arbitrarily choose to select only states with an adj.r.squared greater than 0.80.
+
+```{r model-eval, echo = FALSE, warning=FALSE, message=FALSE}
+#We remark that the R squared adjusted is sometimes pretty bad 
+region_glance %>%
+  filter(p.value < 0.05) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  kable(
+    digits = 2,
+    format.args = list(decimal.mark = ',', big.mark = "'"),
+    caption = "Summary of the multilinear model [p.value < 0.05]"
+  ) %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  scroll_box(height = "300px")
+
+bad_model_r <- region_glance %>%
+  filter(adj.r.squared < 0.8) %>%
+  mutate(p.value = paste(round(p.value, 4), pval_star(p.value))) %>%
+  select(state) %>%
+  as.vector()
+
+bad_model <- rbind(bad_model, bad_model_r)
+```
+
+In the Figure \@ref(fig:residuals), we see that the residuals do not seem to reflect any pattern. 
+
+```{r residuals, fig.cap="High volatility in the residuals", echo=FALSE, height=7, message=FALSE, warning=FALSE}
+#Getting the fitted value compare to observed without the bad model 
+augment_model <- region_model  %>%
+  mutate(coef = map(model,  ~ augment(.x))) %>%
+  unnest(data, coef) %>%
+  select(state, Year, price_cents_kwh, .fitted, .resid) %>%
+  mutate_if(is.numeric, round, digits = 4) %>%
+  anti_join(bad_model)
+
+#Plotting all the residuals
+augment_model %>%
+  ggplot(aes(Year, .resid)) +
+  geom_line(aes(group = state), alpha = .8) +
+  geom_smooth(se = FALSE, col="red")  +
+  labs (
+    x = "Year",
+    y = "Residual",
+    title = "High volatility in the residuals",
+    subtitle = str_wrap("The quality of predictions decreases after 2015")
+  )
+```
+
+For these 14 states, the annual price of electricity is correctly predicted. The model reflects the upward trend of the price.
+
+```{r echo = FALSE, message=FALSE, warning=FALSE, fig.height=7, fig.width=12}
+#Getting the fitted values
+fitted_values <- augment_model %>%
+  select(state, Year, .fitted)
+
+augment_model %>%
+  group_by(state) %>%
+  ggplot(aes(Year)) +
+  geom_point(aes(Year, price_cents_kwh, color = "price"), color = "black") +
+  geom_line(data = fitted_values, aes(x = Year, y = .fitted), color = "red") +
+  facet_wrap(~ state, ncol = 4) +
+  scale_x_continuous(breaks = seq(2000, 2018, by = 2)) +
+  theme(axis.text.x = element_text(size = 8, angle = 90)) +
+  labs (
+    x = "",
+    y = "Price per KWh [$]",
+    title = "Final model",
+    subtitle = str_wrap("Our model is fitting only 14 states with a sufficient quality")
+  )
+
+
+# save as widget
+# ggsave("model_price.png", plot = model_price)
+```
+
+Among the states where the model succeeds in predicting the annual energy price, there is no ratio that stands out. The proportion of production is very volatile from one state to another. In addition, they belong to different regions and have different characteristics (CO2 share, population, PIB, etc.)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+analysis <- Generation_model %>%
+  filter(Year == 2018) %>%
+  rename(state = State) %>%
+  anti_join(bad_model) %>%
+  select(state, Energy_Source, prop) %>%
+  group_by(Energy_Source) %>%
+  ggplot(aes(state, prop)) +
+  geom_col(aes(fill = Energy_Source), width = .7) +
+  labs (
+    x = "State",
+    y = "Share of production [%]",
+    title = "Production structure for states",
+    subtitle = str_wrap(
+      "Ano patterns are detected among the states correctly fited by our model "
+    )
+  ) +
+  theme(axis.text.x = element_text(
+    face = "bold",
+    color = "black",
+    size = 8,
+    angle = 45
+  )) + scale_fill_viridis_d(option = "D", begin = 0.3) 
+
+ggplotly(analysis, width = 800, height = 400)
+
+```
+
+### The limits of energy price prediction
+
+We can accurately predict the annual KWh price only for some states. For the rest, either the p.value is too high or the prediction capabilities are too low. It is very difficult to predict variables in the energy field. Indeed, there are many factors that influence the price of electricity  or the production (weather, economic situation, production structure, politics, etc.) 
+
+In addition, we only have access to annual data. This has severely limited our ability to make predictions. The grain used in this area of study is often in hours or minutes. 
+

@@ -1,0 +1,15 @@
+# Conclusion
+
+The aim of this project was to identify the variables that influence the generation, the consumption and the price of the electricity in United States.
+
+We have seen that the generation of electricity in American states is driven by the number of commercial and industrial customers. Concerning the electricity consumption, it is influenced by the energy production itself and the amount of commercial customers. Our prediction models are quite accurate and confirmed the results of our exploratory data analysis. About our models, we should not forget that lots of variables can explain the electricity consumption and production as we have seen during the eploratory data analysis, but we only used the most significant ones. 
+
+For the structure of the electricity production, we have seen that the energy mix varies tremendously from one region to another and from one state to another. We cannot determine whether a mix defines the price per KWh or not. However, power generation using coal and hydropower is correlated with low energy costs. In addition, KWh prices will be higher for states belonging to the following regions:
+
+- Middle Atlantic
+- New England
+- West Pacific
+
+Even if we considered to study the fluctuation of the electricity price for the next years, it turned out impossible to achieve a result. Therefore, it would be interesting to analyse accurate external data such as the weather, the cost price per KWh per energy, the political decisions, etc. Those aspects have a direct influence on the price of energy.    
+
+Finally, regarding the Californian state, we were able to model the average power per hour over a year. We see that renewable energies are subject to seasonality. The power of renewable energies is highly volatile, which makes them difficult to predict. For this reason, it is more difficult to predict these data in a very short term. 

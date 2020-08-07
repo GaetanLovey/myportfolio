@@ -1,0 +1,21 @@
+# Introduction
+
+**Overview, motivation and related work** 
+
+Nowadays, we are living in a society where electricity is a necessity good. We cannot imagine a life without it, we are totally aware that this kind of energy is constantly present in our daily routines. It contributes a lot to our life quality. 
+
+During our bachelor thesis, we worked on a subject in the field of electricity and especially on the theme of electric mobility and on the development of a business model for the generation of solar energy. We are really interested in the subject of energy and power generation. We would like to demonstrate some trends and factors that can influence energy consumption and its price. We will base our research on the American States. 
+
+
+**Initial questions** 
+
+In United States, the electricity can be produced by different manners and thus, comes from the following sources: coal, geothermal, hydroelectric conventional, natural gas, nuclear, biomass, gases, petroleum, pumped storage, solar thermal and photovoltaic, wind, wood and wood derived fuels, and others. Those different sources compose the structure of the electricity production in US.
+
+The first part of our project will consist in analyzing the structure of electricity consumption and its production per state in United States. This phase will be essential for identifying patterns and variables that are playing a role in the electricity production and in the electricity consumption, knowing that the price of energy in US depends on its production and its delivery. 
+
+Then, thanks to social-economic aspects, we will find which variables are important to explain the production and the consumption of electricity and so the price itself. We will look for differences between states in terms of geography characteristics that could influence the energy consumption (weather or hours of sun for example).
+
+In the second phase of the project, we will create models to predict the consumption, the production and the price of electricity in US. We, therefore, assume that variables such as the structure of electricity production of the state, renewable part in the electricity production, temperature average (annual average) of the state and population density can influence its price. In addition, GDP and income per capita are very likely to influence electricity consumption.
+
+Finally, we would like to observe if investments in renewable energy production have an impact on the production or on the selling price of the electricity in California. We will analyse different kinds of renewable energy productions such as hydro and solar energy. The objective is to learn how the production curves behave. 
+

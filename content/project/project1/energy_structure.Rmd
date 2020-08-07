@@ -1,0 +1,822 @@
+# Energy structure
+
+In this section, we will explain the composition of electricity generation in the different regions of the United States. This phase will be essential for identifying patterns and variables that are playing a role in the electricity production and in the electricity pricing in US. 
+
+For this analysis we will mainly use the database `generation state`. In US, the electricity can be produced by different manners and thus comes from the following sources: coal, geothermal, hydroelectric conventional, natural gas, nuclear, other biomass, other gases, petroleum, pumped storage, solar thermal and photovoltaic, wind, wood and wood derived fuels and other. We will therefore cover these following themes:
+
+* US structure of the production 
+* Analysis of the price/KWh
+
+## US structure of the production
+### Overall power generation 
+
+```{r echo=FALSE, fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
+#Wrangling part for the energy structure
+
+new_generation_state <- generation_state %>%
+  filter(Type_of_Producer == "Total Electric Power Industry") %>%
+  filter(state != "US-TOTAL") %>%
+  filter(state != "US-Total") %>%
+  filter(Energy_Source != "Total")
+
+#Adding a new column to know which energy is the most used in each state
+best_prod <- new_generation_state %>%
+  group_by(state, Energy_Source) %>%
+  summarise(sum = sum(Generation_mWh)) %>%
+  arrange(state, desc(sum)) %>%
+  top_n(1, wt = sum) %>%
+  mutate(best_prod = Energy_Source) %>%
+  select(state, best_prod)
+
+new_generation_state <-  full_join(new_generation_state, best_prod)
+#Looking for all kinds of production
+type_of_productions <- new_generation_state %>%
+  group_by(Energy_Source) %>%
+  count(Energy_Source) #13 different types of production
+  
+#Regrouping energy structure into 6 parts
+new_generation_6cat <- new_generation_state %>%
+  transmute(
+    Year,
+    state,
+    region,
+    Type_of_Producer,
+    Energy_Source = recode(
+      Energy_Source,
+      "Natural Gas" = "Gas",
+      "Other Gases" = "Gas",
+      "Hydroelectric Conventional" = "Hydroelectric",
+      "Pumped Storage" = "Hydroelectric",
+      "Geothermal" = "Renewable",
+      "Other" = "Renewable",
+      "Other Biomass" = "Renewable",
+      "Solar Thermal and Photovoltaic" = "Renewable",
+      "Wind" = "Renewable",
+      "Wood and Wood Derived Fuels" = "Renewable"
+    ),
+    Generation_mWh,
+    best_prod
+  )
+
+
+#Displaying the part of energy without any carbon per region
+new_generation_CO2 <- new_generation_6cat %>%
+  transmute(
+    Year,
+    state,
+    region,
+    Aspect = recode(
+      Energy_Source,
+      "Gas" = "no_renewable",
+      "Hydroelectric" = "renewable",
+      "Renewable" = "renewable",
+      "Coal" = "no_renewable",
+      "Nuclear" = "no_renewable",
+      "Petroleum" = "no_renewable"
+    ),
+    Generation_mWh
+  )
+
+
+new_generation_state <-  full_join(new_generation_state, best_prod)
+
+#Regrouping energy structure into 6 parts
+new_generation_6cat <- new_generation_state %>%
+  transmute(
+    Year,
+    state,
+    region,
+    Type_of_Producer,
+    Energy_Source = recode(
+      Energy_Source,
+      "Natural Gas" =
+        "Gas",
+      "Other Gases" = "Gas",
+      "Hydroelectric Conventional" = "Hydroelectric",
+      "Pumped Storage" = "Hydroelectric",
+      "Geothermal" =
+        "Renewable",
+      "Other" = "Renewable",
+      "Other Biomass" = "Renewable",
+      "Solar Thermal and Photovoltaic" = "Renewable",
+      "Wind" = "Renewable",
+      "Wood and Wood Derived Fuels" = "Renewable"
+    ),
+    Generation_mWh,
+    best_prod
+  )
+
+#Creating a new varaiable indicating which energy is the most used in the state 
+bestprod <- new_generation_6cat %>%
+  group_by(state, Energy_Source) %>%
+  summarise(sum = sum(Generation_mWh)) %>%
+  arrange(state, desc(sum)) %>%
+  top_n(1, wt = sum) %>%
+  mutate(best_prod = Energy_Source, State = state) %>%
+  select(State, best_prod)
+
+#Displaying the part of energy without any carbon per region
+new_generation_CO2 <- new_generation_6cat %>%
+  transmute(
+    Year,
+    state,
+    region,
+    Aspect = recode(
+      Energy_Source,
+      "Gas" = "no_renewable",
+      "Hydroelectric" = "renewable",
+      "Renewable" = "renewable",
+      "Coal" = "no_renewable",
+      "Nuclear" = "no_renewable",
+      "Petroleum" = "no_renewable"
+    ),
+    Generation_mWh
+  )
+
+
+#Creating the final data frame with all the information needed to finish this part. 
+gen1 <- new_generation_6cat %>%
+  select(Year, state, region, Energy_Source:Generation_mWh) %>%
+  group_by(Energy_Source, Year, state) %>%
+  summarise(Generation_mWh = sum(Generation_mWh)) 
+
+gen2 <- gen1 %>%
+  group_by(state, Year) %>%
+  summarise(total = sum(Generation_mWh))
+
+prop_Gen <- inner_join(gen1, gen2) %>%
+  mutate(prop = (Generation_mWh / total)) %>%
+  mutate_if(is.numeric, round, digits = 2) %>%
+  filter(between(Year, 2002, 2018)) %>%
+  group_by(Year, state) %>%
+  rename(State = state)
+
+prop_gen_2 <- electricity_state_info %>%
+  select(Year:region,
+         Total_cust,
+         price_cents_kwh,
+         Total_compsum_MWh,
+         autosuf)
+
+Generation_model <- inner_join(prop_Gen, prop_gen_2)
+rm(gen1, gen2)
+rm(prop_Gen, prop_gen_2)
+```
+
+In order to simplify our analysis, we group the types of production into 6 categories as in the Table \@ref(tab:energy-category).
+
+```{r  energy-category, echo=FALSE, fig.height=5, fig.width=10, message=FALSE, warning=FALSE}
+new_generation_6cat %>%
+  count(Energy_Source) %>%
+  select(Energy_Source) %>%
+  kable(
+    digits = 2,
+    format.args = list(decimal.mark = ',', big.mark = "'"),
+    caption = "Categories of power generation"
+  ) %>%
+  kable_styling(bootstrap_options = "striped")
+```
+
+As we can see in the Figure \@ref(fig:structure-evolution), the vast majority of electricity in the United States is still generated from non-renewable energy sources. However, the production of electricity by burning oil has been almost completely abandoned. In 2018, the production of renewable energy reached almost 500,000 GWh.
+
+Finally, the main trend that emerges from this graph is that the country is reducing its electricity production from coal and replacing it by electricity from the combustion of natural gas. Indeed, the United States has huge reserves of natural gas and its exploitation has intensified over the last two decades. However, it remains a very polluting energy. 
+
+```{r structure-evolution, fig.cap="Evolution of US energy mix", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE, results= "asis"}
+structure_evolution <- new_generation_6cat %>%
+  group_by(Year, Energy_Source) %>%
+  filter(Generation_mWh > 0) %>%
+  summarise(total_TWh = sum((Generation_mWh / 1000000))) %>%
+  ggplot(aes(Year, weight = total_TWh, fill = Energy_Source)) +
+  geom_area(stat = "bin", binwidth = 1) +
+  scale_fill_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(1990 , 2018, by = 1)) +
+  ggpubr::rotate_x_text(angle = 30) +
+  theme(
+    axis.text.x = element_text(
+      face = "bold",
+      color = "black",
+      size = 8,
+      angle = 45
+    ),
+    axis.text.y = element_text(face = "bold", size = 8),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_y_continuous(
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE),
+    limits = c(0, 5000)
+  ) +
+  labs (
+    x = "Year",
+    y = "Total Generation [TWh]",
+    title = "Evolution of US energy mix",
+    subtitle = str_wrap("Decarbonized energies are still in the minority.")
+  )+scale_fill_viridis_d(option = "D", begin = 0.3) 
+
+ggplotly(structure_evolution,tooltip = FALSE, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.2,
+  x = 0
+))
+
+# save as widget
+# htmlwidgets::saveWidget(as.widget(structure_global), file = "structure_global.html")
+```
+
+
+```{r fig.height=6, fig.width=12, warning=FALSE, message=FALSE, echo=FALSE}
+#Proportion in 2018 
+new_generation_6cat %>%
+  mutate(Year = as.character(Year)) %>%
+  group_by(Year, Energy_Source) %>%
+  filter(Generation_mWh > 0) %>%
+  summarise(total_TWh = sum((Generation_mWh / 1000000))) %>%
+  filter(Year == 2018) %>%
+  arrange(desc(total_TWh)) %>%
+  kable(
+    digits = 2,
+    format.args = list(decimal.mark = ',', big.mark = "'"),
+    caption = "Structure of electricity generation [2018]"
+  ) %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  scroll_box(height = "300px")
+
+```
+
+Electricity produced from gas accounted for 35% of total production in 2018 while electricity produced from coal accounted for 28%. The share of other energies is stagnating. Finally, the main information is that gas is substituting coal. The decline of coal is partly due to the climate policy of the Obama administration. 
+
+According to this article in the New York Times [see the article of @matthew_l_wald_study_nodate], the proportion of electricity from shale gas should reach about 40% in the American energy mix. The trend that we see in Figure  \@ref(fig:unit-evolution) is expected to continue. Unfortunately, this trend does not allow to fight against CO2 emissions in order to achieve the Paris agreements. 
+
+```{r unit-evolution, echo=FALSE, fig.cap="Evolution of the different generation categories", fig.width=2.5, message=FALSE, warning=FALSE}
+#Observing the variation of the proportion of each energy source
+prop_data <- Generation_model %>%
+  select(Energy_Source, Year, prop, region) %>%
+  group_by(Year, Energy_Source) 
+
+prop1 <- new_generation_6cat %>%
+  select(Year, Energy_Source:Generation_mWh) %>%
+  group_by(Energy_Source, Year) %>%
+  summarise(Generation_mWh = sum(Generation_mWh)) 
+
+prop2 <- prop1 %>%
+  group_by(Year) %>%
+  summarise(total = sum(Generation_mWh))
+
+prop3 <- inner_join(prop1, prop2) %>%
+  mutate(prop = (Generation_mWh / total)) %>%
+  mutate_if(is.numeric, round, digits = 2) %>%
+  filter(between(Year, 2002, 2018)) %>%
+  group_by(Year) %>%
+  select(Energy_Source, prop)
+
+prop3 <- prop3 %>%
+  spread(Energy_Source, prop)
+
+prop <- highchart() %>%
+  hc_xAxis(categories = prop3$Year) %>%
+  hc_add_series(name = "Coal",
+                data = prop3$Coal) %>%
+  hc_add_series(name = "Renewable",
+                data = prop3$Renewable) %>%
+  hc_add_series(name = "Gas",
+                data = prop3$Gas) %>%
+  hc_add_series(name = "Petroleum",
+                data = prop3$Petroleum) %>%
+  hc_add_series(name = "Nuclear",
+                data = prop3$Nuclear) %>%
+  hc_add_series(name = "Hydroelectric",
+                data = prop3$Hydroelectric) %>%
+  hc_title(
+    text = "Evolution of the different sources of electricity generation",
+    margin = 20,
+    align = "left",
+    style = list(color = "steelblue")
+  ) %>%
+  hc_subtitle(
+    text = "Coal and gas account for nearly 2/3 of total electricity production ",
+    align = "left",
+    style = list(color = "#2b908f",
+                 fontWeight = "bold")
+  ) %>%
+  hc_credits(enabled = TRUE,
+             # add credits
+             text = "U.S. Energy Information Administration (eia)",
+             href = "https://www.eia.gov/") %>%
+  hc_legend(
+    align = "right",
+    verticalAlign = "top",
+    layout = "vertical",
+    x = 0,
+    y = 100
+  ) %>%
+  hc_tooltip(
+    crosshairs = TRUE,
+    backgroundColor = "#FCFFC5",
+    shared = TRUE,
+    borderWidth = 4
+  ) %>%
+  hc_exporting(enabled = TRUE) %>%
+  hc_yAxis(
+    title = list(text = "Proportion of the total production"),
+    opposite = TRUE,
+    minorTickInterval = "auto",
+    minorGridLineDashStyle = "LongDashDotDot",
+    showFirstLabel = FALSE,
+    showLastLabel = FALSE
+  ) %>%
+  hc_xAxis(title = list(text = "Year"),
+           opposite = FALSE)
+
+prop
+
+```
+
+### Analysis of the CO2 neutral production 
+
+We can see a slight increase in the production of electricity from renewable sources when production from non-renewables stagnates. In addition, total consumption seems to have stagnated in recent years. It is even very likely to see a sharp decrease due to the coronavirus crisis in 2020. It is a good starting point because before producing green energy, we need also to reduce our energy consumption.
+
+Between 1990 and 2018, renewable electricity generation increased by 87%. So in the Figure \@ref(fig:total-power-gen), we find the same imbalance between renewable and non-renewable energy. We will therefore compare the proportion of renewable electricity generation with the price of energy in order to detect whether investments in renewable energy influence the price of energy.
+
+```{r total-power-gen, fig.cap="Total power generation", echo=FALSE, message=FALSE, warning=FALSE, fig.height=2, fig.width=7}
+US_CO2 <- new_generation_CO2 %>%
+  group_by(Aspect, Year) %>%
+  summarise(Generation_TWh = sum(Generation_mWh / 1000000)) %>%
+  mutate_if(is.numeric, round, digits = 1) 
+
+US_CO2$Year <- as.numeric(gsub(",", "", US_CO2$Year))
+US_CO2$Year <- as.numeric(US_CO2$Year)
+US_CO2$Generation_TWh <- as.numeric(US_CO2$Generation_TWh)
+
+
+CO2 <- US_CO2 %>%
+  group_by(Aspect) %>%
+  ggplot(aes(Year, Generation_TWh)) +
+  geom_col(aes(fill = Aspect), width = .7) +
+  labs (
+    x = "Year",
+    y = "Total Generation [TWh]",
+    title = "Total power generation",
+    subtitle = str_wrap("Annual production increased until 2007 and then stabilized.")
+  ) +
+  theme(
+    axis.text.x = element_text(
+      face = "bold",
+      color = "black",
+      size = 8,
+      angle = 45
+    ),
+    axis.text.y = element_text(face = "bold", size = 8),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  scale_y_continuous(
+    breaks = seq(0 , 6000 , by = 500),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE),
+    limits = c(0, 5500)
+  ) +
+  scale_x_continuous(breaks = seq(1990 , 2018, by = 1)) +
+  ggpubr::rotate_x_text(angle = 30) + scale_fill_viridis_d(option = "D", begin = 0.3) 
+
+ggplotly(CO2,  width = 800, height = 400)
+
+# save as widget
+# htmlwidgets::saveWidget(as.widget(total_generation), file = "total_generation.html")
+```
+In 2018, about 4,000 TWh were generated at utiliy-scale electricity generation facilities in the United States. Only 20.6% was from renewable energy sources. Finally, since 2007, the production of electricity from non renewable energy sources has descreased by 10%.
+
+
+### CO2 analysis by region 
+
+As with the social and economic aspects, energy production differs from regions. The West Pacific region has been at the forefront of renewable energy production for decades. The West Mountain, West South Central and West North Central Regions are beginning their ecological transition (Figure \@ref(fig:region-renew)).
+
+Other regions make very little effort. For example, the curves for the New England, Middle Atlantic and East South Central regions are stagnating. They are big producers of electricity produced by gas.
+
+```{r region-renew, fig.cap="Comparison between renewable and non-renewable electricity generation per region", echo=FALSE, warning=FALSE, message=FALSE}
+regionCO2 <- new_generation_CO2 %>%
+  group_by(region, Aspect, Year) %>%
+  transmute(Generation_TWh = (Generation_mWh / 1000000)) %>%
+  summarise(Generation_TWh = sum(Generation_TWh)) %>%
+  mutate_if(is.numeric, round, digits = 1) %>%
+  ggplot(aes(x = Year, y = Generation_TWh, color = Aspect)) +
+  geom_line(size = .5) +
+  scale_y_continuous(
+    breaks = seq(0 , 4000 , by = 200),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+  ) +
+  scale_x_continuous(breaks = seq(1990, 2018, by = 5)) +
+  theme(
+    axis.text.x = element_text(
+      face = "bold",
+      color = "black",
+      size = 8,
+      angle = 45
+    ),
+    axis.text.y = element_text(face = "bold", size = 8),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  ggpubr::rotate_y_text(angle = 90) +
+  coord_flip(ylim = c(2500, 4000)) %>%
+  labs (
+    x = "",
+    y = "Total electricity consumption [TWh]",
+    title = "Renewable and non-renewable electricity ",
+    subtitle = str_wrap(
+      "big difference between regions, especially in the Western Pacific "
+    )
+  ) +
+  scale_color_discrete(name = "Generation",
+                       labels = c("No renewable", "Renewable")) +
+  facet_wrap(~ region)
+  
+ggplotly(regionCO2, width = 800, heigth = 400)%>% layout(legend = list(
+  orientation = "h",
+  y = -0.1,
+  x = 0), labels=list(x = -0.3, y =0))
+
+```
+
+### Structure of the production 
+
+Among regions, there are also great differences in the structure of production. The regions of South Atlantic, West South Central and East North Central are those who produce the most (see Figure \@ref(fig:region-structure)). They also make massive use of gas, coal and nuclear power.
+
+The regions of West Mountain, West North Central, West Pacific and West South Central seem to produce more CO2-free electricity. In 2018, the West Pacific region produced more than 144,297 GWh. It is a highly developed hydropower region compared to other regions. For example, in Switzerland the total amount of hydroelectric production was 36,449 GWh in 2018 [see the website of @office_federal_de_lenergie_ofen_force_nodate].
+
+```{r region-structure, fig.cap="Structure of electricity production among states", message=FALSE, warning=FALSE, echo=FALSE,results="asis", fig.width=2.5}
+
+total_data <- new_generation_6cat %>% 
+  group_by(Year, Energy_Source, region) %>% 
+  filter(Generation_mWh >0) %>% 
+  summarise(total_GWh = sum((Generation_mWh/1000)))%>% 
+  mutate_if(is.numeric, round, digits = 1)
+
+gen_stata <- new_generation_6cat %>% 
+  filter(Year == "2018") %>% 
+  transmute(region = recode(region,
+                            "East North Central"="East NC",
+                            "East South Central" = "East SC",
+                            "Middle Atlantic" = "Midl. ATl.",
+                            "New England" = "New Eng",
+                            "South Atlantic" = "South ATl.",
+                            "West Mountain"= "West Moun.",
+                            "West North Central" = "West NC",
+                            "West Pacific" = "West Pac.",
+                            "West South Central" = "West SC"), 
+            Energy_Source, Generation_GWh = (Generation_mWh/1000)) %>% 
+  group_by(region,Energy_Source) %>%
+  arrange(desc(Generation_GWh)) %>% 
+  summarise(Generation_GWh = sum(Generation_GWh)) 
+
+region_structure <-
+  ggplot(gen_stata,
+         aes(fill = Energy_Source, y = Generation_GWh, x = region)) +
+  geom_bar(position = "dodge", stat = "identity") + labs (
+    x = "Region",
+    y = "Generation in GWh",
+    title = "Structure of electricity production among states",
+    subtitle = str_wrap("")
+  ) + ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 30) +
+  scale_fill_viridis_d(option = "D", begin = 0.3) 
+
+ggplotly(region_structure, width = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0
+))
+
+# save as widget
+# htmlwidgets::saveWidget(as.widget(region_structure), file = "region_structure.html")
+```
+
+We will therefore analyse whether, in the different regions, price variation is correlated with energy mix.
+
+## Analysis of the price per KWh
+
+### Evolution of the price by state
+
+With the exception of the New England and West Pacific region, since 2014, the price of electricity has been stabilized on average. Using the previous graphic, we can see that regions with low coal use have on average higher electricity prices. 
+
+```{r region-price, fig.cap="Evolution of the price of the electricity by region", echo=FALSE, message=FALSE, warning=FALSE,  results="asis", fig.width=2.5}
+price_trend <- electricity_state_info %>%
+  select(Year, State, price_cents_kwh, region) %>%
+  group_by(region, Year) %>%
+  summarise(avg_price_region = mean(price_cents_kwh)) %>%
+  mutate_if(is.numeric, round, digits = 3) 
+
+price_trend <- price_trend %>%
+  spread (region, avg_price_region)
+
+price_trend_plot <- highchart() %>%
+  hc_xAxis(categories = price_trend$Year) %>%
+  hc_add_series(name = "East North Central",
+                data = price_trend$`East North Central`) %>%
+  hc_add_series(name = "East South Central",
+                data = price_trend$`East South Central`) %>%
+  hc_add_series(name = "Middle Atlantic",
+                data = price_trend$`Middle Atlantic`) %>%
+  hc_add_series(name = "New England",
+                data = price_trend$`New England`) %>%
+  hc_add_series(name = "South Atlantic",
+                data = price_trend$`South Atlantic`) %>%
+  hc_add_series(name = "West North Central",
+                data = price_trend$`West North Central`) %>%
+  hc_add_series(name = "West Pacific",
+                data = price_trend$`West Pacific`) %>%
+  hc_add_series(name = "West South Central",
+                data = price_trend$`West South Central`) %>%
+  hc_add_series(name = "West Mountain",
+                data = price_trend$`West Mountain`) %>%
+  hc_title(
+    text = "Evolution of the price of the electricity by region",
+    margin = 20,
+    align = "left",
+    style = list(color = "steelblue")
+  ) %>%
+  hc_subtitle(
+    text = "Regions of West Pacific, West Atlantic and New England have a higher price",
+    align = "left",
+    style = list(color = "#2b908f",
+                 fontWeight = "bold")
+  ) %>%
+  hc_credits(enabled = TRUE,
+             # add credits
+             text = "U.S. Energy Information Administration (eia)",
+             href = "https://www.eia.gov/") %>%
+  hc_legend(
+    align = "right",
+    verticalAlign = "top",
+    layout = "vertical",
+    x = 0,
+    y = 100
+  ) %>%
+  hc_tooltip(
+    crosshairs = TRUE,
+    backgroundColor = "#FCFFC5",
+    shared = TRUE,
+    borderWidth = 4
+  ) %>%
+  hc_exporting(enabled = TRUE) %>%
+  hc_yAxis(
+    title = list(text = "Price [cents per KWh]"),
+    opposite = TRUE,
+    minorTickInterval = "auto",
+    minorGridLineDashStyle = "LongDashDotDot",
+    showFirstLabel = FALSE,
+    showLastLabel = FALSE
+  ) %>%
+  hc_xAxis(title = list(text = "Year"),
+           opposite = FALSE)
+
+price_trend_plot
+
+# save as widget
+# htmlwidgets::saveWidget(as.widget(price_trend_plot), file = "price_trend_plot.html")
+```
+
+### Map of the electricity price by state
+
+The next table allows us to search by state the energy mix and the price of electricity in 2018.
+
+```{r kable-price, echo=FALSE, message=FALSE, warning=FALSE}
+kablinteract<- Generation_model %>%
+  select(Energy_Source:State, prop, price_cents_kwh) %>% 
+  filter(Year == 2018) %>% 
+  top_n(10, prop) %>% 
+  group_by(State) %>% 
+  arrange((State)) %>%  
+  mutate_each(funs(prettyNum(., big.mark=","))) %>% 
+  mutate_if(is.numeric, round, digits = 1)
+
+kablinteract$Year <- as.numeric(gsub(",","",kablinteract$Year))
+kablinteract$Year <- as.numeric(kablinteract$Year)
+
+library(DT)
+datatable(kablinteract, options = list(pageLength = 10), caption ="Evolution of the price of the electricity by region")
+```
+
+**Disparities among the states** 
+
+There is a wide disparity in energy prices between states. Hawaii is clearly an outlier. This price of 26 cents per KWh is certainly explained by the geographical location of the island.
+
+An interesting point emerges here. The states with the highest price (> 0.13) generate little or no electricity produced from coal. We can check this manually in the table showing the evolution of the price by region.   Moreover, we can demonstrate it thanks to the Figure \@ref(fig:bar-price).
+
+```{r map-price, fig.cap="Price of the KWh by state [mean 2005-2018]", echo=FALSE, message=FALSE, warning=FALSE, fig.width=2.5}
+map_price <- electricity_state_info %>%
+  select(Year, price_cents_kwh, State) %>%
+  filter(between(Year, 2015, 2018)) %>%
+  group_by(State) %>%
+  summarise(price_mean = mean(price_cents_kwh)) %>%
+  arrange(desc(price_mean))
+
+
+map_price <- merge(map_price, statepop, by = "State")
+map_price <- merge(map_price, mapdata,  by = "abbr")
+
+hcmap(
+  "countries/us/us-all",
+  data = map_price,
+  value = "price_mean",
+  joinBy = c("hc-a2", "abbr"),
+  name = "map_price",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "white",
+  borderWidth = 0.1,
+  tooltip = list(valueDecimals = 2, valuePrefix = "cents/kWh ")
+) %>%
+  hc_title(text = "Price of the KWh by state [mean 2005-2018]") %>%
+  hc_colorAxis(minColor = "white", maxColor = "red")
+```
+
+
+Interesting information in the Figure \@ref(fig:bar-price):
+
+- Electricity production in Vermont is completely CO2 neutral. 
+- Hawaii produces 69% of its electricity from oil. 
+- We cannot say that there is a particular mix that favours high price. Only that low coal use is associated with a high price. 
+
+```{r bar-price, echo=FALSE, fig.cap="Energy mix for the states with the highest KWh price", fig.width=2.5, message=FALSE, warning=FALSE}
+high_price <- Generation_model %>%
+  filter(price_cents_kwh > 0.13,
+         Year == 2018) %>%
+  rename(state = State) %>%
+  select(state, Energy_Source, prop) %>%
+  group_by(Energy_Source) %>%
+  ggplot(aes(state, prop)) +
+  geom_col(aes(fill = Energy_Source), width = .7) +
+  labs (
+    x = "State",
+    y = "Share of production [%]",
+    title = "Energy mix for the states with the highest \nKWh price [>0.17 cents]",
+    subtitle = str_wrap(
+      "Some patterns are detected among the states correctly fitted by our model "
+    )
+  ) +
+  theme(axis.text.x = element_text(
+    face = "bold",
+    color = "black",
+    size = 8,
+    angle = 45
+  )) +scale_fill_viridis_d(option = "D", begin = 0.3) 
+
+ggplotly(high_price, width=800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.5,
+  x = 0))
+
+
+```
+
+### Characteristics that can influence the price of energy 
+
+**Energetic independence **
+
+With the binary variable `autosuf`, we categorize the states. If it produces more electricity than it consumes then it is sufficiency otherwise it is no_sufficiency. States that are not self-sufficient in energy have a higher price but also a higher variance (Figure \@ref(fig:autosuf-price)). We are removing the state of Hawaii because it is a major outlier.
+
+```{r autosuf-price, fig.cap="Price of electricity by group [without Hawaii]", echo=FALSE, message=FALSE, warning=FALSE, fig.width=2.5}
+#Removing the outliers 
+bowplot <- electricity_state_info %>%
+  transmute(autosuf = recode(autosuf, "1" = "sufficiency", "0" = "no_sufficiency"),
+            price_cents_kwh,
+            State) %>%
+  filter(State != "Hawaii") %>%
+  ggplot(aes(autosuf, price_cents_kwh)) +
+  geom_boxplot() +
+  theme(
+    axis.text.x = element_text(face = "bold", color = "black", size = 10),
+    axis.text.y = element_text(face = "bold", size = 8),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  labs (
+    x = "Self-sufficiency",
+    y = "Price[cents per KWh]",
+    title = "Price of electricity by group [without Hawaii]",
+    subtitle = str_wrap("")
+  )
+
+ggplotly(bowplot, dynamicTicks = TRUE) %>%
+  layout(hovermode = "x")
+
+
+```
+
+**Major source of production**
+
+We see that if the main energy used is coal or hydropower, the state in question will have an energy price of less than 10 cents. However, the use of gas, renewable or nuclear power will increase the price. In addition, if electricity is produced using oil, the price will skyrocket.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=2.5}
+best_prod <- inner_join(Generation_model, bestprod, by = ("State"))
+
+bowplotbestprod <- best_prod %>%
+  select(Year, region, price_cents_kwh, best_prod) %>%
+  ggplot(aes(best_prod, price_cents_kwh)) +
+  geom_boxplot() +
+  theme(
+    axis.text.x = element_text(face = "bold", color = "black", size = 10),
+    axis.text.y = element_text(face = "bold", size = 8),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  labs (
+    x = "Region",
+    y = "Price [cents per KWh]",
+    title = "Price of electricity by best source of electricity production",
+    subtitle = str_wrap("3 regions have a higher KWh price on average")
+  )
+
+ggplotly(bowplotbestprod, dynamicTicks = TRUE) %>%
+  layout(hovermode = "x")
+```
+
+**Pricing by region**
+
+For most regions, the price of electricity is very similar. But on the other hand, for the Middle Atlantic, New England and West Pacific regions, the price per KWh will be higher. We can therefore say that the region in which the state is located influences the price per KWh. 
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=2.5}
+bowplotRegion <- electricity_state_info %>%
+  transmute(
+    autosuf = recode(autosuf, "1" = "sufficiency", "0" = "no_sufficiency"),
+    price_cents_kwh,
+    region
+  ) %>%
+  ggplot(aes(region, price_cents_kwh)) +
+  geom_boxplot() +
+  theme(
+    axis.text.x = element_text(
+      face = "bold",
+      color = "black",
+      size = 10,
+      angle = 45
+    ),
+    axis.text.y = element_text(face = "bold", size = 8),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  labs (
+    x = "Region",
+    y = "Price [cents per KWh]",
+    title = "Price of electricity by region ",
+    subtitle = str_wrap("3 regions have a higher KWh price on average")
+  )
+
+ggplotly(bowplotRegion, dynamicTicks = TRUE) %>%
+  layout(hovermode = "x")
+
+```
+
+
+In the next graphics we detect slight trends. It is obvious that we cannot say that there is a causality between the variables below and the price of electricity. Nevertheless we will use these variables to build our model. 
+
+
+
+```{r proportion-energy,echo=FALSE, message=FALSE, warning=FALSE, fig.height=5, fig.width=8}
+Generation_model %>%
+  select(Energy_Source, prop, price_cents_kwh, State) %>%
+  filter(
+    Energy_Source != "Nuclear" &
+      Energy_Source != "Petroleum" &
+      Energy_Source != "Hydroelectric"
+  ) %>%
+  ggplot(aes(prop, price_cents_kwh)) +
+  geom_point(size = .5) +
+  geom_smooth(method = "lm", alpha = .5, col="red") +
+  facet_wrap(Energy_Source ~ ., nrow = 2, ncol = 2) +
+  xlim(0, .75) +
+  ylim(0, 0.35) +
+  theme(
+    axis.text.x = element_text(face = "bold", color = "black", size = 8),
+    axis.text.y = element_text(face = "bold", size = 8, angle = 90),
+    panel.grid.major = element_line(color = "grey", size = 0.1),
+    panel.grid.minor = element_line(color = "grey", size = 0.1)
+  ) +
+  labs (x = "Proportion in the mix",
+        y = "Price [cents per KWh]",
+        title = "Comparison between the price per KWh and the proportion of \nenergy type in the generation structure ")
+
+```
+
+**Coal**: 
+There is a trend. As the proportion of energy produced by coal increases, the price of electricity decreases. We decide to include this variable in our future prediction model.
+
+**Gas**: 
+There is also a trend. As the proportion of electricity produced using gas increases, the price of energy is also increasing.
+
+**Renewable**: 
+Finally, there is a lighter trend. The greater the development of renewable energy production, the higher the price per KWh. 
+
+## Conclusion
+
+It is difficult to predict the annual price. The factors that influence it are too important. In addition, it is a market where prices vary from minute to minute and working with annual data makes less sense. It is also necessary to take into account exchanges between neighbouring countries and also between states themselves.  
+
+However, we can see from our graphs that coal power generation is a key driver to lower the price. We can also see that the mixes between states and regions are very different and it is therefore difficult to define a ratio that exactly predicts the price per KWh.  
+
+

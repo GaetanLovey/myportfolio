@@ -1,0 +1,1292 @@
+# Electricity consumption in United States
+
+In this part, we will explain how social and economic aspects have an impact on the energy consumption. We choose to analyse the most recent values when we want to compare some characteristics to the energy consumption because it is well more representative of the current situation. Furthermore, the electricity consumption is not fluctating that much through the years. In our case, the most recent data are from 2018.
+
+During this exploratory data analysis, we aim to highlight some patterns that explain electricity consumption. We will therefore cover all of these following themes: 
+
+* Energy consumption
+* Population
+* Economy
+* Weather
+
+##  Energy consumption
+### Electricity consumption by states in 2018
+
+Firstly, we are interested in knowing the actual consumption of energy in United States along with its evolving during the last years. 
+
+In Figure \@ref(fig:consumption-state), we show the states that consume the most energy in 2018. Without any suprise, the classification looks like the same as the population and GDP classification per state that we will see later. This is obvious that the more populated is a state, the more energy is needed within.   
+
+```{r consumption-state, fig.cap="Electricity consumption by state in 2018", fig.height=7, fig.width=7, warning=FALSE, message=FALSE, echo=FALSE}
+#Plotting the electricity consumption by state in 2018
+electricity_cons <- electricity_state_info %>%
+  group_by() %>%
+  filter(Year == 2018) %>%
+  transmute(Year,
+            State,
+            region,
+            Total_consum_TWh = (Total_compsum_MWh / 1000000)) %>%
+  ggplot(aes(
+    x = reorder(State ,-Total_consum_TWh),
+    y = Total_consum_TWh,
+    fill = region
+  )) +
+  geom_bar(stat = "identity",
+           position = position_dodge(width = 0.8)) +
+  labs (
+    x = "State",
+    y = "Total consumption in TWh",
+    title = "Total electricity consumption by state",
+    subtitle = str_wrap("")
+  ) +
+  scale_x_discrete(na.translate = FALSE) +
+  ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 30) +
+  scale_fill_viridis_d(option  = "D") +
+  coord_flip()
+
+ggplotly(electricity_cons, height = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.2,
+  x = 0
+),
+title = list(
+  text = paste0(
+    'Electricity consumption by state in 2018',
+    '<br>',
+    '<sup>',
+    'Texas, California and Florida are the biggest consumers',
+    '</sup>'
+  )
+))
+```
+
+
+```{r map-consumption, fig.cap="Energy consumption per state [2018]", fig.height=7, fig.width=7, warning=FALSE, message=FALSE, echo=FALSE}
+#Downloading data in order to map different characteristics of american states
+mapdata <- get_data_from_map(download_map_data("countries/us/us-all")) %>% drop_na() %>% rename("abbr" = "postal-code")
+
+data("statepop") #downloading US states' name and abbreviation
+
+statepop <-  statepop %>%
+  transmute(fips, abbr, state = full)
+
+statepop <- rename(statepop, "State" = state)
+
+#Creating different dataframe to map data
+mapping1 <- state_info %>% filter(Year == 2018) %>%
+  select(State, population, GDP) %>%
+  group_by(State) %>%
+  full_join(statepop)
+
+mapping2 <- electricity_state_info %>%
+  filter(Year == 2018) %>%
+  select(State = State, Total_compsum_MWh) %>%
+  full_join(mapping1)
+
+mapping2 <- merge(mapping2, mapdata,  by = "abbr")
+
+hcmap(
+  "countries/us/us-all",
+  data = mapping2,
+  value = "Total_compsum_MWh",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mapping2",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(valueDecimals = 2, valuePrefix = "MWh ")) %>%
+  hc_title(text = "Energy consumption per state [2018]") %>%
+  hc_colorAxis(minColor = "lightgreen", maxColor = "darkgreen")
+
+
+```
+
+### Electricity consumption per capita in 2018
+
+In order to have a more significant result, we will display the electricity consumption per capita. Indeed, population in states have an important effect on energy consumption. 
+
+```{r cons-per-capita, fig.cap="Energy consumption per capita [2018]", message=FALSE, warning=FALSE, echo=FALSE}
+#Adding the electricity consumption per capita
+mapping3 <- electricity_state_info %>%
+  filter(Year == 2018) %>%
+  select(State = State, Total_compsum_MWh) %>%
+  full_join(mapping1)
+
+mapping3 <- mapping3 %>%
+  mutate(cons_per_capita = (Total_compsum_MWh / population))
+
+mapping3 <- merge(mapping3, mapdata,  by = "abbr")
+
+hcmap(
+  "countries/us/us-all",
+  data = mapping3,
+  value = "cons_per_capita",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mapping3",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(valueDecimals = 2, valuePrefix = "MWh ")) %>%
+  hc_title(text = "Energy consumption per capita [2018]") %>%
+  hc_colorAxis(minColor = "lightgreen", maxColor = "darkgreen")
+```
+
+In Figure \@ref(fig:cons-per-capita), we notice that it is not the richest states or the most populated states that consume the most of energy per capita. California and Texas do not consume that much per capita. The new classification is leaded by Wyoming and North Dakota. Wyoming and North Dakota consumed about 30 MWh per capita. It is a huge consumption. To compare, in Switzerland, consumption is arount 7.5 MWh per capita. Other factors should explain this consumption more precisely.
+
+### Consumption of electricity depends on its production
+
+It is obvious that the consumption of electricity depends strongly on the avaible energy, namely the electricity production. Underneath, in Figure \@ref(fig:cons-prod), we display this relationship which is really linear. Texas is the stand-out state where the consumption and the production surpass all other states. Observations that can be found above the linear line are consumming more than what they produce and reciprocally for the observations below this line.  
+
+```{r cons-prod, fig.cap="Comparison between the electricity consumption and the electricity production in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+cons_prod <- jointure %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    Total_generation,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region.x,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Total generation in MWh",
+    y = "Total consumption in MWh",
+    title = "The electricity consumption and the electricity production follows a linear trend",
+    subtitle = str_wrap("")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1))  +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+cons_prod <- ggplotly(cons_prod, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'The relationship follows a linear trend',
+    '<br>',
+    '<sup>',
+    '',
+    '</sup>'
+  )
+))
+
+cons_prod
+# save as widget
+#htmlwidgets::saveWidget(as.widget(cons_prod), file = "cons_prod.html")
+
+```
+
+### Price of electricity 
+
+It is also very interesting to plot the relationship between price of energy and its consumption as we can see in Figure \@ref(fig:cons-price). But we can see that the energy consumption does not depend on the price because energy is a necessity good. Nowadays, we can no longer deprive ourselves of it. 
+
+```{r cons-price, fig.cap="Price of the energy in comparison to the consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+cons_price <- jointure %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    price_cents_kwh,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region.x,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Price (cents/KWh)",
+    y = "Total consumption in MWh",
+    title = "Electricity is a necessary good, its consumption doesn't depend on its price",
+    subtitle = str_wrap("")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1))  +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+ggplotly(cons_price, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    "Electricity consumption doesn't depend on the price",
+    '<br>',
+    '<sup>',
+    '',
+    '</sup>'
+  )
+))
+```
+
+
+### Evolution of the overall electricity consumption
+
+By plotting the evolution of the electricity consumption in the United States, we can see that the trend is growing through the years but that the economic crisis in 2008 has reduced the electricity consumption. However, the trend has gone up since the crisis.
+
+``` {r cons-evolution, fig.cap="Evolution of the electricity consumption in US", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+overall_consumption <- electricity_state_info %>%
+  group_by(Year) %>%
+  summarise(Total_compsum_MWh = sum(Total_compsum_MWh)) %>%
+  transmute(Year, Total_consum_TWh = (Total_compsum_MWh / 1000000))
+
+dygraph(overall_consumption, main = "There is an increase in electricity consumption in the United States since 2002", ylab = "Energy consumption in TWh") %>%
+  dySeries("Total_consum_TWh", label = "Total_consum_TWh") %>%
+  dyOptions(stackedGraph = TRUE,
+            colors = RColorBrewer::brewer.pal(5, "Set1")) %>%
+  dyRangeSelector(height = 20) 
+
+```
+
+## Population
+
+### Population per state in 2018
+
+In Table \@ref(tab:pop-state), we display a list and in Figure \@ref(fig:map-state) a map of states with their population (2018). This is an important variable in order to explain the electricity consumption. It is evident that states having more population will consume more energy. We want to know the most populated states. 
+
+```{r pop-state, warning=FALSE, message=FALSE, echo=FALSE}
+#Table of population per state
+state_info %>% filter(Year == 2018) %>%
+  select(State, population) %>%
+  arrange(desc(population)) %>%
+  kable(
+    digits = 2,
+    format.args = list(decimal.mark = ',', big.mark = "'"),
+    caption = "Population by state [2018]"
+  ) %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  scroll_box(height = "300px")
+```
+
+
+```{r map-state, fig.cap="Map of population per state in 2018", warning=FALSE, message=FALSE, echo=FALSE}
+#Downloading data and preparing data to map it. 
+mappingUS <- merge(mapping1, mapdata,  by = "abbr") %>% select(abbr,GDP, population)
+
+#Mapping US population by state
+hcmap(
+  "countries/us/us-all",
+  data = mappingUS,
+  value = "population",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mappingUS",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(
+    valueDecimals = 0,
+    valuePrefix = "",
+    valueSuffix = "")) %>%
+  hc_title(text = "California and Texas are the most populated") %>%
+  hc_colorAxis(minColor = "silver", maxColor = "red")
+
+```
+
+Partly because California and Texas are the most populated states, they consume more energy than other ones.
+
+
+### Population in 2018 in comparison to the annual consumption of electricity
+
+In Figure \@ref(fig:cons-pop), we want to confirm the relationship between population and electricity consumption. Indeed, there is a trend between these two variables.
+
+
+```{r  cons-pop, fig.cap="Comparison of the popoulation size and the annual electricity consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#We only take data from year 2002 in order to merge data. We prepare some data frames that we will need in the next parts. 
+GDP_capita <- state_info %>%
+  filter(Year > 2001) %>%
+  transmute(
+    Year,
+    State,
+    density,
+    house_unit,
+    personal_income,
+    GDP_per_capita = (capita_GDP * 1000000) ,
+    GDP,
+    population
+  )
+ 
+
+consum_capita <- electricity_state_info %>%
+  transmute(Year, State, Total_consum_TWh = (Total_compsum_MWh / 1000000)) %>%
+  group_by(State) %>% filter(Year == 2018)
+
+#Table with the region per state
+region <- state_info %>%
+  select(State, region) %>%
+  unique()
+#Merging GDP and consumption per capita
+info_per_capita <- inner_join(GDP_capita, consum_capita)
+
+info_per_capita <- inner_join(info_per_capita, region)
+
+#Important trend with population 
+popu <- info_per_capita %>%
+  mutate(compsum_per_capita = (Total_consum_TWh / population)) %>%
+  mutate_if(is.numeric, round, digits = 2) %>%
+  ggplot(aes(
+    population,
+    Total_consum_TWh,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Population",
+    y = "Total consumption [TWh]",
+    title = "Population and electricity consumption in 2018",
+    subtitle = str_wrap(
+      "There is a strong trend between population size and consumption"
+    )
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_x_continuous(breaks = seq(0 , 50000000, by = 2500000),
+                     labels = addUnits) +
+  scale_y_continuous(
+    breaks = seq(0 , 400 , by = 25),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+  ) +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+popu<- ggplotly(popu, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0
+),
+title = list(
+  text = paste0(
+    'Population and electricity consumption in 2018',
+    '<br>',
+    '<sup>',
+    'There is a strong trend between population size and energy consumption',
+    '</sup>'
+  )
+))
+
+popu
+# save as widget
+#htmlwidgets::saveWidget(as.widget(popu), file = "popu.html")
+
+```
+
+### Density compared to the annual consumption per state in 2018
+
+Figure \@ref(fig:cons-dens) shows that states with a density between 0 and 100 inhabitants per square kilometer follow a linear trend. After this threshold, density can no longer explain the consumption of electricity. Also, we decided to remove the District of Columbia because it is an outlier.
+
+```{r cons-dens, fig.cap="Comparison between the density of the sates and the annual electricity consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#Slight trend a the beginning but not really significant
+#We decided to remove the District of Columbia because it is an outlier.
+
+density <-
+  info_per_capita  %>% filter(State != "District of Columbia") %>%
+  ggplot(aes(
+    density,
+    Total_consum_TWh,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "density/sqkm",
+    y = "Total consumption [TWh]",
+    title = "Density and electricity consumption in 2018",
+    subtitle = str_wrap("The trend is much less obvious with density")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_x_continuous(breaks = seq(0 , 400, by = 25),
+                     labels = addUnits) +
+  scale_y_continuous(
+    breaks = seq(0 , 400 , by = 25),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+    
+  ) + scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+ggplotly(density, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0
+),
+title = list(
+  text = paste0(
+    'Density and electricity consumption in 2018',
+    '<br>',
+    '<sup>',
+    'The trend is much less obvious with density',
+    '</sup>'
+  )
+))
+
+```
+
+### Number of houses compared to the consumption of electricity. 
+
+The linear trend in Figure \@ref(fig:cons-house) is strong. The more households there are, the more electricity is consumed. Few states stand out from the rest. This fact was quite obvious but needed to be verifed. 
+
+```{r cons-house, fig.cap="Comparison between the number of houses and the electricity consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#The more the household, the more the consumption
+units <- info_per_capita  %>%
+  ggplot(aes(
+    house_unit,
+    Total_consum_TWh ,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Average number of houses",
+    y = "Total consumption [TWh]",
+    title = "Number of houses and electricity consumption",
+    subtitle = str_wrap(
+      "There is a strong trend between the number of houses\nand the energy consumption"
+    )
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_x_continuous(breaks = seq(0 , 15000000, by = 1000000),
+                     labels = addUnits) +
+  scale_y_continuous(
+    breaks = seq(0 , 400 , by = 25),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+  ) + scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+units<- ggplotly(units, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0
+),
+title = list(
+  text = paste0(
+    'Number of houses and electricity consumption',
+    '<br>',
+    '<sup>',
+    'Strong trend between number of houses and energy consumption',
+    '</sup>'
+  )
+))
+
+units
+# save as widget
+#htmlwidgets::saveWidget(as.widget(units), file = "units.html")
+
+
+```
+### Number of capita per house in comparison to the electricity consumption.
+
+The relationship between number of capita per house and electricity consumption is not really significant in Figure \@ref(fig:cons-capita-per-house). The consumption of electricity does not depend on the number of people per house. 
+
+```{r cons-capita-per-house, fig.cap="Comparison between the number of capita per house and the electricity consumption", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+cons_capita_per_house <- jointure %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    capita_house,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region.x,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Capita per house",
+    y = "Total consumption in MWh",
+    title = "Capita per house and electricity consumption",
+    subtitle = str_wrap("")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1))  +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+ggplotly(cons_capita_per_house, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'Capita per house and electricity consumption',
+    '<br>',
+    '<sup>',
+    '',
+    '</sup>')))
+```
+
+
+## Economy
+
+In this part, we will compare economic characteristics and energy consumption.  
+
+### GDP in states
+
+The US states producing the most wealth in 2018 are listed in the Table \@ref(tab:GDP-state).
+
+```{r GDP-state, echo=FALSE, message=FALSE, warning=FALSE}
+#Listing the richest states
+state_info %>%
+  filter(Year == 2018) %>%
+  transmute(
+    State,
+    total_GDP_trillion = (GDP / 1000000),
+    GDP_per_capita = (capita_GDP * 1000000)
+  ) %>%
+  arrange(desc(total_GDP_trillion)) %>%
+  kable(
+    digits = 2,
+    format.args = list(decimal.mark = ',', big.mark = "'"),
+    caption = "GDP by state in dollars [2018]"
+  ) %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  scroll_box(height = "300px")
+
+```
+
+We can see that the total population by state is strongly correlated with the creation of wealth. Indeed, the most populated states, namely California, Texas, Florida and New York, are also the ones that produce the most wealth (Figure \@ref(fig:map-GDP)).
+
+```{r map-GDP, fig.cap="GDP per state in 2018", warning=FALSE, message=FALSE, echo=FALSE}
+hcmap(
+  "countries/us/us-all",
+  data = mappingUS,
+  value = "GDP",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mappingUS",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(
+    valueDecimals = 2,
+    valuePrefix = "$",
+    valueSuffix = " USD")) %>%
+  hc_title(text = "GDP per state in US") %>% hc_colorAxis(minColor = "silver", maxColor = "gold")
+```
+
+Four states exceed one trillion. California even reaches 3 trillion. By way of comparison, Switzerland would be 7th in this ranking with a GDP of 705 billion CHF. Today, creating wealth means consuming energy. This variable could well explain the consumption of states as well as the price of electricity. 
+
+
+### GDP versus energy consumption 
+
+In Figure \@ref(fig:cons-GDP), we display the comparison between GDP and energy consumption per state in 2018.
+
+```{r cons-GDP, fig.cap="Comparison between GDP and electricity consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+GDP <- info_per_capita %>%
+  ggplot(aes(
+    GDP,
+    Total_consum_TWh ,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "GDP per state [USD]",
+    y = "Total consumption [TWh]",
+    title = "GDP per state and electricity consumption in 2018",
+    subtitle = str_wrap(
+      "There is a linear trend between GDP per state and energy consumption "
+    )
+  ) +
+  theme_bw() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_x_continuous(breaks = seq(0 , 200000 , by = 25000),
+                     labels = addUnits) +
+  scale_y_continuous(
+    breaks = seq(0 , 400 , by = 25),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+  ) + scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+GDP<- ggplotly(GDP, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'GDP per state and electricity consumption in 2018',
+    '<br>',
+    '<sup>',
+    'There is a linear trend between GDP per state and energy consumption',
+    '</sup>')))
+
+GDP
+# save as widget
+#htmlwidgets::saveWidget(as.widget(GDP), file = "GDP.html")
+
+
+```
+
+In point of fact, energy consumption in well related to GDP.
+
+### Comparison between the variation of GDP and the variation of electricity production through the years. 
+
+In Figure \@ref(fig:GDP-variation), we display the variation of GDP and the variation of electricity consumption from years 2000. 
+
+```{r GDP-variation, fig.cap="Comparison between the variation in consumption and the variation in GDP", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#Creating the variable "GDP_variation" which is the variation of GDP since year 2000
+GDP_variation <- state_info %>%
+  group_by(Year) %>%
+  summarise(year_GDP = sum(GDP)) %>%
+  mutate(variation_GDP = (year_GDP - lag(year_GDP)) / lag(year_GDP) * 100)
+
+#Creating the variable "variation_consumption" which is the variation of the electricity consumption since year 2000
+variation_consumption <- electricity_state_info %>%
+  group_by(Year) %>%
+  summarise(year_consumption = sum(Total_compsum_MWh)) %>%
+  mutate(variation_consumption = (year_consumption - lag(year_consumption)) /
+           lag(year_consumption) * 100) %>%
+  filter(Year >= 2000) 
+  
+#Merging the two previous dataframes  
+variation <- inner_join(GDP_variation, variation_consumption)
+
+variation1 <- variation %>% select(Year, variation_consumption, variation_GDP)
+
+dygraph(variation1, main = "Variation in electricity consumption and in GDP in US", ylab = "Variation in %") %>%
+  dySeries("variation_consumption", label = "Consumption") %>%
+  dySeries("variation_GDP", label = "GDP") %>%
+  dyOptions(stackedGraph = TRUE,
+            colors = RColorBrewer::brewer.pal(5, "Set1")) %>%
+  dyRangeSelector(height = 20) 
+  
+```
+
+We can see that US economic activity influences energy consumption. The similarity between the two curves is clear during the last 10 years. The 2008 crisis led to a drop in GDP of almost 4% and a drop in energy consumption of around 6%. However, we have to pay attention to the fact that correlation does not mean causation. Here, the decrease of GDP probably lowers the production of electricity and thereby the electricity consumption.  
+
+### GDP per capita 
+
+In terms of GDP per capita, we see great inequality. While it reaches 85,450 dollars in New York state, it is only 38,550 dollars in Mississippi state. This trend could also be seen in energy consumption per capita. 
+
+There is no trend between GDP per capita and energy consumption. The majority of values are stagnating between 0 and 200, irrespective of their GDP per capita. However, we notice the presence of an outlier which is the district of Columbia. This is because this small district has a lot of high value-added jobs in the administration and a small population. Again, for this part, we remove this district because it distorts our graphic.
+
+The largest economies are not the richest per capita. Indeed, California and Texas have the biggest GDP but also have many people. Despite the fact that most populated states have the bigget GDP, they are not necessary the richest ones. This is the reason why the GDP per capita does not follow the trend of the GDP and then, that there is no relationship between GDP per capita and energy consumption. 
+
+As a conclusion, this is surely a problem of collinerity between GDP and population. Thus, GDP or population have maybe no real relationship with electricity consumption. We will try to verify this assumption in the modelling part. 
+
+
+```{r GDP-per-capita, fig.cap="Comparison between GDP per capita and electricity consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+capita <-
+  info_per_capita %>% filter(State != "District of Columbia") %>%
+  ggplot(aes(
+    GDP_per_capita,
+    Total_consum_TWh ,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "GDP per capita [USD]",
+    y = "Total consumption [TWh]",
+    title = "GDP per capita and annual consumption in 2018",
+    subtitle = str_wrap("There is no trend explaining energy consumption ")
+  ) +
+  theme_bw() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_x_continuous(breaks = seq(0 , 200000 , by = 25000),
+                     labels = addUnits) +
+  scale_y_continuous(
+    breaks = seq(0 , 400 , by = 25),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+  ) + scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+ggplotly(capita, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'GDP per capita and electricity consumption in 2018',
+    '<br>',
+    '<sup>',
+    'There is no trend explaining energy consumption ',
+    '</sup>')))
+```
+
+### Personal income in 2018
+
+In Figure \@ref(fig:cons-income), the personal income does not explain energy consumption. Indeed, electricity is a basic commodity and the increase in revenue will not significantly increase electricity consumption.
+
+
+```{r cons-income, fig.cap="Comparison between the personal income and the electricity consumption in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+income <- info_per_capita %>%
+  ggplot(aes(
+    personal_income,
+    Total_consum_TWh,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Personal income [USD]",
+    y = "Total consumption [TWh]",
+    title = "Personal income and annual consumption",
+    subtitle = str_wrap(
+      "There is no trend between the personal income and the consumption"
+    )
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_x_continuous(breaks = seq(0 , 70000, by = 2000),
+                     labels = addUnits) +
+  scale_y_continuous(
+    breaks = seq(0 , 400 , by = 25),
+    labels = function(x)
+      format(x, big.mark = ",",
+             scientific = FALSE)
+  ) + scale_color_viridis(discrete = TRUE) + theme_bw()
+
+
+ggplotly(income, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'Personal income and annual consumption',
+    '<br>',
+    '<sup>',
+    'There is no trend between the personal income and the energy consumption',
+    '</sup>')))
+```
+
+
+### Buildings
+
+In Figure \@ref(fig:cons-customers), we are showing the repartition between industrial, commercial and residential buildings (customers) in terms of electricity consumption in 2018. 
+
+
+```{r cons-customers, fig.cap="Proportion in residential, industrial and commercial sector in each state in 2018", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+sector <-
+  electricity_state_info %>% data.frame(
+    electricity_state_info$Residential_cust,
+    electricity_state_info$Industrial_cust,
+    electricity_state_info$Commercial_cust
+  ) %>% filter(Year == 2018) %>% select(State,
+                                        region,
+                                        Residential_cust,
+                                        Industrial_cust,
+                                        Commercial_cust,
+                                        Total_cust)
+
+customers <- reshape2::melt(
+  data.frame(#melt to get each variable in a single row
+    sector[, -2] %>%
+      group_by(State) %>% #group by category
+      summarise_each(funs(sum))),
+  #get the summation for each variable
+  id.vars = c("State", "Total_cust")
+) %>%
+  ggplot(aes(
+    x = State,
+    y = value / Total_cust,
+    fill = variable
+  )) + #define the x and y
+  geom_bar(stat = "identity", position = "fill") + #make the stacked bars
+  scale_y_continuous(labels = scales::percent) + #change y axis to % format
+  labs (
+    x = "State",
+    y = "Percentage in each sector",
+    title = "Proportion in residential, industrial and commercial sector in each state",
+    subtitle = str_wrap("")
+  ) +
+  scale_x_discrete(na.translate = FALSE) +
+  ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 90) + scale_fill_viridis_d(option = "viridis", begin = 0.3) 
+
+ggplotly(customers, width = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.8,
+  x = 0
+))
+
+```
+
+In order to have a better view of the proportion of industrial customers, we will plot it separately in the next graph (Figure \@ref(fig:industrial-customer)). 
+
+```{r industrial-customer, fig.cap="Proportion of residential customers by states in 2018", fig.height=7, fig.width=9, warning=FALSE, message=FALSE, echo=FALSE}
+#Comparison of the proportion of industrial customers in each state 
+perc_industrial <- sector %>%
+  mutate(perc_industrial = ((Industrial_cust / Total_cust) * 100)) %>%
+  ggplot(aes(
+    x = reorder(State ,-perc_industrial),
+    y = perc_industrial,
+    fill = region
+  )) +
+  geom_bar(stat = "identity",
+           position = position_dodge(width = 0.8)) +
+  labs (
+    x = "State",
+    y = "Percentage",
+    title = "Proportion of industrial customers in 2018",
+    subtitle = str_wrap("")
+  ) +
+  scale_x_discrete(na.translate = FALSE) +
+  ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 30) +
+  scale_fill_viridis_d(option  = "D") +
+  coord_flip()
+
+
+ggplotly(perc_industrial, height = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.2,
+  x = 0),
+title = list(
+  text = paste0(
+    'Proportion of industrial customers in 2018',
+    '<br>',
+    '<sup>',
+    '',
+    '</sup>')))
+
+```
+
+Nebraska, Idaho, Whyoming, Arkansas and North Dakota are the most industrial states. Then, it can explain the important energy consumption per capita in those states and particularly in Wyoming and North Dakota. Thus, this variable will be quite important to predict the consumption of energy. 
+
+
+In the following graphs, (Figure \@ref(fig:numb-residential), Figure \@ref(fig:numb-industrial), Figure \@ref(fig:numb-commercial)), we display the number of customers in each category. 
+
+```{r numb-residential, fig.cap="Number of residential customers in each state in 2018", fig.height=6, fig.width=7, message=FALSE, warning=FALSE, echo=FALSE}
+#Number of residential customers in each state 
+residential_cust <- electricity_state_info %>%
+  filter(Year == 2018) %>%
+  ggplot(aes(
+    x = reorder(State ,-Residential_cust),
+    y = Residential_cust,
+    fill = region
+  )) +
+  geom_bar(stat = "identity",
+           position = position_dodge(width = 0.8)) +
+  labs (
+    x = "State",
+    y = "Residential customers",
+    title = "Number of residential customers by states",
+    subtitle = str_wrap("")
+  ) +
+  scale_x_discrete(na.translate = FALSE) +
+  ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 30) + scale_fill_viridis_d(option  = "D") +
+  coord_flip()
+
+ggplotly(residential_cust, height = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.2,
+  x = 0),
+title = list(
+  text = paste0(
+    'Number of residential customers',
+    '<br>',
+    '<sup>',
+    'California, Texas and Florida are leading the classification',
+    '</sup>')))
+```
+
+
+```{r numb-industrial, fig.cap="Number of industrial customers in each state in 2018", fig.height=6, fig.width=7, message=FALSE, warning=FALSE, echo=FALSE}
+#Number of industrial customers in each state 
+industrial_cust <- electricity_state_info %>%
+  filter(Year == 2018) %>%
+  ggplot(aes(
+    x = reorder(State ,-Industrial_cust),
+    y = Industrial_cust,
+    fill = region
+  )) +
+  geom_bar(stat = "identity",
+           position = position_dodge(width = 0.8)) +
+  labs (
+    x = "State",
+    y = "Industrial customers",
+    title = "Number of industrial customers by states",
+    subtitle = str_wrap("")
+  ) +
+  scale_x_discrete(na.translate = FALSE) +
+  ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 30) +  scale_fill_viridis_d(option  = "D") +
+  coord_flip()
+
+ggplotly(industrial_cust, height = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.2,
+  x = 0),
+title = list(
+  text = paste0(
+    'Number of industrial customers',
+    '<br>',
+    '<sup>',
+    'California, Texas and Nebraska are ahead other states',
+    '</sup>')))
+```
+
+
+```{r numb-commercial, fig.cap="Number of commercial customers in each state in 2018", fig.height=6, fig.width=7, message=FALSE, warning=FALSE, echo=FALSE}
+#Number of commercial customers in each state 
+commercial_cust <- electricity_state_info %>%
+  filter(Year == 2018) %>%
+  ggplot(aes(
+    x = reorder(State ,-Commercial_cust),
+    y = Commercial_cust,
+    fill = region
+  )) +
+  geom_bar(stat = "identity",
+           position = position_dodge(width = 0.8)) +
+  labs (
+    x = "State",
+    y = "Commercial customers",
+    title = "Number of commercial customers",
+    subtitle = str_wrap("")
+  ) +
+  scale_x_discrete(na.translate = FALSE) +
+  ggpubr::rotate_x_text() +
+  theme(axis.text.x = element_text(hjust = .5, vjust = 0.7)) +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  ggpubr::rotate_x_text(angle = 30) +  scale_fill_viridis_d(option  = "D") +
+  coord_flip()
+
+
+ggplotly(commercial_cust, height = 800) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.2,
+  x = 0),
+title = list(
+  text = paste0(
+    'Number of commercial customers by states',
+    '<br>',
+    '<sup>',
+    'Again, Califorina, Texas and Florida are on top',
+    '</sup>')))
+
+```
+
+Thanks to those different previous graphics, we see that California, Texas, Florida and New-York have the more customers in nearly each sector. Thus, they have lots of people within but also a strong industrial and commercial activity. Consequently, they produce more GDP and also need more energy than other states.
+
+Then, we compare the customers of each sector and the consumption of electricity. 
+
+```{r cons-residential, fig.cap="Comparison between the number of residential customers and the electricity consumption", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#Comparing the residential customers with the consumption of electricity
+residential_cust_cons <-
+  electricity_state_info %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    Residential_cust,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Residential customers",
+    y = "Total consumption [MWh]",
+    title = "Number of residential customers and annual consumption",
+    subtitle = str_wrap("")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1))  +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+residential_cust_cons<- ggplotly(residential_cust_cons, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'Residential customers and energy consumption',
+    '<br>',
+    '<sup>',
+    'There is a strong relationship',
+    '</sup>')))
+
+residential_cust_cons
+
+# save as widget
+#htmlwidgets::saveWidget(as.widget(residential_cust_cons), file = "residential_cust_cons.html")
+
+```
+
+
+```{r cons-industrial, fig.cap="Comparison between the number of industrial customers and the electricity consumption", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#Comparing the industrial customers with the consumption of electricity
+industrial_cust_cons <-
+  electricity_state_info %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    Industrial_cust,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Industrial customers",
+    y = "Total consumption [MWh]",
+    title = "Number of industrial customers and electricity consumption",
+    subtitle = str_wrap("")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1))  +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+ggplotly(industrial_cust_cons, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'Industrial customers and electricity consumption',
+    '<br>',
+    '<sup>',
+    'There is no trend between these variables',
+    '</sup>')))
+```
+
+
+```{r cons-commercial, fig.cap="Comparison between the number of commercial customers and the electricity consumption", fig.width=2.5, warning=FALSE, message=FALSE, echo=FALSE}
+#Comparing the commercial customers with the consumption of electricity
+commercial_cust_cons <-
+  electricity_state_info %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    Commercial_cust,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Commercial customers",
+    y = "Total consumption [MWh]",
+    title = "Number of commercial customers and annual consumption",
+    subtitle = str_wrap("")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1))  +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+commercial_cust_cons<- ggplotly(commercial_cust_cons, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0),
+title = list(
+  text = paste0(
+    'Commercial customers and energy consumption',
+    '<br>',
+    '<sup>',
+    'There is a linear trend',
+    '</sup>')))
+
+commercial_cust_cons
+
+# save as widget
+#htmlwidgets::saveWidget(as.widget(commercial_cust_cons), file = "commercial_cust_cons.html")
+
+```
+
+
+As we can see in the previous plots (Figure \@ref(fig:cons-residential), Figure \@ref(fig:cons-industrial), Figure \@ref(fig:cons-commercial)), the type of building is essential to know the energy consumption and especially for residential and commercial buildings. Thus, states having more residential or/and commercial customers tend to consume more than others.   
+
+
+## Weather 
+
+Temperature generally plays a role in the consumption and generation of electricity. The United States is a country with a very varied climate. 
+
+Do we notice differences in production and consumption according to the state and temperatures ? (Warmer temperatures so more air conditioner/colder temperatures so more heater for example ?)
+
+Finally, sunlight also impacts the electricity sector. For example, it plays a role on the production of solar panels, but also on energy consumption (lighting, heating, etc.). In the following, we will verify all these assumptions. 
+
+```{r summer-map, fig.cap="Summer temperatures in 2018", fig.width=2.5, message=FALSE, warning=FALSE, echo=FALSE}
+#Creating dataframe of temperature in order to displays it on a map
+mapping_temperature <- state_info %>%
+  select(State, Year , Summer, winter, hours_sun) %>%
+  filter(Year == 2018) %>%
+  full_join(statepop)
+
+mapping_temperature <- merge(mapping_temperature, mapdata,  by = "abbr")
+
+hcmap(
+  "countries/us/us-all",
+  data = mapping_temperature,
+  value = "Summer",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mapping_temperature",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(valueDecimals = 1, valuePrefix = "°C")) %>%
+  hc_title(text = "Summer temperatures in 2018") %>% hc_colorAxis(minColor = "yellow", maxColor = "red")
+```
+
+
+```{r cons-summer, fig.cap="Comparison between summer temperatures and electricity consumption in 2018", fig.width=2.5, message=FALSE, warning=FALSE, echo=FALSE}
+summertemp <- jointure %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    Summer,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region.x,
+    text = paste('<br> State:', State))) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Summer temperature",
+    y = "Total consumption [MWh]",
+    title = "Summer temperatures and electricity consumption",
+    subtitle = str_wrap("There is no obvious trend")) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) + scale_color_viridis(discrete = TRUE) +
+  theme_bw()
+
+
+ggplotly(summertemp, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0))
+```
+
+
+```{r winter-map, fig.cap="Winter temperatures in 2018", fig.width=2.5, message=FALSE, warning=FALSE, echo=FALSE}
+hcmap(
+  "countries/us/us-all",
+  data = mapping_temperature,
+  value = "winter",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mapping_temperature",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(valueDecimals = 1, valuePrefix = "°C ")) %>% 
+  hc_title(text = "Average winter temperature") %>% hc_colorAxis(minColor = "darkblue", maxColor = "skyblue")
+```
+
+
+```{r cons-winter, fig.cap="Comparison between winter temperatures and electricity consumption in 2018", fig.width=2.5, message=FALSE, warning=FALSE, echo=FALSE}
+wintertemp <- jointure %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    winter,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region.x,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Winter temperature",
+    y = "Total consumption [MWh]",
+    title = "Winter temperatures and electricity consumption",
+    subtitle = str_wrap(
+      "There is no obvious trend"
+    )
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) +
+  scale_color_viridis(discrete = TRUE) + theme_bw()
+
+ggplotly(wintertemp, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0))
+```
+
+Firstly, in those two different maps (Figure \@ref(fig:summer-map) and \@ref(fig:winter-map)), the summer one and the winter one, we can see that the country is clearly divided into two parts: the south part with higher temperatures in winter and summer and the north part with lower temperatures. 
+
+However, the relationship between temperature and electricity consumption is quite weak but still more pronounced during the winter season (Figure \@ref(fig:cons-winter)) than the summer one (Figure \@ref(fig:cons-summer)). Meanwhile, we do not detect any link with the most consumer states. But, a trend could be stronger for the production or the pricing of electricity.
+
+In Figure \@ref(fig:hours-of-sun-map), we display the map of the number or hours of sun in US. Again, we look for a pattern between hours of sun and consumption of electricity. 
+
+```{r hours-of-sun-map, fig.cap="Number of hours of sun in 2018", fig.width=2.5, message=FALSE, warning=FALSE, echo=FALSE}
+hcmap(
+  "countries/us/us-all",
+  data = mapping_temperature,
+  value = "hours_sun",
+  joinBy = c("hc-a2", "abbr"),
+  name = "mapping_temperature",
+  dataLabels = list(enabled = TRUE, format = '{point.name}'),
+  borderColor = "#FAFAFA",
+  borderWidth = 0.1,
+  tooltip = list(valueDecimals = 0, valueSuffix = " hours")) %>% 
+  hc_title(text = "Average number of hours of sun") %>% hc_colorAxis(minColor = "beige", maxColor = "orange")
+```
+
+
+```{r cons-hours-of-sun, fig.cap="Comparison between number of hours of sun and electricity consumption in 2018", fig.width=2.5, message=FALSE, warning=FALSE, echo=FALSE}
+hours_sun <- jointure %>% filter(Year == 2018) %>%
+  ggplot(aes(
+    hours_sun,
+    Total_compsum_MWh,
+    group = 1,
+    colour = region.x,
+    text = paste('<br> State:', State)
+  )) +
+  geom_point() +
+  stat_smooth(method = "lm", se = FALSE, size = 0.4) +
+  labs (
+    x = "Hours of sun",
+    y = "Total consumption [MWh]",
+    title = "Number hours of sun and electricity consumption",
+    subtitle = str_wrap("There is no trend")
+  ) +
+  theme() +
+  theme(panel.grid.major = element_line(color = "grey", size = 0.1)) + scale_color_viridis(discrete = TRUE) +
+  theme_bw()
+  
+ggplotly(hours_sun, dynamicTicks = TRUE) %>% layout(legend = list(
+  orientation = "h",
+  y = -0.3,
+  x = 0))
+```
+
+We clearly see that states in the southwest have more sun than others. But there is absolutely no relationship between hours of sun and energy consumption as we can see in Figure \@ref(fig:cons-hours-of-sun). 
+
+## Limits of the electricity consumption study and main results
+
+We analysed the consumption of electricity by state. If we wanted to be more precise we would need much more variables. This area is complex and a multitude of social, political and economic factors explain energy consumption per person [see the website of @electricchoice_ranking_nodate].
+
+States that produce energy generally also consume the most energy due to the fact that it requires a lot of power to produce and manufacture the energy. States that also rely on specific industries such as steel mills or automotive industry will also tend to consume more. 
+
+However, national and state electricity consumption is directly linked to the generation of **GDP**. Indeed, it has become a key issue for each country. It is important for a country and its economy to be able to ensure a stable and sustainable supply. Also, we have seen that demographic criteria such as **population** and **number of houses** play an important role in the amount of energy consumption. Then, the type of buildings consuming electricity is essential. We realised that **residential customers** and **commercial customers** variables are strongly correlated to the energy consumption. Thus, the more residential or commercial buildings, the more is the consumption. Finally, we never doubted that the utilisation of energy rely on the **energy production**. 
+
+This part was significant to understand the consumption of electricity. We will try to confirm our results in the modelling part but we have to be conscient that, maybe, some variables have multicollinearity and then, do not really explain the consumption of electricity as we have seen in this part. 
+
+
+
+
+
+
+
+
+
+
+
