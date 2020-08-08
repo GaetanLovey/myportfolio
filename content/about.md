@@ -12,4 +12,4 @@ description:
   <div class="col-4">
     Texte dans la deuxième colonne
   </div>
-</div>
+
