@@ -13,4 +13,5 @@ description:
   </div>
   <div class="col-4">
     Une des deux colonnes
- </div>
+  </div>
+</div>
