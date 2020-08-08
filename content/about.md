@@ -6,9 +6,8 @@ description:
 <center>[__**My CV**__](https://glovey.netlify.app/curriculum-vitæ/)</center>
 
 
-<div class="row justify-content-center>
-  <div class="col-4">Texte première colonne</div>
-  <div class="col-4">Texte deuxième colonne</div>
+<div class="row">
+  <div class="col-md-4 mr-auto">.col-md-4</div>
+  <div class="col-md-4">.col-md-4</div>
 </div>
-
 
