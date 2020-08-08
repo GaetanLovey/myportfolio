@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 55px;
+    padding: 70px;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -47,7 +47,7 @@ img {
 .profile {
     width: 10vh;
     height: 10vh;
-    border-radius: 150%;
+    border-radius: 50%;
 }
 
 /* Colored links */
