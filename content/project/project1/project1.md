@@ -1,6 +1,6 @@
 ---
-title: "How are the consumption, the generation and the price of electricity influenced in the United States ?"
-description: "By Cédric Vuignier and Gaëtan Lovey"
+title: "Vuignier, C. & Lovey, G. (2020). How are the consumption, the generation and the price of electricity influenced in the United States ? Accès https://bookdown.org/connect/#/apps/5233/access"
+description: " "
 tags:
 weight: 1
 draft: false
