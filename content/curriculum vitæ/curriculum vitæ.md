@@ -5,6 +5,6 @@ weight: 1
 draft: false
 ---
 
-[**Download**](https://github.com/GaetanLovey/myportfolio/raw/master/static/Curriculum%20vitae%20english.pdf)
+[__**Download**__](https://github.com/GaetanLovey/myportfolio/raw/master/static/Curriculum%20vitae%20english.pdf)
 
 ![](/cv-en.png)
