@@ -11,7 +11,7 @@ body {
 
 main {
     margin: auto;
-    padding-top: 200px;
+    padding: 25px;
     flex: 1 0 auto;
     max-width: 750px;
 }
@@ -47,7 +47,7 @@ img {
 .profile {
     width: 10vh;
     height: 10vh;
-    border-radius: 50%;
+    border-radius: 150%;
 }
 
 /* Colored links */
