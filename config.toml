@@ -1,6 +1,6 @@
 baseURL = "https://glportfolio.netlify.app"
 languageCode = "en-us"
-defaultContentLanguage = "en"
+defaultContentLanguage = "en-us"
 title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
