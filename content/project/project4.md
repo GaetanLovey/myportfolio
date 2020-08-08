@@ -1,10 +1,9 @@
 ---
-title: "Analysis of the San Francisco area bike share"
-description: "By Cédric Vuignier, Nicolas Vulliemin and Gaëtan Lovey"
-weight: 3
+title: "Loos, V., Vo-Ngoc, M., Nazim, W. & Lovey, G. (2020). *Planification des salles d’opérations du département de l’appareil locomoteur du CHUV*. Université de Lausanne."
+description: "Confidentiel"
+weight: 4
 draft: false
 ---
 
-![](/bike.png)
 
-Click [here](https://github.com/GaetanLovey/myportfolio/raw/master/static/Vuignier_Vuilliemin_Lovey.pdf) to download the full report !
+
