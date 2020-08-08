@@ -1,9 +1,22 @@
 baseURL = "https://glportfolio.netlify.app"
 languageCode = "en-us"
+defaultContentLanguage = "en"
 title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
+defaultContentLanguageInSubdir= true
+
+[Languages]
+[Languages.en]
+title = "Documentation"
+weight = 1
+languageName = "English"
+
+[Languages.fr]
+title = "Documentation"
+weight = 2
+languageName = "Français"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
