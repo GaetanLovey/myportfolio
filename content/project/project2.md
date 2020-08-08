@@ -1,5 +1,5 @@
 ---
-title: "Vuignier, C. & Lovey, G. (2020). _Detection of surface cracks._ Accès https://bookdown.org/connect/#/apps/5238/access"
+title: "Vuignier, C. & Lovey, G. (2020). Detection of surface cracks. Accès https://bookdown.org/connect/#/apps/5238/access"
 description: " "
 weight: 2
 draft: false
