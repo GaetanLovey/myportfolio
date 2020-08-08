@@ -65,7 +65,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 
 [[menu.icon]]
-    url = "https://www.linkedin.com/in/glovey/"
+    url = "www.linkedin.com/in/gaetan-lovey/"
     name = "linkedin"
     weight = 4
 
