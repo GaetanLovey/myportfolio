@@ -19,3 +19,9 @@ description:
   <div class="col-4">Une des deux colonnes</div>
   <div class="col-4">Une des deux colonnes</div>
 </div>
+
+
+<div class="row justify-content-center">
+  <div class="col-4">Une des deux colonnes</div>
+  <div class="col-4">Une des deux colonnes</div>
+</div>
