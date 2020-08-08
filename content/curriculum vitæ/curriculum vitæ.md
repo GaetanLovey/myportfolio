@@ -1,6 +1,6 @@
 ---
-title: "Curriculum Vitae in english"
-description: ""
+title: "Curriculum vitae in english"
+description: " "
 weight: 1
 draft: false
 ---
