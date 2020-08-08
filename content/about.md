@@ -13,11 +13,12 @@ description:
 </div>
 
 
-<div class="row align-items-center">
-  <div class="col">
-    One of 2 columns
+
+<div class="row justify-content-center">
+  <div class="col-4">
+    Une des deux colonnes
   </div>
-  <div class="col">
-    One of 2 columns
+  <div class="col-4">
+    Une des deux colonnes
   </div>
 </div>
