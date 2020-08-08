@@ -1,8 +1,8 @@
 ---
 title: "Curriculum Vitae en français"
-description:
+description: " "
 weight: 2
-draft: true
+draft: false
 ---
 
 
