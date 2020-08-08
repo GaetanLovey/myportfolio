@@ -9,12 +9,12 @@ defaultContentLanguageInSubdir= true
 
 [Languages]
 [Languages.en]
-title = "Documentation"
+title = "Gaëtan Lovey"
 weight = 1
 languageName = "English"
 
 [Languages.fr]
-title = "Documentation"
+title = "Gaëtan Lovey"
 weight = 2
 languageName = "Français"
 
