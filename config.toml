@@ -4,6 +4,19 @@ title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir= true
+
+[Languages]
+[Languages.en]
+title = "Documentation for Hugo Learn Theme"
+weight = 1
+languageName = "English"
+
+[Languages.fr]
+title = "Documentation du thème Hugo Learn"
+weight = 2
+languageName = "Français"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
@@ -18,6 +31,7 @@ home = [ "HTML", "RSS", "JSON"]
     highlight = true
     highlightStyle = "default"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
+    disableLanguageSwitchingButton = false
 
 [[menu.main]]
     url = "/"
