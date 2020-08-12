@@ -9,6 +9,7 @@ googleAnalytics = ""
 [Languages.en]
     languageName: English
     weight: 1
+    
 [Languages.fr]
     languageName: Français
     weight: 2
