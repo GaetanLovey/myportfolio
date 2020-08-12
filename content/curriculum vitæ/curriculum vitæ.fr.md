@@ -5,6 +5,6 @@ weight: 2
 draft: false
 ---
 
-{{% button href="https://github.com/GaetanLovey/myportfolio/raw/master/static/Curriculum%20vitae%20français.pdf" %}}Télécharger le CV{{% /button %}}
+<center> {{% button href="https://github.com/GaetanLovey/myportfolio/raw/master/static/Curriculum%20vitae%20français.pdf" %}}Télécharger le CV{{% /button %}}</p></center>
 
 ![](/cv.png)
