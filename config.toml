@@ -5,11 +5,11 @@ theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
 
-languages:
-  en:
+[Languages]
+[Languages.en]
     languageName: English
     weight: 1
-  fr:
+[Languages.fr]
     languageName: Français
     weight: 2
 
