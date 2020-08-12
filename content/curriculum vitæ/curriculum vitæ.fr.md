@@ -7,6 +7,6 @@ draft: false
 <center>[__**Téléchargement**__](https://github.com/GaetanLovey/myportfolio/raw/master/static/Curriculum%20vitae%20français.pdf)</center>
 
 
-{{< cta-button "Télécharger" "https://github.com/GaetanLovey/myportfolio/raw/master/static/Curriculum%20vitae%20français.pdf" >}}
+{{% button href="https://getgrav.org/" %}}Get Grav{{% /button %}}
 
 ![](/cv.png)
