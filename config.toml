@@ -20,12 +20,22 @@ weight = 1
 [[Languages.en.menu.main]]
 name = "Curriculum vitæ"
 url = "/curriculum vitæ/"
-weight = 1
+weight = 2
 
 [[Languages.en.menu.main]]
 name = "My publications"
 url = "/My publications/"
 weight = 3
+
+[[Languages.en.menu.main]]
+name = "Projects"
+url = "/project/"
+weight = 4
+
+[[Languages.en.menu.main]]
+name = "Posts"
+url = "/post/"
+weight = 5
 
 [languages.fr]
     languageName = "Français"
@@ -35,7 +45,7 @@ weight = 3
 [[Languages.fr.menu.main]]
 name = "Accueil"
 url = "/"
-weight = 2
+weight = 1
 
 [[Languages.fr.menu.main]]
 name = "Curriculum vitæ"
@@ -46,6 +56,16 @@ weight = 2
 name = "Mes publications"
 url = "/My publications/"
 weight = 3
+
+[[Languages.fr.menu.main]]
+name = "Projets"
+url = "/project/"
+weight = 4
+
+[[Languages.fr.menu.main]]
+name = "Posts"
+url = "/post/"
+weight = 5
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
