@@ -1,0 +1,4 @@
+<a href="{{ .Sites.First.Home.RelPermalink }}">🏠 Default Home</a>
+{{ with.Sites.First.GetPage "/in-construction" }}
+	<a href="{{ .RelPermalink }}">🏗️ {{ .Title }}</a>
+{{ end }}
