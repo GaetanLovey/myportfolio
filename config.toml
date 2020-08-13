@@ -1,11 +1,10 @@
 baseURL = "https://glovey.netlify.app"
-languageCode = "en-us"
 title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
 defaultContentLanguageInSubdir= true
-
+DefaultContentLanguage = "en"
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 

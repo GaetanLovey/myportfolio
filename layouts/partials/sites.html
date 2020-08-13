@@ -1,8 +1,0 @@
-{{ $frSite := false}}
-{{ range where .Sites ".Language.Lang" "fr" }}
-	{{ $frSite = . }}
-{{ end }}
-{{/* ⛑️ Safely wrap the result in a with clause and voilà: */}}
-{{ with $frSite }}
-	<a href="{{ .Home.RelPermalink }}">🏠 Accueil</a>
-{{ end }}
