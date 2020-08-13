@@ -17,6 +17,11 @@ title = "Gaëtan Lovey"
 weight = 2
 languageName = "Français"
 
+[Language.es]
+title = "Gaëtan Lovey"
+languageName = "Spanish"
+weight: 3
+
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
