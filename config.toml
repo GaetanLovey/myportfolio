@@ -64,16 +64,6 @@ home = [ "HTML", "RSS", "JSON"]
     url = "https://www.linkedin.com/in/gaetan-lovey/"
     name = "linkedin"
     weight = 4
-
-languages:
-  en:
-    contentDir: content/english
-    languageName: English
-    weight: 10
-  fr:
-    contentDir: content/french
-    languageName: Français
-    weight: 20
     
 [Languages]
 [Languages.en]
@@ -85,5 +75,16 @@ languageName = "English"
 title = "Documentation du thème Hugo Learn"
 weight = 2
 languageName = "Français"
+
+languages:
+  en:
+    contentDir: content/english
+    languageName: English
+    weight: 10
+  fr:
+    contentDir: content/french
+    languageName: Français
+    weight: 20
+    
 
 
