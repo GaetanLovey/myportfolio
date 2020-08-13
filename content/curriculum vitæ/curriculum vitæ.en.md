@@ -2,7 +2,6 @@
 title: "Curriculum vitae"
 description: " "
 weight: 1
-draft: true
 translationKey: "curriculum vitae"
 ---
 
