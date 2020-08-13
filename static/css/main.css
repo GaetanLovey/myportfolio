@@ -109,20 +109,26 @@ footer {
 }
 
 
-.dropdown {
-  position: relative;
+nav {
+  > ul {
 
-  .dropdown__menu {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 0.15em 0.25em rgba(black, 0.25);
-    padding: 0.5em 0;
-    min-width: 15ch;
+    > li {
+      // All links contained in the li
+      a,
+      .dropdown__title {
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+        color: blue;
+        font-size: 1.125rem;
+      }
 
-    a {
-      color: #444;
-      display: block;
-      padding: 0.5em;
+      // Only direct links contained in the li
+      > a,
+      .dropdown__title {
+        padding: 1rem 0.5rem;
+      }
+
     }
   }
 }
