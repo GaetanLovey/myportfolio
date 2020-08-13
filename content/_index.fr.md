@@ -1,12 +1,12 @@
 ---
 title: "Gaëtan Lovey"
 ---
-## About me
+## A propos de moi
 
-> I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
-> I am currently doing a master's degree in management at HEC Lausanne. 
+> J'ai obtenur mon bachelor en économie d'entreprise à la  HES-SO Valais/Wallis en 2018. 
+> Actuellement, je fais un master en management à HEC Lausanne. 
 
-[__**My CV**__](https://glovey.netlify.app/curriculum-vitæ/)
+[__**Mon CV**__](https://glovey.netlify.app/curriculum-vitæ/fr/)
 
 <p align="center">
   <img src="/profile.png" width="200" height="300"/>
