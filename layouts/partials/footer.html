@@ -1,4 +1,5 @@
         <footer>
+            {{ partial "allLanguages.html" . }}
             <p class="copyright text-muted">{{ .Site.Params.copyright | default "&copy; All rights reserved. Powered by [Hugo](https://gohugo.io) and [Minimal](https://github.com/calintat/minimal)." | markdownify }}</p>
         </footer>
         {{ partial "body-close" . }}
@@ -8,13 +9,4 @@
 
 </html>
 
-
-<ul class="copyright text-muted">
-    {{ range .Site.Menus.main }}
-		<li>
-			<a href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-        {{end}}
-	{{ partial "allLanguages.html" . }}
-</ul>
 
