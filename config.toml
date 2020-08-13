@@ -4,19 +4,7 @@ title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
-defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= true
-
-[Languages]
-[Languages.en]
-title = "Gaëtan Lovey"
-weight = 1
-languageName = "English"
-
-[Languages.fr]
-title = "Gaëtan Lovey"
-weight = 2
-languageName = "Français"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
