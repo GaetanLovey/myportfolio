@@ -5,6 +5,17 @@ disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
 defaultContentLanguageInSubdir= true
 DefaultContentLanguage = "en"
+
+[languages]
+[languages.en]
+    title = "Gaëtan Lovey"
+    weight = 1
+
+[languages.fr]
+    title = "Gaëtan Lovey"
+    weight = 2
+
+
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
