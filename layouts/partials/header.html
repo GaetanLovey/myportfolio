@@ -49,6 +49,7 @@
                             {{ range sort .Site.Menus.main }}
                                 <li><a href="{{ .URL }}">{{ .Name }}</a></li>
                             {{ end }}
+                            {{ partial "allLanguages.html" . }}
                         </ul>
                     {{ end }}
                     {{ if .Site.Menus.icon }}
@@ -58,7 +59,6 @@
                             {{ end }}
                         </ul>
                     {{ end }}
-                     {{ partial "allLanguages.html" . }}
                 </div>
             </div>
         </nav>
