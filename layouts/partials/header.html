@@ -55,10 +55,15 @@
                         <ul class="nav navbar-nav navbar-right">
                             {{ range sort .Site.Menus.icon }}
                                 <li class="navbar-icon"><a href="{{ .URL }}"><i class="fa fa-{{ .Name }}"></i></a></li>
+                                	<a href="{{ .URL }}">{{ .Name }}</a>
                             {{ end }}
+                            {{ partial "allLanguages.html" . }}
                         </ul>
                     {{ end }}
                 </div>
             </div>
         </nav>
+        
+ 
+
 
