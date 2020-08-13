@@ -19,23 +19,38 @@ weight = 1
 
 [[Languages.en.menu.main]]
 name = "Curriculum vitæ"
-url = "/curriculum vitæ/"
+url = "/en/curriculum vitæ/"
 weight = 2
 
 [[Languages.en.menu.main]]
 name = "My publications"
-url = "/my publications/"
+url = "/en/my publications/"
 weight = 3
 
 [[Languages.en.menu.main]]
 name = "Projects"
-url = "/project/"
+url = "/en/project/"
 weight = 4
 
 [[Languages.en.menu.main]]
 name = "Posts"
-url = "/post/"
+url = "/en/post/"
 weight = 5
+
+[[Languages.en.menu.icon]]
+    url = "mailto:gaetan.lovey@gmail.com"
+    name = "envelope-o"
+    weight = 1
+    
+[[Languages.en.menu.icon]]
+    url = "https://github.com/GaetanLovey/"
+    name = "github"
+    weight = 2  
+    
+[[Languages.en.menu.icon]]
+    url = "https://www.linkedin.com/in/gaetan-lovey/"
+    name = "linkedin"
+    weight = 3
 
 [languages.fr]
     languageName = "Français"
@@ -49,24 +64,39 @@ weight = 1
 
 [[Languages.fr.menu.main]]
 name = "Curriculum vitæ"
-url = "/curriculum vitæ/"
+url = "/fr/curriculum vitæ/"
 weight = 2
 
 [[Languages.fr.menu.main]]
 name = "Mes publications"
-url = "/my publications/"
+url = "/fr/my publications/"
 weight = 3
 
 [[Languages.fr.menu.main]]
 name = "Projets"
-url = "/project/"
+url = "/fr/project/"
 weight = 4
 
 [[Languages.fr.menu.main]]
 name = "Posts"
-url = "/post/"
+url = "/fr/post/"
 weight = 5
 
+[[Languages.fr.menu.icon]]
+    url = "mailto:gaetan.lovey@gmail.com"
+    name = "envelope-o"
+    weight = 1
+    
+[[Languages.fr.menu.icon]]
+    url = "https://github.com/GaetanLovey/"
+    name = "github"
+    weight = 2  
+    
+[[Languages.fr.menu.icon]]
+    url = "https://www.linkedin.com/in/gaetan-lovey/"
+    name = "linkedin"
+    weight = 3
+    
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
