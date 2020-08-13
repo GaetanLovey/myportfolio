@@ -1,5 +1,5 @@
 ---
-title: "Curriculum vitae en français"
+title: "Curriculum vitae"
 description: " "
 weight: 2
 draft: false

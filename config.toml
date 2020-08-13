@@ -32,11 +32,6 @@ name = "Projects"
 url = "/en/project/"
 weight = 4
 
-[[Languages.en.menu.main]]
-name = "Posts"
-url = "/en/post/"
-weight = 5
-
 [[Languages.en.menu.icon]]
     url = "mailto:gaetan.lovey@gmail.com"
     name = "envelope-o"
@@ -77,11 +72,6 @@ name = "Projets"
 url = "/fr/project/"
 weight = 4
 
-[[Languages.fr.menu.main]]
-name = "Posts"
-url = "/fr/post/"
-weight = 5
-
 [[Languages.fr.menu.icon]]
     url = "mailto:gaetan.lovey@gmail.com"
     name = "envelope-o"
@@ -116,11 +106,6 @@ home = [ "HTML", "RSS", "JSON"]
     url = "/"
     name = "Home"
     weight = 1
-
-[[menu.main]]
-    url = "/post/"
-    name = "Posts"
-    weight = 6
 
 [[menu.main]]
     url = "/project/"

@@ -1,5 +1,5 @@
 ---
-title: "Curriculum vitae in english"
+title: "Curriculum vitae"
 description: " "
 weight: 1
 draft: false
