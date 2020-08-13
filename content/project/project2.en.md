@@ -3,6 +3,7 @@ title: "Detection of surface cracks"
 description: "Deep learning project "
 weight: 2
 draft: false
+translationKey: "project"
 ---
 
 <center> Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Detection of surface cracks.*</span>](https://bookdown.org/connect/#/apps/5238/access)</p></center>
