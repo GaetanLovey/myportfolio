@@ -4,17 +4,17 @@ title = "Gaëtan Lovey"
 theme = "minimal-master"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
-defaultContentLanguage = "en"
+defaultContentLanguage = "en-us"
 defaultContentLanguageInSubdir= true
 
 [Languages]
 [Languages.en]
-title = "Documentation for Hugo Learn Theme"
+title = "Gaëtan Lovey"
 weight = 1
 languageName = "English"
 
 [Languages.fr]
-title = "Documentation du thème Hugo Learn"
+title = "Gaëtan Lovey"
 weight = 2
 languageName = "Français"
 
