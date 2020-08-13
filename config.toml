@@ -8,13 +8,13 @@ DefaultContentLanguage = "en"
 
 [languages]
 [languages.en]
-    baseURL = "https://glovey.netlify.en"
+    baseURL = "https://glovey.netlify.app.en"
     languageName = "English"
     title = "Gaëtan Lovey"
     weight = 1
 
 [languages.fr]
-    baseURL = "https://glovey.netlify.fr"
+    baseURL = "https://glovey.netlify.app.fr"
     languageName = "Français"
     title = "Gaëtan Lovey"
     weight = 2
