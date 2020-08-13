@@ -142,5 +142,7 @@ home = [ "HTML", "RSS", "JSON"]
     name = "linkedin"
     weight = 4
     
+{{ partial "allLanguages.html" . }}
+    
 
 
