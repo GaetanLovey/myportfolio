@@ -1,5 +1,5 @@
 ---
-title: "Bachelor's thesisr"
+title: "Bachelor's thesis"
 description: "HES-SO Valais/Wallis "
 weight: 1
 draft: False
