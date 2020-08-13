@@ -107,3 +107,22 @@ a:hover {
 footer {
     border-bottom: var(--border-width) solid var(--accent);
 }
+
+
+.dropdown {
+  position: relative;
+
+  .dropdown__menu {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0.15em 0.25em rgba(black, 0.25);
+    padding: 0.5em 0;
+    min-width: 15ch;
+
+    a {
+      color: #444;
+      display: block;
+      padding: 0.5em;
+    }
+  }
+}
