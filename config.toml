@@ -82,30 +82,6 @@ home = [ "HTML", "RSS", "JSON"]
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
     disableLanguageSwitchingButton = false
 
-[[menu.main]]
-    url = "/"
-    name = "Home"
-    weight = 1
-
-[[menu.main]]
-    url = "/post/"
-    name = "Posts"
-    weight = 6
-
-[[menu.main]]
-    url = "/project/"
-    name = "Projects"
-    weight = 5
-
-[[menu.main]]
-    url = "/curriculum vitæ/"
-    name = "Curriculum vitæ"
-    weight = 3
-    
-[[menu.main]]
-    url = "/my publications/"
-    name = "My publications"
-    weight = 4
 
 # Social icons to be shown on the right-hand side of the navigation bar.
 # The "name" field should match the name of the icon in Font Awesome.
