@@ -12,4 +12,5 @@ title: "Gaëtan Lovey"
   <img src="/profile.png" width="200" height="300"/>
 </p>
 
+[Mode multi-langue]({{%relref "content/_index.en.md" %}})
 
