@@ -11,12 +11,41 @@ DefaultContentLanguage = "en"
     languageName = "English"
     title = "Gaëtan Lovey"
     weight = 1
+    
+[[Languages.en.menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[Languages.en.menu.main]]
+name = "Curriculum vitæ"
+url = "/curriculum vitæ/"
+weight = 1
+
+[[Languages.en.menu.main]]
+name = "My publications"
+url = "/My publications/"
+weight = 3
 
 [languages.fr]
     languageName = "Français"
     title = "Gaëtan Lovey"
-    weight = 2
+    weight = 1
 
+[[Languages.fr.menu.main]]
+name = "Accueil"
+url = "/"
+weight = 2
+
+[[Languages.fr.menu.main]]
+name = "Curriculum vitæ"
+url = "/curriculum vitæ/"
+weight = 2
+
+[[Languages.fr.menu.main]]
+name = "Mes publications"
+url = "/My publications/"
+weight = 3
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
