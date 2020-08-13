@@ -1,5 +1,4 @@
         <footer>
-	{{ partial "allLanguages.html" . }}
 	{{ .Language.LanguageName }}
             <p class="copyright text-muted">{{ .Site.Params.copyright | default "&copy; All rights reserved. Powered by [Hugo](https://gohugo.io) and [Minimal](https://github.com/calintat/minimal)." | markdownify }}</p>
         </footer>
@@ -11,8 +10,3 @@
 </html>
 
 
-<ul>
-{{ range $.Site.Home.AllTranslations }}
-<li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
-{{ end }}
-</ul>
