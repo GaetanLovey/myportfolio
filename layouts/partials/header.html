@@ -62,12 +62,3 @@
             </div>
         </nav>
 
-
-<ul class="nav navbar-nav">
-    {{ range .Site.Menus.main }}
-		<li>
-			<a href="{{ .URL }}">{{ .Name }}</a>
-        </li>
-        {{end}}
-	{{ partial "allLanguages.html" . }}
-</ul>
