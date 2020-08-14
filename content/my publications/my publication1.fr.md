@@ -4,6 +4,7 @@ description: "HES-SO Valais/Wallis "
 weight: 1
 draft: False
 translationKey: "publications"
+chapter: true
 ---
 
 <center> Lovey, G. (2018). Service énergétique de la mobilité électrique, quelle politique doit adopter Sinergy en tant que fournisseur d’électricité ? (Travail de Bachelor). Haute Ecole de Gestion & Tourisme, Sierre.</p></center>
