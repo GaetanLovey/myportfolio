@@ -3,7 +3,7 @@ title: "Thèse de Bachelor"
 description: "HES-SO Valais/Wallis "
 weight: 1
 draft: False
-translationKey: "mes publications"
+translationKey: "publications"
 ---
 
 <center> Lovey, G. (2018). Service énergétique de la mobilité électrique, quelle politique doit adopter Sinergy en tant que fournisseur d’électricité ? (Travail de Bachelor). Haute Ecole de Gestion & Tourisme, Sierre.</p></center>
