@@ -1,6 +1,6 @@
 ---
-title: "Detection of surface cracks"
-description: "Deep learning project "
+title: "Detection de fissures sur les surfaces"
+description: "Projet de Deep learning "
 weight: 2
 translationKey: "project deep learning"
 ---
@@ -15,4 +15,4 @@ translationKey: "project deep learning"
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">During the deep learning lecture, we made a project aiming to apply some deep learning techniques in a business context. We extracted data and built different deep learning models. The goal of our models was to detect if there was any crack in the photos of concrete taken by the drones or by the technicians. In other words, we modelled a binary classifier and thus a tool that detects possible damage to certain concrete infrastructures.</p> 
+<p style="text-align:justify;">Durant le cours de Deep learning, nous avons fait un projet ayant pour objectif d'appliquer les techniques du deep learning dans un contexte d'affaires. Nous avons extrait les donneés comprenant des images de surfaces et construit différents modèles de deep learning. L'objectif était de détecter s'il existait des fissures de béton sur les photos de notre base de données prises par des drones ou par des techniciens. En d'autres mots, nous avons créé un modèle de classification binaire et ainsi un outil qui détecte les infrastructures en béton qui sont endommagées.</p> 

@@ -1,6 +1,6 @@
 ---
-title: "Analysis of the San Francisco area bike share"
-description: "Business Intelligence and Analyzing Big Data project"
+title: "Analyse du marché des vélos en libre-service dans la région de San Francisco"
+description: "Projet du cours Business Intelligence and Analyzing Big Data"
 weight: 3
 translationKey: "project BI"
 ---
@@ -14,7 +14,7 @@ translationKey: "project BI"
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">During the Business Intelligence and Analyzing Big Data course of the first year of the master in management at HEC Lausanne, we had to provide a data anaylsis containing a bunch of databases, an ETL process with an ETL workflow and a star schema, and a data exploratory analysis and a modelling part. The subject to analyze was the area bike share of San Francisco.</p>  
+<p style="text-align:justify;">Durant le cours de Business Intelligence and Analyzing Big Data course  en première année du master en management à HEC Lausanne, nous avons dû fournir une analyse de données qui contenait un certain nombre de bases de données, un processus ETL et son workflow, un schéma en étoile, une anaylse exploratoire des données et une partie qui traite de la modélisation. Le thème de notre anaylse était le marché des vélos en libre-service dans la région de San Francisco.</p>  
 
 
 

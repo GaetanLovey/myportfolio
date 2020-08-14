@@ -1,6 +1,6 @@
 ---
 title: "Planification des salles d’opérations du département de l’appareil locomoteur du CHUV"
-description: "Company project: confidentiel"
+description: "Projet d'entreprise: confidentiel"
 weight: 4
 translationKey: "project company project"
 ---

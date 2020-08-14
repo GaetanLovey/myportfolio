@@ -1,6 +1,6 @@
 ---
 title: "Planning of the operating rooms of CHUV's department of the musculoskeletal system"
-description: "Company project: confidentiel"
+description: "Company project: confidential"
 weight: 4
 translationKey: "project company project"
 ---
@@ -18,4 +18,3 @@ translationKey: "project company project"
 <p style="text-align:justify;">During a semester of the master's degree in management, we worked with the CHUV in Lausanne in order to plan the occupation of the operating rooms and thus to improve the surgical process. We used some machine learning tools.</p> 
 
 
-Planning of the operating rooms of CHUV's department of the musculoskeletal system
