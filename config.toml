@@ -64,7 +64,7 @@ weight = 2
 
 [[Languages.fr.menu.main]]
 name = "Mes publications"
-url = "/fr/my publications/"
+url = "/fr/mes publications/"
 weight = 3
 
 [[Languages.fr.menu.main]]
