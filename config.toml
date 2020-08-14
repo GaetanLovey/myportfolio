@@ -19,17 +19,17 @@ weight = 1
 
 [[Languages.en.menu.main]]
 name = "Curriculum vitæ"
-url = "/en/curriculum vitæ/"
+url = "/en/english/curriculum vitæ/"
 weight = 2
 
 [[Languages.en.menu.main]]
 name = "My publications"
-url = "/en/my publications/"
+url = "/en/english/my publications/"
 weight = 3
 
 [[Languages.en.menu.main]]
 name = "Projects"
-url = "/en/project/"
+url = "/en/english/project/"
 weight = 4
 
 [[Languages.en.menu.icon]]
@@ -59,17 +59,17 @@ weight = 1
 
 [[Languages.fr.menu.main]]
 name = "Curriculum vitæ"
-url = "/fr/curriculum vitæ/"
+url = "/fr/french/curriculum vitæ/"
 weight = 2
 
 [[Languages.fr.menu.main]]
 name = "Mes publications"
-url = "/fr/my publications/"
+url = "/fr/french/mes publications/"
 weight = 3
 
 [[Languages.fr.menu.main]]
 name = "Projets"
-url = "/fr/projets/"
+url = "/fr/french/projet/"
 weight = 4
 
 [[Languages.fr.menu.icon]]
