@@ -14,7 +14,7 @@ DefaultContentLanguage = "en"
     
 [[Languages.en.menu.main]]
 name = "Home"
-url = "/english"
+url = "/english/"
 weight = 1
 
 [[Languages.en.menu.main]]
@@ -54,7 +54,7 @@ weight = 4
 
 [[Languages.fr.menu.main]]
 name = "Accueil"
-url = "/french"
+url = "/french/"
 weight = 1
 
 [[Languages.fr.menu.main]]
