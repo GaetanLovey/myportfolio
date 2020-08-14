@@ -3,6 +3,7 @@ title: "Planification des salles d’opérations du département de l’appareil
 description: "Company project: confidentiel"
 weight: 4
 translationKey: "project"
+slug: project
 ---
 
 <center> Loos, V., Vo-Ngoc, M., Nazim, W. & Lovey, G. (2020). *Planification des salles d’opérations du département de l’appareil locomoteur du CHUV.* Université de Lausanne.</p></center>
