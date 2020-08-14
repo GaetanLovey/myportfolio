@@ -3,7 +3,7 @@ title: "Bachelor's thesis"
 description: "HES-SO Valais/Wallis "
 weight: 1
 draft: False
-translationKey: "publications"
+translationKey: "my publications"
 chapter: true
 ---
 

@@ -14,7 +14,7 @@ DefaultContentLanguage = "en"
     
 [[Languages.en.menu.main]]
 name = "Home"
-url = "/english/"
+url = "/english/_index/"
 weight = 1
 
 [[Languages.en.menu.main]]
@@ -54,7 +54,7 @@ weight = 4
 
 [[Languages.fr.menu.main]]
 name = "Accueil"
-url = "/french/"
+url = "/french/_index/"
 weight = 1
 
 [[Languages.fr.menu.main]]
@@ -64,12 +64,12 @@ weight = 2
 
 [[Languages.fr.menu.main]]
 name = "Mes publications"
-url = "/fr/french/mes publications/"
+url = "/fr/french/my publications/"
 weight = 3
 
 [[Languages.fr.menu.main]]
 name = "Projets"
-url = "/fr/french/projet/"
+url = "/fr/french/project/"
 weight = 4
 
 [[Languages.fr.menu.icon]]
