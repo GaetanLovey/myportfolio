@@ -28,6 +28,7 @@ url = "/en/publications/"
 weight = 3
 
 [[Languages.en.menu.main]]
+title = "Projects"
 name = "Projects"
 url = "/en/projects/"
 weight = 4
@@ -68,6 +69,7 @@ url = "/fr/publications/"
 weight = 3
 
 [[Languages.fr.menu.main]]
+title = "Projets"
 name = "Projets"
 url = "/fr/projects/"
 weight = 4
