@@ -12,4 +12,4 @@ title: "Gaëtan Lovey"
   <img src="/profile.png" width="200" height="300"/>
 </p>
 
-
+<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="fr_FR" data-type="vertical" data-theme="light" data-vanity="gaetan-lovey"><a class="LI-simple-link" href='https://ch.linkedin.com/in/gaetan-lovey?trk=profile-badge'>Gaëtan Lovey</a></div>
