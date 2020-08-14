@@ -3,7 +3,6 @@ title: "How are the consumption, the generation and the price of electricity inf
 description: "Data science project "
 tags:
 weight: 1
-draft: false
 translationKey: "project"
 ---
 

@@ -2,7 +2,6 @@
 title: "Detection of surface cracks"
 description: "Deep learning project "
 weight: 2
-draft: false
 translationKey: "project"
 ---
 
