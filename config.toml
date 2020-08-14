@@ -29,7 +29,7 @@ weight = 3
 
 [[Languages.en.menu.main]]
 name = "Projects"
-url = "/en/project/"
+url = "/en/project/project/"
 weight = 4
 
 [[Languages.en.menu.icon]]
@@ -69,7 +69,7 @@ weight = 3
 
 [[Languages.fr.menu.main]]
 name = "Projets"
-url = "/fr/project/"
+url = "/fr/project/projet/"
 weight = 4
 
 [[Languages.fr.menu.icon]]
