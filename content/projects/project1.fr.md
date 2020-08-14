@@ -1,6 +1,6 @@
 ---
-title: "How are the consumption, the generation and the price of electricity influenced in the United States ?"
-description: "Data science project "
+title: "Comment la consommation, la production et le prix de l'électricité sont influencés aux Etats-Unis ?"
+description: "Projet de data science "
 tags:
 weight: 1
 translationKey: "project"
@@ -17,5 +17,5 @@ slug: project
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">As part of the Data Sience course in the first year of the master's degree in management at HEC Lausanne, we worked on a real project concerning data science. The goal of this project was to go through the complete data science process to answer specific questions about our chosen topic. To do so, we extracted and loaded the data, we cleaned the databases and practiced an eploratory data analysis. Then, we used some statistical tools to perform a statistical analysis and to design some visualisations of the data.</p> 
+<p style="text-align:justify;">Dans le cadre du cours de Data Science lors de la première année du master en management à HEC Lausanne, nous étions chargés de travailler sur un projet qui concernait le domaine du data science. L'objectif de ce projet était de suivre l'entier du processus afin de répondre à des questions spécifiques au sujet choisi. Pour le faire, nous avons extrait et chargé les bases de données, puis nous les avons nettoyées et avons pratiqué une anaylse exploratoire des données. Enfin, nous avons utilisé des outils statistiques pour en faire une analyse et créer une certaine visualisation des données.</p> 
 
