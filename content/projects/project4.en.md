@@ -1,8 +1,8 @@
 ---
-title: "Planification des salles d’opérations du département de l’appareil locomoteur du CHUV"
+title: "Planning of the operating rooms of CHUV's department of the musculoskeletal system"
 description: "Company project: confidentiel"
 weight: 4
-translationKey: "project"
+translationKey: "project company project"
 ---
 
 <center> Loos, V., Vo-Ngoc, M., Nazim, W. & Lovey, G. (2020). *Planification des salles d’opérations du département de l’appareil locomoteur du CHUV.* Université de Lausanne.</p></center>
@@ -16,3 +16,6 @@ translationKey: "project"
 <p>&nbsp; </p>
 
 <p style="text-align:justify;">During a semester of the master's degree in management, we worked with the CHUV in Lausanne in order to plan the occupation of the operating rooms and thus to improve the surgical process. We used some machine learning tools.</p> 
+
+
+Planning of the operating rooms of CHUV's department of the musculoskeletal system

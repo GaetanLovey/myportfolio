@@ -3,7 +3,7 @@ title: "How are the consumption, the generation and the price of electricity inf
 description: "Data science project "
 tags:
 weight: 1
-translationKey: "project"
+translationKey: "project data science"
 ---
 
 <center> Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*How are the consumption, the generation and the price of electricity influenced in the United States ?*</span>](https://bookdown.org/connect/#/apps/5233/access)</p></center>
