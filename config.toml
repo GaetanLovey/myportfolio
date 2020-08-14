@@ -24,12 +24,12 @@ weight = 2
 
 [[Languages.en.menu.main]]
 name = "My publications"
-url = "/en/my publications/"
+url = "/en/publications/"
 weight = 3
 
 [[Languages.en.menu.main]]
 name = "Projects"
-url = "/en/project/"
+url = "/en/projects/"
 weight = 4
 
 [[Languages.en.menu.icon]]
@@ -64,12 +64,12 @@ weight = 2
 
 [[Languages.fr.menu.main]]
 name = "Mes publications"
-url = "/fr/mes publications/"
+url = "/fr/publications/"
 weight = 3
 
 [[Languages.fr.menu.main]]
 name = "Projets"
-url = "/fr/project/"
+url = "/fr/projects/"
 weight = 4
 
 [[Languages.fr.menu.icon]]
