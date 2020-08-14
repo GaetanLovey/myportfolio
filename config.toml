@@ -71,7 +71,7 @@ weight = 3
 [[Languages.fr.menu.main]]
 title = "Projets"
 name = "Projets"
-url = "/fr/projects/"
+url = "/fr/projets/"
 weight = 4
 
 [[Languages.fr.menu.icon]]
