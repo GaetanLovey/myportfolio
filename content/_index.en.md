@@ -20,18 +20,11 @@ title: "Gaëtan Lovey"
 | Maturité professionnelle commerciale  | 3               |    
 
 <table>
-    <thead>
-        <tr>
-            <th align="center">Formation</th>
-            <th align="center">Intérêts</th>
-            <th align="center">Year</th>
-        </tr>
-    </thead>
     <tbody>
         <tr>
-            <td align="center">Bachelor</td>
-            <td align="center">Vélo</td>
-            <td align="center">2018</td>
+            <td align="center">**Bachelor**</td>
+            <td align="center">**Vélo**</td>
+            <td align="center">**2018**</td>
         </tr>
         <tr>
             <td align="center">Master</td>
