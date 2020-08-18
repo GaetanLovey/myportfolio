@@ -1,6 +1,6 @@
 ---
 title: "Comment la consommation, la production et le prix de l'électricité sont influencés aux Etats-Unis ?"
-description: "Projet de data science "
+description: "Projet de Data science "
 tags:
 weight: 1
 translationKey: "project data science"

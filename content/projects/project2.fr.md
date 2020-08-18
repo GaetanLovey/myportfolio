@@ -1,5 +1,5 @@
 ---
-title: "Detection de fissures sur les surfaces"
+title: "Détection de fissures sur les surfaces en béton"
 description: "Projet de Deep learning "
 weight: 2
 translationKey: "project deep learning"
