@@ -13,8 +13,8 @@ title: "Gaëtan Lovey"
 </p>
 
 
-|                 Formation             |     Intérêts    | 
-|:-------------------------------------:|: -------------: | 
-|                 Bachelor              |        1        |   
-| Master                                |        2        |     
-| Maturité professionnelle commerciale  |        3        |    
+| Formation                             | Intérêts        | 
+|:-------------------------------------:|:--------------: | 
+| Bachelor                              | 1               |   
+| Master                                | 2               |     
+| Maturité professionnelle commerciale  | 3               |    
