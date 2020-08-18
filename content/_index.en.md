@@ -23,24 +23,24 @@ title: "Gaëtan Lovey"
     <thead>
         <tr>
             <th align="center">Formation</th>
-            <th align="center">Intérêts </th>
+            <th align="center">Intérêts</th>
             <th align="center">Year</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td align="center">Bachelor</td>
-            <td align="center">Master</td>
-            <td align="center">Maturité professionnelle commerciale</td>
-        </tr>
-        <tr>
             <td align="center">Vélo</td>
-            <td align="center">Trail</td>
-            <td align="center">Foot</td>
+            <td align="center">2018</td>
         </tr>
         <tr>
-            <td align="center">2017</td>
-            <td align="center">2018</td>
+            <td align="center">Master</td>
+            <td align="center">Trail</td>
+            <td align="center">2019</td>
+        </tr>
+        <tr>
+            <td align="center">Maturité professionnelle commercial</td>
+            <td align="center">Foot</td>
             <td align="center">2020</td>
         </tr>
     </tbody>
