@@ -18,5 +18,5 @@ Migros Valais - Comptable junior
 
 ### Formations
 
-- HEC 
-- HES
+<i class="fas fa-graduation-cap"></i> HEC 
+<i class="fas fa-graduation-cap"></i> HES
