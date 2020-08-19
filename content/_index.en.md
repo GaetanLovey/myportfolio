@@ -17,6 +17,8 @@ title: "Gaëtan Lovey"
 Migros Valais - Comptable junior
 
 ### Formations
+<script defer src="/static/fontawesome/fontawesome-all.js"></script>
+
 
 <i class="fas fa-graduation-cap"></i> HEC 
 <i class="fas fa-graduation-cap"></i> HES
