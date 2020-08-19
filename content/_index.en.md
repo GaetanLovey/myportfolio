@@ -12,29 +12,11 @@ title: "Gaëtan Lovey"
   <img src="/profile.png" width="200" height="300"/>
 </p>
 
+### Experiences 
 
-| Formation                             | Intérêts        | 
-|:-------------------------------------:|:--------------: | 
-| Bachelor                              | 1               |   
-| Master                                | 2               |     
-| Maturité professionnelle commerciale  | 3               |    
+Migros Valais - Comptable junior
 
-<table>
-    <tbody>
-        <tr>
-            <td align="center">**Bachelor**</td>
-            <td align="center">**Vélo**</td>
-            <td align="center">**2018**</td>
-        </tr>
-        <tr>
-            <td align="center">Master</td>
-            <td align="center">Trail</td>
-            <td align="center">2019</td>
-        </tr>
-        <tr>
-            <td align="center">Maturité professionnelle commercial</td>
-            <td align="center">Foot</td>
-            <td align="center">2020</td>
-        </tr>
-    </tbody>
-</table>
+### Formations
+
+- HEC 
+- HES
