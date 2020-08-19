@@ -1,6 +1,7 @@
         <footer>
             {{ partial "allLanguages.html" . }}
             <p class="copyright text-muted">{{ .Site.Params.copyright | default "&copy; All rights reserved. Powered by [Hugo](https://gohugo.io) and [Minimal](https://github.com/calintat/minimal)." | markdownify }}</p>
+            <script defer src="/static/fontawesome/fontawesome-all.js"></script>
         </footer>
         {{ partial "body-close" . }}
         
@@ -10,4 +11,4 @@
 </html>
 
 
-<script defer src="/static/fontawesome/fontawesome-all.js"></script>
+
