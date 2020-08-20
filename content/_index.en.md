@@ -34,7 +34,7 @@ output: html_document
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018 
 <br/>      *HES-SO Valais/Wallis*
 
-<i class="fas fa-graduation-cap"></i> Commercial professional maturity, 2014
+<i class="fas fa-graduation-cap"></i> Commercial professional maturity, 2014
 <br/>      *ECCG Martigny*
   
 </p></center>
