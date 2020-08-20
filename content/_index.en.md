@@ -43,10 +43,10 @@ output: html_document
 #### **Education** 
 
 <i class="fas fa-graduation-cap fa-pulse"></i> MSc in Management, en cours de formation 
-<br/>    *HEC Lausanne*
+<br/>     *HEC Lausanne*
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018 
-<br/>    *HES-SO Valais/Wallis*
+<br/>     *HES-SO Valais/Wallis*
   
 </p></center>
 
