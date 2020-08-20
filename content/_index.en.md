@@ -34,7 +34,7 @@ output: html_document
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018 
 <br/>      *HES-SO Valais/Wallis*
 
-<i class="fas fa-graduation-cap"></i> Maturité professionnelles commerciale
+<i class="fas fa-graduation-cap"></i> Maturité professionnelle commerciale
 <br/>      *ECCG Martigny*
   
   
