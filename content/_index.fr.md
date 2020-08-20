@@ -49,7 +49,7 @@ title: "Gaëtan Lovey"
 <i class="fas fa-bicycle"></i> Vélo
 <br/>
 
-<i class="fas fa-running"></i> Course à pied
+<i class="fas fa-running"></i>   Course à pied
 
 </p></center>
    </div>

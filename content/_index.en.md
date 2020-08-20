@@ -50,7 +50,7 @@ output: html_document
 <i class="fas fa-bicycle"></i> Bike
 <br/>
 
-<i class="fas fa-running"></i> Running
+<i class="fas fa-running"></i>   Running
 
 </p></center>
    </div>
