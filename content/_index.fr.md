@@ -52,7 +52,7 @@ title: "Gaëtan Lovey"
 <i class="fas fa-running"></i>   Course à pied, marche
 <br/>
 
-<i class="fas fa-skiing-nordic"></i>   Randonnée en peau de phoque
+<i class="fas fa-skiing-nordic"></i>  Randonnée en peau de phoque
 <br/>
 
 <i class="fas fa-skiing"></i>   Ski

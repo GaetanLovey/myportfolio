@@ -53,7 +53,7 @@ output: html_document
 <i class="fas fa-running"></i>   Running, walking
 <br/>
 
-<i class="fas fa-skiing-nordic"></i>   Ski touring
+<i class="fas fa-skiing-nordic"></i>  Ski touring
 <br/>
 
 <i class="fas fa-skiing"></i>   Skiing
