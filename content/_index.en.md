@@ -44,6 +44,7 @@ output: html_document
 <i class="fas fa-bicycle"></i> Bike
 </p></center>
    </div>
+   <p>&nbsp; </p>
 <div>
 
 <p>&nbsp; </p>
