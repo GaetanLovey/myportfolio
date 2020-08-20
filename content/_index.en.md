@@ -45,12 +45,11 @@ output: html_document
 </p></center>
    </div>
 <div>
-<div>
 
 <p>&nbsp; </p>
 
 <center> 
-[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
+<br/>[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
 </p></center>
 
 
