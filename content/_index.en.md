@@ -20,9 +20,7 @@ title: "Gaëtan Lovey"
 
 #### **Education** 
 
-<ul class="fa-ul">
-<li><span class="fa-li"><i class="fas fa-spinner fa-pulse"></i></span>List Item</li>
-</ul>MSc in Management, en cours de formation
+<i class="fas fa-spinner fa-pulse"></i> MSc in Management, en cours de formation
   <br/>*HEC Lausanne*
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018
