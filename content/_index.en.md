@@ -12,8 +12,10 @@ title: "Gaëtan Lovey"
   <img src="/profile.png" width="200" height="300"/>
 </p>
 
+<p>&nbsp; </p>
+
 <p align="center"> 
-#### Education 
+### Education 
 </p>
 
 <p align="center"> 
