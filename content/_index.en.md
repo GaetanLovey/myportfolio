@@ -41,11 +41,14 @@ output: html_document
 #### **Interests** 
     
 <i class="far fa-futbol"></i> Foot 
+
 <i class="fas fa-bicycle"></i> Bike
    </div>
 <div>
 
+
 <p>&nbsp; </p>
+
 
 <center> 
 [<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
