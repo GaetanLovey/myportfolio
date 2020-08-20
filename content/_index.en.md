@@ -21,6 +21,7 @@ output: html_document
 [<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
 </p></center>
 
+<p>&nbsp; </p>
 
 <div class="container">
    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -32,6 +33,10 @@ output: html_document
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018 
 <br/>      *HES-SO Valais/Wallis*
+
+<i class="fas fa-graduation-cap"></i> Maturité professionnelles commerciale
+<br/>      *ECCG Martigny*
+  
   
 </p></center>
 
