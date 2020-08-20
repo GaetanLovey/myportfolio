@@ -50,7 +50,26 @@ output: html_document
 <i class="fas fa-bicycle"></i> Bike
 <br/>
 
-<i class="fas fa-running"></i>   Running
+<i class="fas fa-running"></i>   Running, walking
+<br/>
+
+<i class="fas fa-skiing-nordic"></i> Ski touring
+<br/>
+
+<i class="fas fa-skiing"></i> Skiing
+<br/>
+
+<i class="fas fa-heartbeat"></i> Fitness
+<br/>
+
+<i class="fab fa-r-project"></i> R coding
+<br/>
+
+<i class="fas fa-music"></i> Piano playing
+<br/>
+
+<i class="fas fa-book-reader"></i> Book reading
+<br/>
 
 </p></center>
    </div>
