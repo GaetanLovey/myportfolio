@@ -2,7 +2,7 @@
 title: "Gaëtan Lovey"
 ---
 <center> 
-## About me
+# About me
 
 > I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
 > I am currently doing a master's degree in management at HEC Lausanne. 
@@ -18,7 +18,12 @@ title: "Gaëtan Lovey"
 
 <center>  
 
-#### Education 
+### Education 
+
+<i class="fas fa-graduation-cap"></i> MSc in Management, en cours de formation
+  <br/>*HEC Lausanne*
+
+<p>&nbsp; </p>
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018
   <br/>*HES-SO Valais/Wallis*
