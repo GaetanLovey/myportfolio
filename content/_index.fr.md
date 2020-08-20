@@ -45,6 +45,9 @@ title: "Gaëtan Lovey"
     
 <i class="far fa-futbol"></i>  Football 
 <br/>
+
+<p>&nbsp; </p>
+
 <i class="fas fa-bicycle"></i> Vélo
 </p></center>
    </div>
