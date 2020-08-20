@@ -61,7 +61,7 @@ title: "Gaëtan Lovey"
 <i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-r-project"></i>   Codage en R
+<i class="fab fa-r-project"></i>  Codage en R
 <br/>
 
 <i class="fas fa-music"></i>   Piano

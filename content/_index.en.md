@@ -62,7 +62,7 @@ output: html_document
 <i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-r-project"></i>   R coding
+<i class="fab fa-r-project"></i>  R coding
 <br/>
 
 <i class="fas fa-music"></i>   Piano playing
