@@ -15,10 +15,10 @@ title: "Gaëtan Lovey"
 <p>&nbsp; </p>
 
 <p align="center"> 
-### Education 
-</p>
 
-<p align="center"> 
+### Education 
+
 - BSc in Business Administration, 2018
-  HES-SO Valais/Wallis
+  <br/>; HES-SO Valais/Wallis
+  
 </p>
