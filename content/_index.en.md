@@ -27,13 +27,13 @@ output: html_document
    
 #### **Education** 
 
-<i class="fas fa-graduation-cap fa-pulse"></i> MSc in Management, formation in progress
+<i class="fas fa-graduation-cap fa-pulse"></i> MSc in Management, <br/>formation in progress
 <br/>      *HEC Lausanne*
 
-<i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018 
+<i class="fas fa-graduation-cap"></i> BSc in Business Administration, <br/>2018 
 <br/>      *HES-SO Valais/Wallis*
 
-<i class="fas fa-graduation-cap"></i> Commercial professional maturity, 2014 
+<i class="fas fa-graduation-cap"></i> Commercial professional maturity, <br/>2014 
 <br/>      *ECCG Martigny*
   
 </p></center>

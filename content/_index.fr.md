@@ -26,13 +26,13 @@ title: "Gaëtan Lovey"
    
 #### **Éducation** 
 
-<i class="fas fa-graduation-cap fa-pulse"></i> MSc en Management, formation en cours
+<i class="fas fa-graduation-cap fa-pulse"></i> MSc en Management, <br/>formation en cours
 <br/>      *HEC Lausanne*
 
-<i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, 2018 
+<i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, <br/>2018 
 <br/>      *HES-SO Valais/Wallis*
 
-<i class="fas fa-graduation-cap"></i> Maturité professionnelle commerciale, 2014 
+<i class="fas fa-graduation-cap"></i> Maturité professionnelle commerciale, <br/>2014 
 <br/>      *ECCG Martigny*
   
 </p></center>
