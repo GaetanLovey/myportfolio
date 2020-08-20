@@ -47,7 +47,7 @@ output: html_document
 <i class="far fa-futbol"></i>  Football 
 <br/>
 
-<i class="fas fa-bicycle"></i> Bike
+<i class="fas fa-bicycle"></i> Cycling
 <br/>
 
 <i class="fas fa-running"></i>   Running, walking
@@ -56,19 +56,19 @@ output: html_document
 <i class="fas fa-skiing-nordic"></i>  Ski touring
 <br/>
 
-<i class="fas fa-skiing"></i>   Skiing
+<i class="fas fa-skiing"></i>   Ski
 <br/>
 
 <i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-r-project"></i>  R coding
+<i class="fab fa-r-project"></i>  R code
 <br/>
 
-<i class="fas fa-music"></i>   Piano playing
+<i class="fas fa-music"></i>   Piano 
 <br/>
 
-<i class="fas fa-book-reader"></i>   Book reading
+<i class="fas fa-book-reader"></i>   Reading
 <br/>
 
 </p></center>
