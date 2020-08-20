@@ -18,7 +18,7 @@ title: "Gaëtan Lovey"
 
 <center>  
 
-### Education 
+#### Education 
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018
   <br/>*HES-SO Valais/Wallis*
@@ -27,5 +27,7 @@ title: "Gaëtan Lovey"
 
 <p>&nbsp; </p>
 
+<center> 
 [__**My CV**__](https://glovey.netlify.app/en/curriculum-vitæ/)
+</p></center>
 
