@@ -18,7 +18,7 @@ title: "Gaëtan Lovey"
 
 <center>  
 
-### **Education** 
+#### **Education** 
 
 <i class="fas fa-graduation-cap"></i> MSc in Management, en cours de formation
   <br/>*HEC Lausanne*
