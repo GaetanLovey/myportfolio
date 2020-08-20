@@ -1,16 +1,7 @@
 ---
 title: "Gaëtan Lovey"
-output:
-  html_document: 
-    css: columns.css
-  pdf_document: 
-    keep_tex: true
-    includes:
-      in_header: columns.tex
-  beamer_presentation: 
-    keep_tex: true
-    includes:
-      in_header: columns.tex
+output: html_document
+
 ---
 <center> 
 # About me
