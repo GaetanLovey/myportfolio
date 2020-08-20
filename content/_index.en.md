@@ -9,6 +9,7 @@ output: html_document
 > I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
 > I am currently doing a master's degree in management at HEC Lausanne. 
 
+</p></center>
 
 
 <p align="center">
@@ -16,6 +17,11 @@ output: html_document
 </p>
 
 <p>&nbsp; </p>
+
+
+<center> 
+[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
+</p></center>
 
 
 <div class="container">
@@ -28,6 +34,10 @@ output: html_document
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018 
 <br/>      *HES-SO Valais/Wallis*
+  
+</p></center>
+
+<p>&nbsp; </p>
 
 <center>  
    </div>
@@ -36,8 +46,6 @@ output: html_document
 #### **Interests** 
     
 <i class="far fa-futbol"></i> Foot 
-
 <i class="fas fa-bicycle"></i> Bike
    </div>
 <div>
-
