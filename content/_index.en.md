@@ -12,11 +12,11 @@ title: "Gaëtan Lovey"
   <img src="/profile.png" width="200" height="300"/>
 </p>
 
-### Experiences 
+<p align="center"> 
+#### Education 
+</p>
 
-Migros Valais - Comptable junior
-
-### Formations
-
-{{< fa graduation-cap >}} HEC 
-<i class="fas fa-graduation-cap"></i> HES
+<p align="center"> 
+- BSc in Business Administration, 2018
+  HES-SO Valais/Wallis
+</p>
