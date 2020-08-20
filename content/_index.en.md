@@ -45,6 +45,3 @@ output: html_document
    </div>
 <div>
 
-
-[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
-
