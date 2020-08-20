@@ -18,7 +18,10 @@ title: "Gaëtan Lovey"
 
 ### Education 
 
-- BSc in Business Administration, 2018
+{{< fa graduation-cap >}} BSc in Business Administration, 2018
   <br/>HES-SO Valais/Wallis
   
 </p></center>
+
+
+
