@@ -39,9 +39,23 @@ output: html_document
 
 <div class="container">
    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      First Column 
+      #### **Education** 
+
+<i class="fas fa-graduation-cap fa-pulse"></i> MSc in Management, en cours de formation
+  <br/>*HEC Lausanne*
+
+<i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018
+  <br/>*HES-SO Valais/Wallis*
+  
+</p></center>
+
+<p>&nbsp; </p>
+
+<center>  
    </div>
    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      Second Column 
+      #### **Education** 
+      - Foot 
+      - Bike
    </div>
 <div>
