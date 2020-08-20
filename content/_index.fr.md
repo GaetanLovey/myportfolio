@@ -43,9 +43,9 @@ title: "Gaëtan Lovey"
    
 #### **Intérets** 
     
-<i class="far fa-futbol"></i>   Football 
+<i class="far fa-futbol"></i>  Football 
 <br/>
-<i class="fas fa-bicycle"></i>  Vélo
+<i class="fas fa-bicycle"></i> Vélo
 </p></center>
    </div>
 <div>
