@@ -46,9 +46,7 @@ output: html_document
     
 <i class="far fa-futbol"></i>  Football 
 <br/>
-
-<p>&nbsp; </p>
-
+<br/>
 <i class="fas fa-bicycle"></i> Bike
 </p></center>
    </div>
