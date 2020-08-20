@@ -20,7 +20,9 @@ title: "Gaëtan Lovey"
 
 #### **Education** 
 
-<i class="fas fa-graduation-cap"></i> MSc in Management, en cours de formation
+<ul class="fa-ul">
+<li><span class="fa-li"><i class="fas fa-spinner fa-pulse"></i></span>List Item</li>
+</ul>MSc in Management, en cours de formation
   <br/>*HEC Lausanne*
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, 2018
@@ -31,6 +33,6 @@ title: "Gaëtan Lovey"
 <p>&nbsp; </p>
 
 <center> 
-[<i class="fas fa-folder 2x"></i> <br/>**Curriculum vitae**](https://glovey.netlify.app/en/curriculum-vitæ/)
+[<i class="fas fa-folder fa-2x"></i> <br/>**CV**](https://glovey.netlify.app/en/curriculum-vitæ/)
 </p></center>
 
