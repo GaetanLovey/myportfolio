@@ -31,6 +31,6 @@ title: "Gaëtan Lovey"
 <p>&nbsp; </p>
 
 <center> 
-[__**My CV**__](https://glovey.netlify.app/en/curriculum-vitæ/)
+[<i class="fas fa-file-download"></i>](https://glovey.netlify.app/en/curriculum-vitæ/)
 </p></center>
 
