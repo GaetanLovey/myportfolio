@@ -45,8 +45,9 @@ output: html_document
    </div>
 <div>
 
-<br/>
+<p>&nbsp; </p>
 
-<center> 
+<p align="center">
 [<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
-</p></center>
+</p>
+
