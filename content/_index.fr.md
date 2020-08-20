@@ -16,7 +16,7 @@ title: "Gaëtan Lovey"
 <p>&nbsp; </p>
 
 <center> 
-[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
+[<i class="fas fa-folder "></i> <br/>CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
 </p></center>
 
 <p>&nbsp; </p>
