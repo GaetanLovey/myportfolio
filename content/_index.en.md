@@ -44,9 +44,9 @@ output: html_document
    
 #### **Interests** 
     
-<i class="far fa-futbol"></i> Football 
+<i class="far fa-futbol"></i>     Football 
 <br/>
-<i class="fas fa-bicycle"></i> Bike
+<i class="fas fa-bicycle"></i>    Bike
 </p></center>
    </div>
 <div>
