@@ -47,7 +47,7 @@ output: html_document
 <div>
 
 
-<p>&nbsp; </p>
+<br/>
 
 
 <center> 
