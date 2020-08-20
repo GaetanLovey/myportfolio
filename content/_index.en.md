@@ -42,12 +42,14 @@ output: html_document
 <i class="far fa-futbol"></i> Foot 
 <br/>
 <i class="fas fa-bicycle"></i> Bike
+</p></center>
    </div>
 <div>
 
 <p>&nbsp; </p>
 
-
+<center> 
 [<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
+</p></center>
 
 
