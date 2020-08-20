@@ -39,7 +39,8 @@ output: html_document
 
 <div class="container">
    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      #### **Education** 
+   
+#### **Education** 
 
 <i class="fas fa-graduation-cap fa-pulse"></i> MSc in Management, en cours de formation
   <br/>*HEC Lausanne*
@@ -54,8 +55,10 @@ output: html_document
 <center>  
    </div>
    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      #### **Education** 
-      - Foot 
-      - Bike
+   
+#### **Education** 
+    
+- Foot 
+- Bike
    </div>
 <div>
