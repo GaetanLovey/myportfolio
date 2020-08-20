@@ -11,11 +11,6 @@ output: html_document
 
 </p></center>
 
-<center> 
-[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
-</p></center>
-
-
 <p align="center">
   <img src="/profile.png" width="200" height="300"/>
 </p>
@@ -49,3 +44,8 @@ output: html_document
 <i class="fas fa-bicycle"></i> Bike
    </div>
 <div>
+
+
+<center> 
+[<i class="fas fa-folder fa-2x"></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
+</p></center>
