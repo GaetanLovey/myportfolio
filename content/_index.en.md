@@ -53,22 +53,22 @@ output: html_document
 <i class="fas fa-running"></i>   Running, walking
 <br/>
 
-<i class="fas fa-skiing-nordic"></i> Ski touring
+<i class="fas fa-skiing-nordic"></i>   Ski touring
 <br/>
 
-<i class="fas fa-skiing"></i> Skiing
+<i class="fas fa-skiing"></i>   Skiing
 <br/>
 
-<i class="fas fa-heartbeat"></i> Fitness
+<i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-r-project"></i> R coding
+<i class="fab fa-r-project"></i>   R coding
 <br/>
 
-<i class="fas fa-music"></i> Piano playing
+<i class="fas fa-music"></i>   Piano playing
 <br/>
 
-<i class="fas fa-book-reader"></i> Book reading
+<i class="fas fa-book-reader"></i>   Book reading
 <br/>
 
 </p></center>

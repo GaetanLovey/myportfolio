@@ -52,22 +52,22 @@ title: "Gaëtan Lovey"
 <i class="fas fa-running"></i>   Course à pied, marche
 <br/>
 
-<i class="fas fa-skiing-nordic"></i> Randonnée en peau de phoque
+<i class="fas fa-skiing-nordic"></i>   Randonnée en peau de phoque
 <br/>
 
-<i class="fas fa-skiing"></i> Ski
+<i class="fas fa-skiing"></i>   Ski
 <br/>
 
-<i class="fas fa-heartbeat"></i> Fitness
+<i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-r-project"></i> Codage en R
+<i class="fab fa-r-project"></i>   Codage en R
 <br/>
 
-<i class="fas fa-music"></i> Piano
+<i class="fas fa-music"></i>   Piano
 <br/>
 
-<i class="fas fa-book-reader"></i> Lecture
+<i class="fas fa-book-reader"></i>   Lecture
 <br/>
 
 </p></center>
