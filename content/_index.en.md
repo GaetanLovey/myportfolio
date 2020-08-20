@@ -37,22 +37,11 @@ output: html_document
 </p></center>
 
 
-:::: {style="display: flex;"}
-
-::: {}
-Here is the **first** Div.
-
-```{r}
-str(iris)
-```
-:::
-
-::: {}
-And this block will be put on the right:
-
-```{r}
-plot(iris[, -5])
-```
-:::
-
-::::
+<div class="container">
+   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      First Column 
+   </div>
+   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      Second Column 
+   </div>
+<div>
