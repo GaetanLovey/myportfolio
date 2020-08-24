@@ -32,7 +32,7 @@ title: "Gaëtan Lovey"
 <i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, <br/>      2018 
 <br/>      *HES-SO Valais/Wallis*
 
-<i class="fas fa-graduation-cap"></i> Maturité professionnelle <br/>      commerciale, <br/>      2014 
+<i class="fas fa-graduation-cap"></i> Maturité professionnelle, <br/>      2014 
 <br/>      *ECCG Martigny*
   
 </p></center>
