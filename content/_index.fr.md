@@ -5,7 +5,7 @@ title: "Gaëtan Lovey"
 ## A propos de moi
 
 > En 2018, j'ai obtenu mon bachelor en économie d'entreprise à la  HES-SO Valais/Wallis. 
-> Je fais actuellement un master en management à HEC Lausanne. 
+> J'étudie actuellement à HEC Lausanne dans le but d'acquérir un master en management. Étant très intéressé par les statistiques et l'analyse de données, j'ai choisi l'orientations "Business Analytics" du cursus.
 
 </p></center>
 
