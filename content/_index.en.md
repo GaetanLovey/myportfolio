@@ -10,7 +10,7 @@ output: html_document
 </p></center>
 
 <p align="center">
-  <img src="/profile.png" />
+  <img src="/profile.png" width="250" height="300"/>
 </p>
 
 <p>&nbsp; </p>
