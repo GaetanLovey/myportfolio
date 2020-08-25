@@ -15,6 +15,6 @@ translationKey: "project company project"
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">During a semester of the master's degree in management, we worked with the CHUV in Lausanne in order to plan the occupation of the operating rooms and thus to improve the surgical process. We used some machine learning tools.</p> 
+<p style="text-align:justify;">During our second semester of the master's degree in management, we worked with the CHUV in Lausanne in order to plan the occupation of the operating rooms and thus to improve the surgical process. We used some machine learning tools.</p> 
 
 
