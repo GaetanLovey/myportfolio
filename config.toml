@@ -95,7 +95,7 @@ home = [ "HTML", "RSS", "JSON"]
 [params]
     author = "Gaëtan Lovey"
     githubUsername = "#GaetanLovey"
-    accent = "black"
+    accent = "blue"
     showBorder = true
     backgroundColor = "white"
     font = "Raleway" # should match the name on Google Fonts!
