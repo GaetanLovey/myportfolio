@@ -1,5 +1,5 @@
 ---
-title: "How are the consumption, the generation and the price of electricity influenced <br/> in the United States ?"
+title: "How are the consumption, the generation and the price of electricity influenced in the United States ?"
 description: "Data science project "
 tags:
 weight: 1
