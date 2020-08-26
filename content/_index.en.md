@@ -16,7 +16,7 @@ output: html_document
 <p>&nbsp; </p>
 
 <center> 
-[<i class="fas fa-folder "></i> <br/>CV](https://glovey.netlify.app/en/curriculum-vitæ/)
+[My CV](https://glovey.netlify.app/en/curriculum-vitæ/)
 </p></center>
 
 <p>&nbsp; </p>
