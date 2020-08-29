@@ -14,7 +14,7 @@ translationKey: "project BI"
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">Durant le cours de Business Intelligence and Analyzing Big Data en première année du master en management à HEC Lausanne, nous avons dû fournir une analyse de données qui contenait un certain nombre de bases de données, un processus ETL et son workflow, un schéma en étoile, une analyse exploratoire des données et une partie qui traite de la modélisation. Le thème de notre analyse était le marché des vélos en libre-service dans la région de San Francisco.</p>  
+<p style="text-align:justify;">Durant le cours de business intelligence and analyzing big data en première année du master en management à HEC Lausanne, nous avons dû fournir une analyse de données qui contenait un certain nombre de bases de données, un processus ETL et son workflow, un schéma en étoile, une analyse exploratoire des données et une partie qui traite de la modélisation. Le thème de notre analyse était le marché des vélos en libre-service dans la région de San Francisco.</p>  
 
 
 

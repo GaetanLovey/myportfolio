@@ -14,7 +14,7 @@ translationKey: "project BI"
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">During the Business Intelligence and Analyzing Big Data course of the first year of the master's degree in management at HEC Lausanne, we had to provide a data anaylsis containing a bunch of databases, an ETL process with an ETL workflow and a star schema, a data exploratory analysis and a modelling part. The subject to analyze was the area bike share of San Francisco.</p>  
+<p style="text-align:justify;">During the business intelligence and analyzing big data course of the first year of the master's degree in management at HEC Lausanne, we had to provide a data anaylsis containing a bunch of databases, an ETL process with an ETL workflow and a star schema, a data exploratory analysis and a modelling part. The subject to analyze was the area bike share of San Francisco.</p>  
 
 
 
