@@ -16,7 +16,7 @@ translationKey: "project data science"
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">As part of the data Sience course in the first year of the master's degree in management at HEC Lausanne, we worked on a real project concerning data science. The goal of this project was to go through the complete data science process to answer specific questions about our chosen topic. To do so, we extracted and loaded the data, we cleaned the databases and practiced an exploratory data analysis. Then, we used some statistical tools to perform a statistical analysis and to design some visualisations of the data.
+<p style="text-align:justify;">As part of the data sience course in the first year of the master's degree in management at HEC Lausanne, we worked on a real project concerning data science. The goal of this project was to go through the complete data science process to answer specific questions about our chosen topic. To do so, we extracted and loaded the data, we cleaned the databases and practiced an exploratory data analysis. Then, we used some statistical tools to perform a statistical analysis and to design some visualisations of the data.
 
 The purpose of this project was to study how the consumption, the production and the price of electricity vary in the United States. In addition, we created prediction models in order to know the price of electricity, the amount of electricity to be produced and consummed. Finally, we performed an analysis of solar and hydroelectric power generation in California.</p> 
 
