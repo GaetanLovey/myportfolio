@@ -6,7 +6,7 @@ output: html_document
 <center> 
 
 > I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
-> I am currently studying at HEC Lausanne aiming to acquire a master's degree in management. Being very interested in statistics and data analysis, I chose the "Business Analytics" orientation of the program.
+> I am currently studying at HEC Lausanne aiming to acquire a master's degree in management. Being very interested in statistics and data analysis, I chose the "business analytics" orientation of the program.
 </p></center>
 
 <p align="center">
