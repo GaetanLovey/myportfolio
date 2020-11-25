@@ -6,7 +6,7 @@ translationKey: "programming tools in data science"
 ---
 
 
-<center> Bayer, J., Raffin, R., Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Creation of a shiny app and a R package.*</span>](https://github.com/GaetanLovey/project-website-G1)</p></center>
+<center> Bayer, J., Raffin, R., Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Creation of a shiny app and a R package.*</span>](https://myshinyapp.netlify.app)</p></center>
 
 <p>&nbsp; </p>
 
