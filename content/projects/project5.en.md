@@ -10,9 +10,9 @@ translationKey: "programming tools in data science"
 
 <p style="text-align:justify;">During the third semester of the master's degree in management and in the contexte of the course programming tools in data science, we were asked to build a R package that runs a shiny application.</p> 
 
-The R package is available [here.](https://github.com/GaetanLovey/project-G1) or you can dowload it using the R command: 
+The R package is available [here](https://github.com/GaetanLovey/project-G1) or you can dowload it using the R command: 
 
 ```{r}
-remote:: install_github("GaetanLovey/project-G1")
+remotes::install_github("GaetanLovey/project-G1")
 ```
 
