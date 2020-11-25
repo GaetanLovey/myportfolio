@@ -1,9 +1,8 @@
 ---
-title: Creation of a shiny app and a R package
+title: "Creation of a shiny app and a R package"
 description: "Programming tools in data science"
-repo: ""
 weight: 5
-draft: true
+translationKey: "programming tools in data science"
 ---
 
 
@@ -12,4 +11,6 @@ draft: true
 <p style="text-align:justify;">During the third semester of the master's degree in management and in the contexte of the course programming tools in data science, we were asked to build a R package that runs a shiny application. 
 
 The R package is available [here.](https://github.com/GaetanLovey/project-G1)</p>
+
+
 
