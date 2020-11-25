@@ -2,10 +2,7 @@
 title: Creation of a shiny app and a R package
 description: "Programming tools in data science"
 repo: ""
-tags:
-  - R package
-  - Shiny app
-weight: 0
+weight: 5
 draft: true
 ---
 
