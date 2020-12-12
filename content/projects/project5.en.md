@@ -14,10 +14,10 @@ translationKey: "programming tools in data science"
 
 <p>&nbsp; </p>
 
-The R package is available [here](https://github.com/ptds2020/project-G1) or you can download it using the R command: 
+The R package is available [<span style="color:blue">**here**</span>](https://github.com/ptds2020/project-G1) or you can download it using the R command: 
 
 ```{r}
 remotes::install_github("ptds2020/project-G1", build_vignettes = TRUE)
 ```
 
-Click [<span style="color:blue">*here*</span>](https://myshinyapp.netlify.app) to use our application.
+Click [<span style="color:blue">**here**</span>](https://myshinyapp.netlify.app) to use our application.
