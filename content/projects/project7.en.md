@@ -11,7 +11,7 @@ translationKey: "data analytics"
 
 
 <p align="center">
-  <img src="/DALEX.png" width="200" height="300"/>
+  <img src="/DALEX.png" width="250" height="300"/>
 </p>
 
 
