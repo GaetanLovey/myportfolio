@@ -14,7 +14,7 @@ translationKey: "programming tools in data science"
 
 
 <p align="center">
-  <img src="/Shiny.png" width="500" height="300"/>
+  <img src="/Shiny.png" width="700" height="300"/>
 </p>
 
 
