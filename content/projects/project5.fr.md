@@ -14,7 +14,7 @@ translationKey: "projet de programming en data science"
 
 
 <p align="center">
-  <img src="/Shiny.png" width="500" height="300"/>
+  <img src="/Shiny.png" width="600" height="300"/>
 </p>
 
 

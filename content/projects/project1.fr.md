@@ -11,7 +11,7 @@ translationKey: "project data science"
 <p>&nbsp; </p>
 
 <p align="center">
-  <img src="/USA.png" width="500" height="300"/>
+  <img src="/USA.png" width="600" height="300"/>
 </p>
 
 <p>&nbsp; </p>
