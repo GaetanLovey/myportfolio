@@ -5,7 +5,7 @@ weight: 2
 translationKey: "project deep learning"
 ---
 
-<center> Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Detection of surface cracks.*</span>](https://bookdown.org/connect/#/apps/5238/access)</p></center>
+<center> Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Detection of surface cracks.*</span>](https://bookdown.org/gaetan_lovey/surface_crack_detection/Surface-Crack-Detection.html)</p></center>
 
 <p>&nbsp; </p>
 

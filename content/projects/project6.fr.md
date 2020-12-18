@@ -1,5 +1,5 @@
 ---
-title: "Analyse des tweets concernant l'élection de 2020"
+title: "Analyse des tweets concernant l'élection présidentielle américaine de 2020"
 description: "Text mining"
 weight: 6
 translationKey: "text mining"
