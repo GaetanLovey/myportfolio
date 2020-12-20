@@ -15,4 +15,4 @@ translationKey: "text mining"
 </p>
 
 
-<p style="text-align:justify;">This project is an analysis of tweets coming from politicians on the sidelines of the 2020 presidential elections in the United States. Various text mining tools were applied. </p>  
+<p style="text-align:justify;">This project is an analysis of tweets written by politicians during the 2020 presidential elections in the United States. Various text mining tools are applied. </p>  

@@ -15,4 +15,4 @@ translationKey: "data analytics"
 </p>
 
 
-<p style="text-align:justify;">This project was completed as part of our course Project in Data Analytics for Decision Making. We produced a detailed analysis of a german credit database. The ultimate goal was to predict whether the customer represents a risk for the bank or not by following the CRISP-DM method. </p>  
+<p style="text-align:justify;">This project was completed as part of our course Project in Data Analytics for Decision Making. We produced a detailed analysis of a german credit database. The ultimate goal was to predict whether the customer represents a risk for the bank or not by following the CRISP-DM method and using the tool DALEX. </p>  

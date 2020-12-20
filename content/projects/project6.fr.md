@@ -14,4 +14,4 @@ translationKey: "text mining"
 </p>
 
 
-<p style="text-align:justify;">Ce projet est une analyse des tweets provenenant de politiciens en marge des élections présidentielles de 2020 au Etats-Unis. Divers outils de text mining ont été appliqués.  </p>  
+<p style="text-align:justify;">Ce projet est une analyse des tweets écrits pas des politiciens durant les élections présidentielles de 2020 au Etats-Unis. Divers outils de text mining sont appliqués.  </p>  
