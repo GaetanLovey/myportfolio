@@ -1,5 +1,5 @@
 ---
-title: "Creation d'une application Shiny et d'un paquet R"
+title: "Création d'une application Shiny et d'un paquet R"
 description: "Projet de programmation"
 weight: 5
 translationKey: "programming tools in data science"
