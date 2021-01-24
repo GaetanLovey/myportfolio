@@ -9,7 +9,7 @@ title: "Gaëtan Lovey"
 </p></center>
 
 <p align="center">
-  <img src="/profile.png" width="500"/>
+  <img src="/profile.png" width="300" height="280"/>
 </p>
 
 <p>&nbsp; </p>
