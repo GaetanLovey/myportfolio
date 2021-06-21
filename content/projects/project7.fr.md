@@ -15,4 +15,4 @@ translationKey: "data analytics"
 </p>
 
 
-<p style="text-align:justify;">Ce projet a été réalisé dans le cadre d'e notre projet d'un cours qui portait sur l'analyse des données pour la prise de décision. Nous avons réalisé une analyse détaillée d'une base de données de crédits allemands. L'objectif final était de prédire si le client représente un risque pour la banque ou non en suivant la méthode CRISP-DM et en utilisant l'outil DALEX. </p>  
+<p style="text-align:justify;">Ce projet a été réalisé dans le cadre d'un cours qui portait sur l'analyse des données pour la prise de décision. Nous avons réalisé une analyse détaillée d'une base de données de crédits allemands. L'objectif final était de prédire si le client représente un risque pour la banque ou non en suivant la méthode CRISP-DM et en utilisant l'outil DALEX. </p>  
