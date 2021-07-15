@@ -11,9 +11,10 @@ draft: False
 <p>&nbsp; </p>
 
 <p align="center">
-  <img src="/Thèse de master.png" width="300" height="500"/>
+  <img src="/Thèse de master.png" width="300" height="450"/>
 </p>
 
 <p>&nbsp; </p>
 
 <p style="text-align:justify;">Ce mémoire est le résultat d'une étude menée en collaboration avec le Groupe Mutuel. Cette étude a été effectuée durant mon stage de février  à juillet 2021 au sein de l'entreprise.</p> 
+#Hello
