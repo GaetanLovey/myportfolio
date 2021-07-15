@@ -1,5 +1,5 @@
 ---
-title: "Thèse de Master"
+title: "Thèse de Master (2021)"
 description: "HEC Lausanne"
 translationKey: "publications"
 weight: 1
@@ -11,7 +11,7 @@ draft: False
 <p>&nbsp; </p>
 
 <p align="center">
-  <img src="/Thèse de master.png" width="200" height="300"/>
+  <img src="/Thèse de master.png" width="300" height="400"/>
 </p>
 
 <p>&nbsp; </p>
