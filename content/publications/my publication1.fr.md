@@ -2,7 +2,7 @@
 title: "Thèse de Bachelor (2018)"
 description: "HES-SO Valais/Wallis "
 translationKey: "publications"
-weight: 1
+weight: 2
 draft: False
 ---
 

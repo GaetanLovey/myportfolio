@@ -11,7 +11,7 @@ draft: False
 <p>&nbsp; </p>
 
 <p align="center">
-  <img src="/Thèse de master.png" width="300" height="400"/>
+  <img src="/Thèse de master.png" width="300" height="500"/>
 </p>
 
 <p>&nbsp; </p>
