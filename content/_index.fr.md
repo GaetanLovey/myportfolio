@@ -25,7 +25,7 @@ title: "Gaëtan Lovey"
    
 #### **Éducation** 
 
-<i class="fas fa-graduation-cap fa-pulse"></i> MSc en Management, <br/>      formation en cours
+<i class="fas fa-graduation-cap"></i> MSc en Management, <br/>      formation en cours
 <br/>      *HEC Lausanne*
 
 <i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, <br/>      2018 

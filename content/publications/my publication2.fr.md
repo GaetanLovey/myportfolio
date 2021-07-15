@@ -17,4 +17,3 @@ draft: False
 <p>&nbsp; </p>
 
 <p style="text-align:justify;">Ce mémoire est le résultat d'une étude menée en collaboration avec le Groupe Mutuel. Cette étude a été effectuée durant mon stage de février  à juillet 2021 au sein de l'entreprise.</p> 
-#Hello
