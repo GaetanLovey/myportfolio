@@ -2,7 +2,7 @@
 title: "Bachelor's thesis"
 description: "HES-SO Valais/Wallis"
 translationKey: "thesis"
-weight: 1
+weight: 2
 draft: False
 ---
 
