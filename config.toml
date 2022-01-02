@@ -64,7 +64,7 @@ url = "/fr/curriculum vitæ/"
 weight = 2
 
 [[Languages.fr.menu.main]]
-name = "Thesis"
+name = "Thèses"
 url = "/fr/thesis/"
 weight = 3
 
