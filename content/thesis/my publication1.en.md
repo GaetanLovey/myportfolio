@@ -1,5 +1,5 @@
 ---
-title: "Bachelor's thesis"
+title: "Bachelor's thesis (2018)"
 description: "HES-SO Valais/Wallis"
 translationKey: "thesis"
 weight: 2
