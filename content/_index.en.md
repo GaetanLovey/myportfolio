@@ -6,7 +6,9 @@ output: html_document
 <center> 
 
 > I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
-> Then, in 2021 I got a master's degree in Managmenet at HEC Lausanne. Being very interested in statistics and data science, I chose the "business analytics" orientation of the program.
+> Then, in 2021 I got a master's degree in Management at HEC Lausanne. Being very interested in statistics and data science, I chose the "business analytics" orientation of the program.
+> Today, I work as a Data Scientist at FMV SA, a company active in hydroelectricity production, distribution and commercialization.
+
 </p></center>
 
 <p align="center">
@@ -61,10 +63,10 @@ output: html_document
 <i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-python"></i>  Python code
+<i class="fab fa-python"></i>   Python
 <br/>
 
-<i class="fab fa-r-project"></i>  R code
+<i class="fab fa-r-project"></i>  R
 <br/>
 
 <i class="fas fa-music"></i>   Piano 

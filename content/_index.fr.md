@@ -4,7 +4,8 @@ title: "Gaëtan Lovey"
 <center> 
 
 > En 2018, j'ai obtenu mon bachelor en économie d'entreprise à la  HES-SO Valais/Wallis. 
-> J'étudie actuellement à HEC Lausanne dans le but d'acquérir un master en management. Étant très intéressé par les statistiques et l'analyse de données, j'ai choisi l'orientation "business analytics" du cursus.
+> Puis, en 2021 j'ai décroché un master en management à HEC Lausanne. Étant très intéressé par les statistiques et la science des données, j'ai choisi l'orientation "business analytics" du cursus.
+> Aujourd'hui, j'occupe la fonction de Data Scientist chez FMV SA, entreprise active dans la production d'hydroélectricité, la distribution et la commercialisation de l'électricité.
 
 </p></center>
 
@@ -25,7 +26,7 @@ title: "Gaëtan Lovey"
    
 #### **Éducation** 
 
-<i class="fas fa-graduation-cap"></i> MSc en Management, <br/>      formation en cours
+<i class="fas fa-graduation-cap"></i> MSc en Management, <br/>      2021
 <br/>      *HEC Lausanne*
 
 <i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, <br/>      2018 
@@ -60,7 +61,10 @@ title: "Gaëtan Lovey"
 <i class="fas fa-heartbeat"></i>   Fitness
 <br/>
 
-<i class="fab fa-r-project"></i>  Codage en R
+<i class="fab fa-python"></i>   Python
+<br/>
+
+<i class="fab fa-r-project"></i>  R
 <br/>
 
 <i class="fas fa-music"></i>   Piano
