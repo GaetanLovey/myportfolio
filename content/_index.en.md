@@ -6,7 +6,7 @@ output: html_document
 <center> 
 
 > I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
-> I am currently studying at HEC Lausanne aiming to acquire a master's degree in management. Being very interested in statistics and data analysis, I chose the "business analytics" orientation of the program.
+> Then, in 2021 I got a master's degree in Managmenet at HEC Lausanne. Being very interested in statistics and data science, I chose the "business analytics" orientation of the program.
 </p></center>
 
 <p align="center">
@@ -26,7 +26,7 @@ output: html_document
    
 #### **Education** 
 
-<i class="fas fa-graduation-cap fa-pulse"></i> MSc in Management, <br/>      formation in progress
+<i class="fas fa-graduation-cap"></i> MSc in Management, <br/>      2021
 <br/>      *HEC Lausanne*
 
 <i class="fas fa-graduation-cap"></i> BSc in Business Administration, <br/>      2018 
@@ -59,6 +59,9 @@ output: html_document
 <br/>
 
 <i class="fas fa-heartbeat"></i>   Fitness
+<br/>
+
+<i class="fab fa-python"></i>  Python code
 <br/>
 
 <i class="fab fa-r-project"></i>  R code
