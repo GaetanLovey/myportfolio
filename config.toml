@@ -23,8 +23,8 @@ url = "/en/curriculum vitæ/"
 weight = 2
 
 [[Languages.en.menu.main]]
-name = "Publications"
-url = "/en/publications/"
+name = "Thesis"
+url = "/en/thesis/"
 weight = 3
 
 [[Languages.en.menu.main]]
@@ -64,8 +64,8 @@ url = "/fr/curriculum vitæ/"
 weight = 2
 
 [[Languages.fr.menu.main]]
-name = "Publications"
-url = "/fr/publications/"
+name = "Thesis"
+url = "/fr/thesis/"
 weight = 3
 
 [[Languages.fr.menu.main]]
