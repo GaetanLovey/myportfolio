@@ -16,4 +16,4 @@ draft: False
 
 <p>&nbsp; </p>
 
-<p style="text-align:justify;">Ce mémoire est le résultat d'une étude menée en collaboration avec le Groupe Mutuel. Cette étude a été effectuée durant mon stage de février  à juillet 2021 au sein de l'entreprise.</p> 
+<p style="text-align:justify;">Ce travail de master présente une preuve de concept pour la détection de fraudeurs aux indemnités journalières parmi les assurés du Groupe Mutuel. Cette thèse présente la méthodologie à appliquer et expose les résultats de différents modèles de machine learning. L'étude a été menée lors de mon stage au Groupe Mutuel effectué dans le cadre du master en management à HEC Lausanne</p> 
