@@ -1,83 +1,69 @@
----
-title: "Gaëtan Lovey"
----
-<center> 
+<!DOCTYPE html>
+<html lang="fr">
 
-> En 2018, j'ai obtenu mon bachelor en économie d'entreprise à la  HES-SO Valais/Wallis. 
-> Puis, en 2021 j'ai décroché un master en management à HEC Lausanne. Étant très intéressé par les statistiques et la science des données, j'ai choisi l'orientation "business analytics" du cursus.
-> Aujourd'hui, j'occupe la fonction de Data Scientist chez FMV SA, entreprise active dans la production d'hydroélectricité, la distribution et la commercialisation de l'électricité.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaëtan Lovey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-</p></center>
+<body>
 
-<p align="center">
-  <img src="/profile.png" width="280" height="290"/>
-</p>
+    <center>
+        <blockquote>
+            <p>En 2018, j'ai obtenu mon bachelor en économie d'entreprise à la HES-SO Valais/Wallis. <br>
+                Puis, en 2021 j'ai décroché un master en management à HEC Lausanne. Étant très intéressé par les statistiques et la science des données, j'ai choisi l'orientation "business analytics" du cursus. <br>
+                Aujourd'hui, j'occupe la fonction de Data Scientist chez FMV SA, entreprise active dans la production d'hydroélectricité, la distribution et la commercialisation de l'électricité.
+            </p>
+        </blockquote>
+    </center>
 
-<p>&nbsp; </p>
+    <p align="center">
+        <img src="/profile.png" alt="Photo de profil de Gaëtan Lovey" width="280" height="290">
+    </p>
 
-<center> 
-[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
-</p></center>
+    <p>&nbsp;</p>
 
-<p>&nbsp; </p>
+    <center>
+        <p><a href="https://glovey.netlify.app/fr/curriculum-vitæ/">Mon CV</a></p>
+    </center>
 
-<div class="container">
-   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-   
-#### **Éducation** 
+    <p>&nbsp;</p>
 
-<i class="fas fa-graduation-cap"></i> MSc en Management, <br/>      2021
-<br/>      *HEC Lausanne*
+    <div class="container">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-<i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, <br/>      2018 
-<br/>      *HES-SO Valais/Wallis*
+            <h4>Éducation</h4>
 
-<i class="fas fa-graduation-cap"></i> Maturité professionnelle <br/>      commerciale, <br/>      2014 
-<br/>      *ECCG Martigny*
-  
-</p></center>
+            <ul>
+                <li><i class="fas fa-graduation-cap"></i> MSc en Management, 2021 <br> HEC Lausanne</li>
+                <li><i class="fas fa-graduation-cap"></i> BSc en Économie d'entreprise, 2018 <br> HES-SO Valais/Wallis</li>
+                <li><i class="fas fa-graduation-cap"></i> Maturité professionnelle commerciale, 2014 <br> ECCG Martigny</li>
+            </ul>
+        </div>
 
-<center>  
-   </div>
-   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-   
-#### **Intérets** 
-    
-<i class="far fa-futbol"></i>  Football 
-<br/>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
-<i class="fas fa-bicycle"></i> Vélo
-<br/>
+            <h4>Intérêts</h4>
 
-<i class="fas fa-running"></i>   Course à pied, marche
-<br/>
+            <ul>
+                <li><i class="far fa-futbol"></i> Football</li>
+                <li><i class="fas fa-bicycle"></i> Vélo</li>
+                <li><i class="fas fa-running"></i> Course à pied, marche</li>
+                <li><i class="fas fa-skiing-nordic"></i> Randonnée en peau de phoque</li>
+                <li><i class="fas fa-skiing"></i> Ski</li>
+                <li><i class="fas fa-heartbeat"></i> Fitness</li>
+                <li><i class="fab fa-python"></i> Python</li>
+                <li><i class="fab fa-r-project"></i> R</li>
+                <li><i class="fas fa-music"></i> Piano</li>
+                <li><i class="fas fa-book-reader"></i> Lecture</li>
+            </ul>
+        </div>
+    </div>
 
-<i class="fas fa-skiing-nordic"></i>  Randonnée en peau de phoque
-<br/>
+    <p>&nbsp;</p>
 
-<i class="fas fa-skiing"></i>   Ski
-<br/>
+</body>
 
-<i class="fas fa-heartbeat"></i>   Fitness
-<br/>
-
-<i class="fab fa-python"></i>   Python
-<br/>
-
-<i class="fab fa-r-project"></i>  R
-<br/>
-
-<i class="fas fa-music"></i>   Piano
-<br/>
-
-<i class="fas fa-book-reader"></i>   Lecture
-<br/>
-
-</p></center>
-   </div>
-<div>
-
-<p>&nbsp; </p>
-
-
-
+</html>
