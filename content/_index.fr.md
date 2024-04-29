@@ -8,9 +8,7 @@
 ---
 
 
-<div class="centered-link">
-<a href="https://glovey.netlify.app/en/curriculum-vitæ/">My CV</a>
-</div>
+<a href="https://glovey.netlify.app/en/curriculum-vitæ/" class="centered-link">My CV</a>
 
 ---
 

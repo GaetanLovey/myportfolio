@@ -8,7 +8,6 @@ body {
     display: flex;
     text-align: center;
     flex-direction: column;
-
 }
 
 main {
@@ -17,8 +16,6 @@ main {
     flex: 1 0 auto;
     max-width: 750px;
     text-align: center;
-
-
 }
 
 img {
@@ -29,10 +26,12 @@ img {
     margin-right: auto;
 }
 
-centered-link {
+.centered-link {
+    display: block; /* Permet de centrer avec margin: auto */
     margin: 20px auto; /* Pour centrer horizontalement */
     text-align: center; /* Pour centrer le texte à l'intérieur */
 }
+
 
 /* Homepage */
 
