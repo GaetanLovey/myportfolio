@@ -1,6 +1,7 @@
 
 > En 2018, j'ai obtenu mon bachelor en économie d'entreprise à la HES-SO Valais/Wallis. Puis, en 2021, j'ai décroché un master en management à HEC Lausanne. Étant très intéressé par les statistiques et la science des données, j'ai choisi l'orientation "business analytics" du cursus. Aujourd'hui, j'occupe la fonction de Data Scientist / Chef de projet chez FMV SA, entreprise active dans la production d'hydroélectricité, la distribution et la commercialisation de l'électricité.
 
+[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
 
 ![](/profile.png)
 
@@ -23,4 +24,3 @@
 
 --- 
 
-[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
