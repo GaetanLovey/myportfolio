@@ -52,6 +52,7 @@ img {
 .content {
     padding-top: 20px;
     text-align: center;
+     margin: 20px auto; /* Ajoute un espace de 20px en haut et en bas, centré horizontalement */
 
 
 }
@@ -62,6 +63,8 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin: 20px auto; /* Ajoute un espace de 20px en haut et en bas, centré horizontalement */
+
 }
 
 
