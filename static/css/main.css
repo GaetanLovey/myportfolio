@@ -1,5 +1,7 @@
 html, body {
     height: 100%;
+    text-align: center;
+
 }
 
 body {
@@ -14,6 +16,8 @@ main {
     padding: 25px;
     flex: 1 0 auto;
     max-width: 750px;
+    text-align: center;
+
 }
 
 img {
