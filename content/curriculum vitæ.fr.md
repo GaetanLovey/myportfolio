@@ -9,8 +9,10 @@ translationKey: "curriculum vitae"
 
 <center>
 
+![](/French.png)
+
 [{{% button href="https://github.com/GaetanLovey/myportfolio/raw/master/static/French.pdf" %}}Télécharger le CV{{% /button %}}](https://github.com/GaetanLovey/myportfolio/raw/master/static/French.pdf)
 
 </center>
 
-![](/French.png)
+
