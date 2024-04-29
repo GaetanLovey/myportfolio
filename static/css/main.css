@@ -1,6 +1,8 @@
 html, body {
     height: 100%;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 body {
@@ -8,6 +10,8 @@ body {
     display: flex;
     text-align: center;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main {
@@ -16,6 +20,8 @@ main {
     flex: 1 0 auto;
     max-width: 750px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img {
