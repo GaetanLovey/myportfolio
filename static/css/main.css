@@ -1,35 +1,26 @@
 html, body {
     height: 100%;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 body {
     padding-top: 65px;
     display: flex;
-    text-align: center;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto; /* Centrage horizontal */
 }
 
 main {
     margin: auto;
     padding: 25px;
-    flex: 1 0 auto;
     max-width: 750px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 img {
     max-width: 50%;
     max-height: 50%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto; /* Centrage horizontal */
 }
 
 
