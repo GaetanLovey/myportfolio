@@ -55,7 +55,7 @@ weight = 4
 
 [[Languages.fr.menu.main]]
 name = "Accueil"
-url = "/"
+url = "/fr/"
 weight = 1
 
 [[Languages.fr.menu.main]]
