@@ -4,7 +4,6 @@
 
 ![](/profile.png)
 
-[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
 
 ---
 
@@ -20,3 +19,8 @@
 |                                                                 |                      | R                                                              |
 |                                                                 |                      | Piano                                                          |
 |                                                                 |                      | Lecture                                                        |
+
+
+--- 
+
+[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
