@@ -1,3 +1,3 @@
 ---
-title: "Thesis"
+title: "Thèses"
 ---
