@@ -4,7 +4,7 @@
 
 ![](/profile.png)
 
-[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
+[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/){style=text-align:center}
 
 
 ---
