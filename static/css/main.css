@@ -26,7 +26,11 @@ img {
     margin-right: auto;
 }
 
-
+/* Nouvelle classe pour centrer le bouton */
+.centered-button {
+    margin: 20px auto; /* Pour centrer horizontalement */
+    text-align: center; /* Pour centrer le texte à l'intérieur */
+}
 
 /* Homepage */
 
@@ -37,7 +41,7 @@ img {
 .intro > h1 {
     color: #212121;
     font-size: 6vh;
-    padding-bottom:30px;
+    padding-bottom: 30px;
 }
 
 .intro > h2 {
@@ -115,4 +119,3 @@ a:hover {
 footer {
     border-bottom: var(--border-width) solid var(--accent);
 }
-
