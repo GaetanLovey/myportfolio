@@ -6,7 +6,7 @@ translationKey: "text mining"
 ---
 
 
-uignier, C., Vo-Ngoc, M. & Lovey, G. (2020). [<span style="color:blue">*Analysis of tweets regarding the 2020 election.*</span>](https://github.com/GaetanLovey/myportfolio/raw/master/static/Text_mining_GroupD.pdf)
+Vuignier, C., Vo-Ngoc, M. & Lovey, G. (2020). [<span style="color:blue">*Analysis of tweets regarding the 2020 election.*</span>](https://github.com/GaetanLovey/myportfolio/raw/master/static/Text_mining_GroupD.pdf)
 
 
 ![](/tweets.png)
