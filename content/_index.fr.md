@@ -9,15 +9,15 @@
 <center>![Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)</center>
 
 ---
-| **Formation**                                                   |       | **Intérêts**                                                   |
-|:----------------------------------------------------------------|-------|----------------------------------------------------------------:|
-| MSc en Management, 2021, *HEC Lausanne*                         |       | Football                                                       |
-| BSc en Économie d'entreprise, 2018, *HES-SO Valais/Wallis*      |       | Vélo                                                           |
-| Maturité professionnelle commerciale, 2014, *ECCG Martigny*     |       | Course à pied                                                  |
-|                                                                 |       | Randonnée en peau de phoque                                    |
-|                                                                 |       | Ski                                                            |
-|                                                                 |       | Fitness                                                        |
-|                                                                 |       | Python                                                         |
-|                                                                 |       | R                                                              |
-|                                                                 |       | Piano                                                          |
-|                                                                 |       | Lecture                                                        |
+| **Formation**                                                   |              | **Intérêts**                                                   |
+|:----------------------------------------------------------------|--------------|----------------------------------------------------------------:|
+| MSc en Management, 2021, *HEC Lausanne*                         |              | Football                                                       |
+| BSc en Économie d'entreprise, 2018, *HES-SO Valais/Wallis*      |              | Vélo                                                           |
+| Maturité professionnelle commerciale, 2014, *ECCG Martigny*     |              | Course à pied                                                  |
+|                                                                 |              | Randonnée en peau de phoque                                    |
+|                                                                 |              | Ski                                                            |
+|                                                                 |              | Fitness                                                        |
+|                                                                 |              | Python                                                         |
+|                                                                 |              | R                                                              |
+|                                                                 |              | Piano                                                          |
+|                                                                 |              | Lecture                                                        |
