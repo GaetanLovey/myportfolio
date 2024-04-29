@@ -1,30 +1,31 @@
----
-title: "Gaëtan Lovey"
-output: html_document
+
+> I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. Then, in 2021 I got a master's degree in Management at HEC Lausanne. Being very interested in statistics and data science, I chose the "business analytics" orientation of the program. Today, I work as a Data Scientist and project manager at FMV SA, a company active in hydroelectricity production, distribution and commercialization.
+
+[Mon CV](https://glovey.netlify.app/en/curriculum-vitæ/)
+
+![](/profile.png)
+
 
 ---
-<center> 
 
-> I obtained my bachelor in Business Administration from HES-SO Valais/Wallis in 2018. 
-> Then, in 2021 I got a master's degree in Management at HEC Lausanne. Being very interested in statistics and data science, I chose the "business analytics" orientation of the program.
-> Today, I work as a Data Scientist at FMV SA, a company active in hydroelectricity production, distribution and commercialization.
+| **Education**                                                   |                      | **Interests**                                                   |
+|:----------------------------------------------------------------|----------------------|----------------------------------------------------------------:|
+| MSc in Management, 2021, *HEC Lausanne*                         |                      | Football                                                        |
+| BSc in Business Administration, 2018, *HES-SO Valais/Wallis*    |                      | Cycling                                                         |
+| Commercial professional maturity, 2014, *ECCG Martigny*         |                      | Running                                                         |
+|                                                                 |                      | Ski touring                                                     |
+|                                                                 |                      | Ski                                                             |
+|                                                                 |                      | Fitness                                                         |
+|                                                                 |                      | Python                                                          |
+|                                                                 |                      | R                                                               |
+|                                                                 |                      | Piano                                                           |
+|                                                                 |                      | Reading                                                         |
 
-</p></center>
 
-<p align="center">
-  <img src="/profile.png" width="280" height="290"/>
-</p>
+--- 
 
-<p>&nbsp; </p>
 
-<center> 
-[My CV](https://glovey.netlify.app/en/curriculum-vitæ/)
-</p></center>
 
-<p>&nbsp; </p>
-
-<div class="container">
-   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
    
 #### **Education** 
 
