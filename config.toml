@@ -6,46 +6,46 @@ googleAnalytics = ""
 defaultContentLanguageInSubdir= true
 DefaultContentLanguage = "en"
 
-[languages]
-[languages.en]
-    languageName = "English"
-    title = "Gaëtan Lovey"
-    weight = 1
+#[languages]
+#[languages.en]
+#    languageName = "English"
+#   title = "Gaëtan Lovey"
+#    weight = 1
     
-[[Languages.en.menu.main]]
-name = "Home"
-url = "/en/"
-weight = 1
+#[[Languages.en.menu.main]]
+#name = "Home"
+#url = "/en/"
+#weight = 1
 
-[[Languages.en.menu.main]]
-name = "Curriculum vitæ"
-url = "/en/curriculum vitæ/"
-weight = 2
+#[[Languages.en.menu.main]]
+#name = "Curriculum vitæ"
+#url = "/en/curriculum vitæ/"
+#weight = 2
 
-[[Languages.en.menu.main]]
-name = "Thesis"
-url = "/en/thesis/"
-weight = 3
+#[[Languages.en.menu.main]]
+#name = "Thesis"
+#url = "/en/thesis/"
+#weight = 3
 
-[[Languages.en.menu.main]]
-name = "Projects"
-url = "/en/projects/"
-weight = 4
+#[[Languages.en.menu.main]]
+#name = "Projects"
+#url = "/en/projects/"
+#weight = 4
 
-[[Languages.en.menu.icon]]
-    url = "mailto:gaetan.lovey@gmail.com"
-    name = "envelope-o"
-    weight = 1
+#[[Languages.en.menu.icon]]
+#    url = "mailto:gaetan.lovey@gmail.com"
+#    name = "envelope-o"
+#    weight = 1
     
-[[Languages.en.menu.icon]]
-    url = "https://github.com/GaetanLovey/"
-    name = "github"
-    weight = 2  
+#[[Languages.en.menu.icon]]
+#    url = "https://github.com/GaetanLovey/"
+#    name = "github"
+#    weight = 2  
     
-[[Languages.en.menu.icon]]
-    url = "https://www.linkedin.com/in/gaetan-lovey/"
-    name = "linkedin"
-    weight = 3
+#[[Languages.en.menu.icon]]
+#    url = "https://www.linkedin.com/in/gaetan-lovey/"
+#    name = "linkedin"
+#    weight = 3
 
 [languages.fr]
     languageName = "Français"
