@@ -104,7 +104,7 @@ home = [ "HTML", "RSS", "JSON"]
     highlight = true
     highlightStyle = "default"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
-    disableLanguageSwitchingButton = false
+    disableLanguageSwitchingButton = true
 
 [[menu.main]]
     url = "/"
