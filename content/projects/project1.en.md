@@ -6,7 +6,7 @@ weight: 1
 translationKey: "project data science"
 ---
 
-Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*How are the consumption, the generation and the price of electricity influenced in the United States ?*</span>](https://bookdown.org/gaetan_lovey/group6_2020_project/)
+Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*How are the consumption, the generation and the price of electricity influenced in the United States?*</span>](https://bookdown.org/gaetan_lovey/group6_2020_project/)
 
 ![](/USA.png)
 
