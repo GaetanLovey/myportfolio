@@ -6,6 +6,8 @@ draft: false
 translationKey: "curriculum vitae"
 ---
 
-<center> {{% button href="https://github.com/GaetanLovey/myportfolio/raw/master/static/French.pdf" %}}Télécharger le CV{{% /button %}}</p></center>
+<div align="center">
+    {{% button href="https://github.com/GaetanLovey/myportfolio/raw/master/static/French.pdf" %}}Télécharger le CV{{% /button %}}
+</div>
 
 ![](/French.png)
