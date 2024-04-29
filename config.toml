@@ -122,8 +122,8 @@ home = [ "HTML", "RSS", "JSON"]
     weight = 3
     
 [[menu.main]]
-    url = "/my publications/"
-    name = "My publications"
+    url = "/thesis/"
+    name = "Thesis"
     weight = 4
 
 # Social icons to be shown on the right-hand side of the navigation bar.
