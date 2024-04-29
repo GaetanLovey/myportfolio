@@ -67,6 +67,8 @@ img {
 }
 
 .intro p:first-of-type {
+    margin: 0; /* Réinitialise la marge pour tous les paragraphes */
+    margin-bottom: 20px; /* Ajoute un espace de 20px en bas de chaque paragraphe */
     text-align: justify; /* Centre le premier paragraphe */
 }
 
