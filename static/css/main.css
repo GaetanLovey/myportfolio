@@ -32,6 +32,11 @@ img {
     text-align: center; /* Pour centrer le texte à l'intérieur */
 }
 
+/* Centrage du bouton uniquement */
+.button-wrapper {
+    display: inline-block;
+}
+
 /* Homepage */
 
 .intro {
