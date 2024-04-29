@@ -6,9 +6,9 @@
 
 
 ---
-
-
-<a href="https://glovey.netlify.app/en/curriculum-vitæ/" class="centered-link">My CV</a>
+<center>
+[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
+</center>
 
 ---
 

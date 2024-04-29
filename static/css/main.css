@@ -26,11 +26,6 @@ img {
     margin-right: auto;
 }
 
-.centered-link {
-    display: block; /* Permet de centrer avec margin: auto */
-    margin: 20px auto; /* Pour centrer horizontalement */
-    text-align: center; /* Pour centrer le texte à l'intérieur */
-}
 
 
 /* Homepage */
