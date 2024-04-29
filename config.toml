@@ -14,7 +14,7 @@ DefaultContentLanguage = "en"
     
 [[Languages.en.menu.main]]
 name = "Home"
-url = "/"
+url = "/en/"
 weight = 1
 
 [[Languages.en.menu.main]]
@@ -23,13 +23,11 @@ url = "/en/curriculum vitæ/"
 weight = 2
 
 [[Languages.en.menu.main]]
-title = "Thesis"
 name = "Thesis"
 url = "/en/thesis/"
 weight = 3
 
 [[Languages.en.menu.main]]
-title = "Projects"
 name = "Projects"
 url = "/en/projects/"
 weight = 4
@@ -65,13 +63,11 @@ url = "/fr/curriculum vitæ/"
 weight = 2
 
 [[Languages.fr.menu.main]]
-title = "Thèses"
 name = "Thèses"
 url = "/fr/thesis/"
 weight = 3
 
 [[Languages.fr.menu.main]]
-title = "Projets"
 name = "Projets"
 url = "/fr/projects/"
 weight = 4
@@ -116,17 +112,17 @@ home = [ "HTML", "RSS", "JSON"]
 [[menu.main]]
     url = "/project/"
     name = "Projects"
-    weight = 5
+    weight = 4
 
 [[menu.main]]
     url = "/curriculum vitæ/"
     name = "Curriculum vitæ"
-    weight = 3
+    weight = 2
     
 [[menu.main]]
     url = "/thesis/"
     name = "Thesis"
-    weight = 4
+    weight = 3
 
 # Social icons to be shown on the right-hand side of the navigation bar.
 # The "name" field should match the name of the icon in Font Awesome.
