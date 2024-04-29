@@ -6,14 +6,8 @@ weight: 1
 draft: False
 ---
 
-<center> Lovey, G. (2021). *Etablissement d'une preuve de concept pour la détection de fraudes aux indemnités journalières du Groupe Mutuel* (Travail de Master). Faculté des HEC, Lausanne.</p></center>
+Lovey, G. (2021). *Etablissement d'une preuve de concept pour la détection de fraudes aux indemnités journalières du Groupe Mutuel* (Travail de Master). Faculté des HEC, Lausanne.
 
-<p>&nbsp; </p>
+![](/Thèse de master.png)
 
-<p align="center">
-  <img src="/Thèse de master.png" width="300" height="450"/>
-</p>
-
-<p>&nbsp; </p>
-
-<p style="text-align:justify;">Ce travail de master présente une preuve de concept pour la détection de fraudeurs aux indemnités journalières parmi les assurés du Groupe Mutuel. Cette thèse présente la méthodologie à appliquer et expose les résultats de différents modèles de machine learning. L'étude a été menée lors de mon stage au Groupe Mutuel effectué dans le cadre du master en management à HEC Lausanne</p> 
+Ce travail de master présente une preuve de concept pour la détection de fraudeurs aux indemnités journalières parmi les assurés du Groupe Mutuel. Cette thèse présente la méthodologie à appliquer et expose les résultats de différents modèles de machine learning. L'étude a été menée lors de mon stage au Groupe Mutuel effectué dans le cadre du master en management à HEC Lausanne.
