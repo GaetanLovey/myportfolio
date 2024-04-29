@@ -14,7 +14,9 @@ title: "Gaëtan Lovey"
 
 ---
 
-[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
+<div style="text-align:center;">
+    [Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
+</div>
 
 ---
 
