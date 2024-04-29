@@ -6,21 +6,24 @@ html, body {
 body {
     padding-top: 65px;
     display: flex;
+    text-align: center;
     flex-direction: column;
-    margin: 0 auto; /* Centrage horizontal */
 }
 
 main {
     margin: auto;
     padding: 25px;
+    flex: 1 0 auto;
     max-width: 750px;
+    text-align: center;
 }
 
 img {
     max-width: 50%;
     max-height: 50%;
     display: block;
-    margin: 0 auto; /* Centrage horizontal */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
