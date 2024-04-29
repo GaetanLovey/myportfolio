@@ -1,6 +1,6 @@
 ---
 title: "Thèse de Master (2021)"
-description: "HEC Lausanne"
+description: "HEC Lausanne "
 translationKey: "thesis"
 weight: 1
 ---

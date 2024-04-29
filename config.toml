@@ -100,8 +100,7 @@ home = [ "HTML", "RSS", "JSON"]
     highlight = true
     highlightStyle = "default"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
-    disableLanguageSwitchingButton = true
-    disableLanguagesButton = true
+    disableLanguageSwitchingButton = false
 
 
 [[menu.main]]
