@@ -1,10 +1,10 @@
 baseURL = "https://glovey.netlify.app"
 title = "Gaëtan Lovey"
 theme = "minimal-master"
-disqusShortname = "username" # delete this to disable disqus comments
+disqusShortname = "" # Supprimer cela pour désactiver les commentaires Disqus
 googleAnalytics = ""
-defaultContentLanguageInSubdir= true
-DefaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+defaultContentLanguage = "en"
 
 [languages]
 [languages.en]
@@ -12,37 +12,37 @@ DefaultContentLanguage = "en"
     title = "Gaëtan Lovey"
     weight = 1
     
-[[Languages.en.menu.main]]
-name = "Home"
-url = "/en/"
-weight = 1
+[[languages.en.menu.main]]
+    name = "Home"
+    url = "/en/"
+    weight = 1
 
-[[Languages.en.menu.main]]
-name = "Curriculum vitæ"
-url = "/en/curriculum vitæ/"
-weight = 2
+[[languages.en.menu.main]]
+    name = "Curriculum vitæ"
+    url = "/en/curriculum-vitae/"
+    weight = 2
 
-[[Languages.en.menu.main]]
-name = "Thesis"
-url = "/en/thesis/"
-weight = 3
+[[languages.en.menu.main]]
+    name = "Thesis"
+    url = "/en/thesis/"
+    weight = 3
 
-[[Languages.en.menu.main]]
-name = "Projects"
-url = "/en/projects/"
-weight = 4
+[[languages.en.menu.main]]
+    name = "Projects"
+    url = "/en/projects/"
+    weight = 4
 
-[[Languages.en.menu.icon]]
+[[languages.en.menu.icon]]
     url = "mailto:gaetan.lovey@gmail.com"
     name = "envelope-o"
     weight = 1
     
-[[Languages.en.menu.icon]]
+[[languages.en.menu.icon]]
     url = "https://github.com/GaetanLovey/"
     name = "github"
     weight = 2  
     
-[[Languages.en.menu.icon]]
+[[languages.en.menu.icon]]
     url = "https://www.linkedin.com/in/gaetan-lovey/"
     name = "linkedin"
     weight = 3
@@ -50,39 +50,39 @@ weight = 4
 [languages.fr]
     languageName = "Français"
     title = "Gaëtan Lovey"
+    weight = 2
+
+[[languages.fr.menu.main]]
+    name = "Accueil"
+    url = "/fr/"
     weight = 1
 
-[[Languages.fr.menu.main]]
-name = "Accueil"
-url = "/fr/"
-weight = 1
+[[languages.fr.menu.main]]
+    name = "Curriculum vitæ"
+    url = "/fr/curriculum-vitae/"
+    weight = 2
 
-[[Languages.fr.menu.main]]
-name = "Curriculum vitæ"
-url = "/fr/curriculum vitæ/"
-weight = 2
+[[languages.fr.menu.main]]
+    name = "Thèses"
+    url = "/fr/thesis/"
+    weight = 3
 
-[[Languages.fr.menu.main]]
-name = "Thèses"
-url = "/fr/thesis/"
-weight = 3
+[[languages.fr.menu.main]]
+    name = "Projets"
+    url = "/fr/projects/"
+    weight = 4
 
-[[Languages.fr.menu.main]]
-name = "Projets"
-url = "/fr/projects/"
-weight = 4
-
-[[Languages.fr.menu.icon]]
+[[languages.fr.menu.icon]]
     url = "mailto:gaetan.lovey@gmail.com"
     name = "envelope-o"
     weight = 1
     
-[[Languages.fr.menu.icon]]
+[[languages.fr.menu.icon]]
     url = "https://github.com/GaetanLovey/"
     name = "github"
     weight = 2  
     
-[[Languages.fr.menu.icon]]
+[[languages.fr.menu.icon]]
     url = "https://www.linkedin.com/in/gaetan-lovey/"
     name = "linkedin"
     weight = 3
@@ -92,11 +92,11 @@ home = [ "HTML", "RSS", "JSON"]
 
 [params]
     author = "Gaëtan Lovey"
-    githubUsername = "#GaetanLovey"
+    githubUsername = "GaetanLovey" # Supprimer le #
     accent = "black"
     showBorder = true
     backgroundColor = "white"
-    font = "Raleway" # should match the name on Google Fonts!
+    font = "Raleway" # doit correspondre au nom sur Google Fonts!
     highlight = true
     highlightStyle = "default"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
@@ -115,7 +115,7 @@ home = [ "HTML", "RSS", "JSON"]
     weight = 4
 
 [[menu.main]]
-    url = "/curriculum vitæ/"
+    url = "/curriculum-vitae/"
     name = "Curriculum vitæ"
     weight = 2
     
@@ -123,10 +123,6 @@ home = [ "HTML", "RSS", "JSON"]
     url = "/thesis/"
     name = "Thesis"
     weight = 3
-
-# Social icons to be shown on the right-hand side of the navigation bar.
-# The "name" field should match the name of the icon in Font Awesome.
-# The list of available icons can be found at http://fontawesome.io/icons.
 
 [[menu.icon]]
     url = "mailto:gaetan.lovey@gmail.com"
@@ -138,12 +134,7 @@ home = [ "HTML", "RSS", "JSON"]
     name = "github"
     weight = 2
 
-
 [[menu.icon]]
     url = "https://www.linkedin.com/in/gaetan-lovey/"
     name = "linkedin"
     weight = 4
-    
-    
-
-
