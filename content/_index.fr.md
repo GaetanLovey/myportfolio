@@ -7,8 +7,10 @@
 
 ---
 
-[Mon CV](https://glovey.netlify.app/fr/curriculum-vitæ/)
 
+<div class="centered-link">
+<a href="https://glovey.netlify.app/en/curriculum-vitæ/">My CV</a>
+</div>
 
 ---
 
