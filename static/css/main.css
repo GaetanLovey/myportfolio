@@ -1,9 +1,6 @@
 html, body {
     height: 100%;
     text-align: center;
-        display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 body {
@@ -11,8 +8,6 @@ body {
     display: flex;
     text-align: center;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 main {
@@ -63,6 +58,16 @@ img {
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.intro p {
+    margin: 0; /* Réinitialise la marge pour tous les paragraphes */
+    margin-bottom: 20px; /* Ajoute un espace de 20px en bas de chaque paragraphe */
+
+}
+
+.intro p:first-of-type {
+    text-align: center; /* Centre le premier paragraphe */
 }
 
 /* Page content */
