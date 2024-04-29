@@ -3,7 +3,6 @@ title: "Bachelor's thesis (2018)"
 description: "HES-SO Valais/Wallis"
 translationKey: "thesis"
 weight: 2
-draft: False
 ---
 
 ovey, G. (2018). *Service énergétique de la mobilité électrique, quelle politique doit adopter Sinergy en tant que fournisseur d’électricité ?* (Travail de Bachelor). Haute Ecole de Gestion & Tourisme, Sierre.

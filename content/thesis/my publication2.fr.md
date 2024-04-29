@@ -3,7 +3,6 @@ title: "Thèse de Master (2021)"
 description: "HEC Lausanne"
 translationKey: "thesis"
 weight: 1
-draft: False
 ---
 
 Lovey, G. (2021). *Etablissement d'une preuve de concept pour la détection de fraudes aux indemnités journalières du Groupe Mutuel* (Travail de Master). Faculté des HEC, Lausanne.
