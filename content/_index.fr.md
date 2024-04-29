@@ -6,9 +6,10 @@
 
 
 ---
-<div style="text-align: center;">
-    <a href="https://glovey.netlify.app/fr/curriculum-vitæ/">Mon CV</a>
+<div style="display: flex; justify-content: center;">
+    <a href="https://glovey.netlify.app/fr/curriculum-vitæ/" style="text-align: center;">Mon CV</a>
 </div>
+
 ---
 
 | **Formation**                                                   |                      | **Intérêts**                                                   |
