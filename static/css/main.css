@@ -29,6 +29,7 @@ img {
 
 
 /* Homepage */
+
 .intro {
     transform: translateY(auto);
     text-align: center;
@@ -68,6 +69,7 @@ img {
 
 .intro p:nth-of-type(2) {
     text-align: center; /* Centre le deuxième paragraphe */
+    margin: 0; /* Réinitialise la marge pour tous les paragraphes */
 }
 
 
