@@ -9,18 +9,18 @@
 
 ---
 
-| **Education**                                                   |                                                          | **Interests**                                                   |
-|:----------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------:|
-| MSc in Management, 2021, *HEC Lausanne*                         |                                                          | Football                                                        |
-| BSc in Business Administration, 2018, *HES-SO Valais/Wallis*    |                                                          | Cycling                                                         |
-| Commercial professional maturity, 2014, *ECCG Martigny*         |                                                          | Running                                                         |
-|                                                                 |                                                          | Ski touring                                                     |
-|                                                                 |                                                          | Ski                                                             |
-|                                                                 |                                                          | Fitness                                                         |
-|                                                                 |                                                          | Python                                                          |
-|                                                                 |                                                          | R                                                               |
-|                                                                 |                                                          | Piano                                                           |
-|                                                                 |                                                          | Reading                                                         |
+| **Education**                                                   |                                                     | **Interests**                                                   |
+|:----------------------------------------------------------------|-----------------------------------------------------|-----------------------------------------------------------------:|
+| MSc in Management, 2021, *HEC Lausanne*                         |                                                     | Football                                                        |
+| BSc in Business Administration, 2018, *HES-SO Valais/Wallis*    |                                                     | Cycling                                                         |
+| Commercial professional maturity, 2014, *ECCG Martigny*         |                                                     | Running                                                         |
+|                                                                 |                                                     | Ski touring                                                     |
+|                                                                 |                                                     | Ski                                                             |
+|                                                                 |                                                     | Fitness                                                         |
+|                                                                 |                                                     | Python                                                          |
+|                                                                 |                                                     | R                                                               |
+|                                                                 |                                                     | Piano                                                           |
+|                                                                 |                                                     | Reading                                                         |
 
 
 --- 
