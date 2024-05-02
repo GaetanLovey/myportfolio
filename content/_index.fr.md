@@ -15,11 +15,8 @@
 | Maturité professionnelle commerciale, 2014, *ECCG Martigny*     |                      | Course à pied                                                  |
 |                                                                 |                      | Randonnée en peau de phoque                                    |
 |                                                                 |                      | Ski                                                            |
-|                                                                 |                      | Fitness                                                        |
 |                                                                 |                      | Python                                                         |
 |                                                                 |                      | R                                                              |
-|                                                                 |                      | Piano                                                          |
-|                                                                 |                      | Lecture                                                        |
 
 
 --- 

@@ -16,11 +16,8 @@
 | Commercial professional maturity, 2014, *ECCG Martigny*         |                                                     | Running                                                         |
 |                                                                 |                                                     | Ski touring                                                     |
 |                                                                 |                                                     | Ski                                                             |
-|                                                                 |                                                     | Fitness                                                         |
 |                                                                 |                                                     | Python                                                          |
 |                                                                 |                                                     | R                                                               |
-|                                                                 |                                                     | Piano                                                           |
-|                                                                 |                                                     | Reading                                                         |
 
 
 --- 
