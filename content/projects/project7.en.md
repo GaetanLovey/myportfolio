@@ -6,7 +6,7 @@ translationKey: "data analytics"
 ---
 
 
-Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Project in Data Analytics for Decision Making.*</span>](https://bookdown.org/gaetan_lovey/data_analytics/)
+Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Project in Data Analytics for Decision Making.*</span>](https://gaetanlovey.github.io/hec_data_analytics_for_decision_making/)
 
 
 

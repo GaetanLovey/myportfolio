@@ -5,7 +5,7 @@ weight: 2
 translationKey: "project deep learning"
 ---
 
-Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Detection of surface cracks.*</span>](https://bookdown.org/gaetan_lovey/surface_crack_detection/Surface-Crack-Detection.html)
+Vuignier, C. & Lovey, G. (2020). [<span style="color:blue">*Detection of surface cracks.*</span>](https://gaetanlovey.github.io/hec_deep_learning/)
 
 
 ![](/crack.png)

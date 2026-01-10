@@ -13,10 +13,14 @@ During the third semester of the master's degree in management and in the contex
 
 ![](/Shiny.png)
 
-The R package is available [<span style="color:black">**here**</span>](https://github.com/ptds2020/project-G1) or you can download it using the R command: 
+The R package is available [<span style="color:black">**here**</span>](https://github.com/GaetanLovey/hec_programming_tools_in_data_science/tree/f3e2956e57521a19c0278a595660b44d02f8dd1a/project-G1) or you can download it using the R command: 
 
 ```{r}
-remotes::install_github("ptds2020/project-G1", build_vignettes = TRUE)
+remotes::install_github(
+  "GaetanLovey/hec_programming_tools_in_data_science",
+  subdir = "project-G1",
+  build_vignettes = TRUE
+)
 ```
 
 
